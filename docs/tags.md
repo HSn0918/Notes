@@ -94,22 +94,81 @@
 | `ai/agents` | [Agent 开发学习路线](../ai/agents/agent-development-learning-path.md) | [[agent-development-learning-path]] |
 | `ai/agents` | [Agent 开发框架源码导读](../ai/agents/agent-development-source.md) | [[agent-development-source]] |
 | `ai/agents` | [生产级 Agent 开发](../ai/agents/production-agent-development.md) | [[production-agent-development]] |
+| `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
+| `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
 | `ai/foundations` | [LLM 基础概念](../ai/foundations/llm-fundamentals.md) | [[llm-fundamentals]] |
 | `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
+| `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
 | `ai/inference` | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] |
 | `ai/inference` | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] |
 | `ai/inference` | [LLM 推理学习进度](../ai/inference/llm-inference-progress.md) | [[llm-inference-progress]] |
 | `ai/inference` | [Go Map 序列化导致 Prefill Cache Miss 问题分析](../ai/inference/prefill-cache-miss.md) | [[prefill-cache-miss]] |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
 | `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
+| `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
 | `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
+| `ai/kernels` | [FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约](../ai/kernels/flashinfer-intuition-and-engine-bridge.md) | [[flashinfer-intuition-and-engine-bridge]] |
 | `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
 | `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
 | `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
 | `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
 | `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
+| `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
 | `ai/post-training` | [LLM Post-training](../ai/post-training/llm-post-training.md) | [[llm-post-training]] |
 | `ai/post-training` | [LLM 强化学习基础](../ai/post-training/llm-rl-fundamentals.md) | [[llm-rl-fundamentals]] |
 | `ai/post-training` | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] |
+
+## `#llm`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
+| `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
+| `ai/foundations` | [LLM 基础概念](../ai/foundations/llm-fundamentals.md) | [[llm-fundamentals]] |
+| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
+| `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
+| `ai/inference` | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] |
+| `ai/inference` | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] |
+| `ai/inference` | [LLM 推理学习进度](../ai/inference/llm-inference-progress.md) | [[llm-inference-progress]] |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
+| `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
+| `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
+| `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
+| `ai/kernels` | [FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约](../ai/kernels/flashinfer-intuition-and-engine-bridge.md) | [[flashinfer-intuition-and-engine-bridge]] |
+| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
+| `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
+| `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
+| `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
+| `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
+| `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
+| `ai/post-training` | [LLM Post-training](../ai/post-training/llm-post-training.md) | [[llm-post-training]] |
+| `ai/post-training` | [LLM 强化学习基础](../ai/post-training/llm-rl-fundamentals.md) | [[llm-rl-fundamentals]] |
+| `ai/post-training` | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] |
+
+## `#源码导读`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/agents` | [Agent 开发框架源码导读](../ai/agents/agent-development-source.md) | [[agent-development-source]] |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
+| `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
+| `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
+| `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
+| `cloud-native/kubernetes/internals` | [client-go 源码导读](../cloud-native/kubernetes/internals/client-go-source.md) | [[client-go-source]] |
+| `cloud-native/kubernetes/internals` | [CNI 插件调用链源码导读](../cloud-native/kubernetes/internals/cni-source.md) | [[cni-source]] |
+| `cloud-native/kubernetes/internals` | [controller-runtime 源码导读](../cloud-native/kubernetes/internals/controller-runtime-source.md) | [[controller-runtime-source]] |
+| `cloud-native/kubernetes/internals` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/internals/cri-source.md) | [[cri-source]] |
+| `cloud-native/kubernetes/internals` | [CSI 存储调用链源码导读](../cloud-native/kubernetes/internals/csi-source.md) | [[csi-source]] |
+| `cloud-native/kubernetes/internals` | [etcd 源码导读](../cloud-native/kubernetes/internals/etcd-source.md) | [[etcd-source]] |
+| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
+| `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
+| `cloud-native/kubernetes/internals` | [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/internals/scheduler-framework-source.md) | [[scheduler-framework-source]] |
+| `cloud-native/kubernetes/internals` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/internals/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
+| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 开发学习路线](../cloud-native/kubernetes/roadmaps/k8s-development-roadmap.md) | [[k8s-development-roadmap]] |
 
 ## `#component`
 
@@ -155,46 +214,24 @@
 | `go/internals` | [Map 源码导读](../go/internals/go-map-source.md) | [[go-map-source]] |
 | `go/internals` | [Slice 源码导读](../go/internals/go-slice-source.md) | [[go-slice-source]] |
 
-## `#源码导读`
+## `#gpu`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `ai/agents` | [Agent 开发框架源码导读](../ai/agents/agent-development-source.md) | [[agent-development-source]] |
-| `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
-| `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
-| `cloud-native/kubernetes/internals` | [client-go 源码导读](../cloud-native/kubernetes/internals/client-go-source.md) | [[client-go-source]] |
-| `cloud-native/kubernetes/internals` | [CNI 插件调用链源码导读](../cloud-native/kubernetes/internals/cni-source.md) | [[cni-source]] |
-| `cloud-native/kubernetes/internals` | [controller-runtime 源码导读](../cloud-native/kubernetes/internals/controller-runtime-source.md) | [[controller-runtime-source]] |
-| `cloud-native/kubernetes/internals` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/internals/cri-source.md) | [[cri-source]] |
-| `cloud-native/kubernetes/internals` | [CSI 存储调用链源码导读](../cloud-native/kubernetes/internals/csi-source.md) | [[csi-source]] |
-| `cloud-native/kubernetes/internals` | [etcd 源码导读](../cloud-native/kubernetes/internals/etcd-source.md) | [[etcd-source]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
-| `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/internals/scheduler-framework-source.md) | [[scheduler-framework-source]] |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/internals/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
-| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
-| `cloud-native/kubernetes/roadmaps` | [Kubernetes 开发学习路线](../cloud-native/kubernetes/roadmaps/k8s-development-roadmap.md) | [[k8s-development-roadmap]] |
-
-## `#llm`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/foundations` | [LLM 基础概念](../ai/foundations/llm-fundamentals.md) | [[llm-fundamentals]] |
-| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
-| `ai/inference` | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] |
-| `ai/inference` | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] |
-| `ai/inference` | [LLM 推理学习进度](../ai/inference/llm-inference-progress.md) | [[llm-inference-progress]] |
-| `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
-| `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
-| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
-| `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
 | `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
 | `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
 | `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
-| `ai/post-training` | [LLM Post-training](../ai/post-training/llm-post-training.md) | [[llm-post-training]] |
-| `ai/post-training` | [LLM 强化学习基础](../ai/post-training/llm-rl-fundamentals.md) | [[llm-rl-fundamentals]] |
-| `ai/post-training` | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] |
+| `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
+| `cloud-native/kubernetes/components` | [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] |
+| `cloud-native/kubernetes/core` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] |
+| `cloud-native/kubernetes/demos` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
+| `cloud-native/kubernetes/demos` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
+| `cloud-native/kubernetes/demos` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
+| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
+| `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
+| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
 
 ## `#csi`
 
@@ -212,23 +249,6 @@
 | `cloud-native/kubernetes/storage` | [NFS CSI 存储驱动](../cloud-native/kubernetes/storage/nfs-csi.md) | [[nfs-csi]] |
 | `cloud-native/kubernetes/storage` | [OpenEBS 云原生存储](../cloud-native/kubernetes/storage/openebs.md) | [[openebs]] |
 | `cloud-native/kubernetes/storage` | [Kubernetes Volume 生命周期](../cloud-native/kubernetes/storage/volume-lifecycle.md) | [[volume-lifecycle]] |
-
-## `#gpu`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
-| `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
-| `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
-| `cloud-native/kubernetes/components` | [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] |
-| `cloud-native/kubernetes/core` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] |
-| `cloud-native/kubernetes/demos` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
-| `cloud-native/kubernetes/demos` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
-| `cloud-native/kubernetes/demos` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
-| `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
-| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
 
 ## `#cni`
 
@@ -278,6 +298,35 @@
 | `cloud-native/containers` | [UnionFS 联合文件系统](../cloud-native/containers/union-fs.md) | [[union-fs]] |
 | `foundations/database` | [ES + Kibana Docker 部署](../foundations/database/es-kibana-docker.md) | [[es-kibana-docker]] |
 
+## `#cuda`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
+| `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
+| `ai/kernels` | [FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约](../ai/kernels/flashinfer-intuition-and-engine-bridge.md) | [[flashinfer-intuition-and-engine-bridge]] |
+| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
+| `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
+| `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
+| `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
+| `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
+| `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
+
+## `#flashinfer`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
+| `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
+| `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
+| `ai/kernels` | [FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约](../ai/kernels/flashinfer-intuition-and-engine-bridge.md) | [[flashinfer-intuition-and-engine-bridge]] |
+| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
+| `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
+| `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
+| `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
+| `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
+
 ## `#runtime`
 
 | 所属领域 | 文档 | Wikilink |
@@ -296,6 +345,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
 | `cloud-native/kubernetes/components` | [kube-scheduler](../cloud-native/kubernetes/components/kube-scheduler-component.md) | [[kube-scheduler-component]] |
 | `cloud-native/kubernetes/core` | [Kube-Scheduler 深度解析](../cloud-native/kubernetes/core/scheduler-deep-dive.md) | [[scheduler-deep-dive]] |
 | `cloud-native/kubernetes/demos` | [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/demos/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] |
@@ -317,6 +367,18 @@
 | `foundations/algorithm` | [Topological Sort 拓扑排序](../foundations/algorithm/topological-sort.md) | [[topological-sort]] |
 | `foundations/algorithm` | [Trie 前缀树 Prefix Tree](../foundations/algorithm/trie.md) | [[trie]] |
 | `foundations/algorithm` | [Union-Find 并查集](../foundations/algorithm/union-find.md) | [[union-find]] |
+
+## `#inference`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
+| `ai/inference` | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] |
+| `ai/inference` | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] |
+| `ai/inference` | [LLM 推理学习进度](../ai/inference/llm-inference-progress.md) | [[llm-inference-progress]] |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
+| `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
+| `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
 
 ## `#学习计划`
 
@@ -352,17 +414,6 @@
 | `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
 | `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
 
-## `#flashinfer`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
-| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
-| `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
-| `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
-| `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
-| `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
-
 ## `#kafka`
 
 | 所属领域 | 文档 | Wikilink |
@@ -383,16 +434,6 @@
 | `cloud-native/kubernetes/components` | [kube-apiserver](../cloud-native/kubernetes/components/kube-apiserver-component.md) | [[kube-apiserver-component]] |
 | `cloud-native/kubernetes/components` | [kube-controller-manager](../cloud-native/kubernetes/components/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
 | `cloud-native/kubernetes/components` | [kube-scheduler](../cloud-native/kubernetes/components/kube-scheduler-component.md) | [[kube-scheduler-component]] |
-
-## `#cuda`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
-| `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
-| `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
-| `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
-| `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
 
 ## `#etcd`
 
@@ -441,15 +482,6 @@
 | `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
 | `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
 
-## `#inference`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/inference` | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] |
-| `ai/inference` | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] |
-| `ai/inference` | [LLM 推理学习进度](../ai/inference/llm-inference-progress.md) | [[llm-inference-progress]] |
-| `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
-
 ## `#node`
 
 | 所属领域 | 文档 | Wikilink |
@@ -477,6 +509,15 @@
 | `cloud-native/kubernetes/networking` | [kube-proxy 服务转发与代理模式](../cloud-native/kubernetes/networking/kube-proxy.md) | [[kube-proxy]] |
 | `cloud-native/kubernetes/networking` | [Kubernetes Service 服务暴露](../cloud-native/kubernetes/networking/service.md) | [[service]] |
 
+## `#sglang`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
+| `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
+| `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
+
 ## `#storage`
 
 | 所属领域 | 文档 | Wikilink |
@@ -485,6 +526,15 @@
 | `cloud-native/kubernetes/storage` | [CSI Sidecar 容器协作机制](../cloud-native/kubernetes/storage/csi-sidecars.md) | [[csi-sidecars]] |
 | `cloud-native/kubernetes/storage` | [CSI 存储排障指南](../cloud-native/kubernetes/storage/csi-troubleshooting.md) | [[csi-troubleshooting]] |
 | `cloud-native/kubernetes/storage` | [Kubernetes Volume 生命周期](../cloud-native/kubernetes/storage/volume-lifecycle.md) | [[volume-lifecycle]] |
+
+## `#vllm`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
+| `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
+| `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
+| `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
 
 ## `#agent`
 
@@ -550,6 +600,14 @@
 | `cloud-native/kubernetes/demos` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/demos/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
 | `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
 
+## `#lora`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
+| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
+| `ai/post-training` | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] |
+
 ## `#map`
 
 | 所属领域 | 文档 | Wikilink |
@@ -590,6 +648,14 @@
 | `cloud-native/kubernetes/demos` | [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/demos/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] |
 | `cloud-native/kubernetes/internals` | [etcd 源码导读](../cloud-native/kubernetes/internals/etcd-source.md) | [[etcd-source]] |
 
+## `#学习路线`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
+| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
+
 ## `#cilium`
 
 | 所属领域 | 文档 | Wikilink |
@@ -617,6 +683,13 @@
 | --- | --- | --- |
 | `cloud-native/kubernetes/demos` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/demos/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
 | `cloud-native/kubernetes/internals` | [controller-runtime 源码导读](../cloud-native/kubernetes/internals/controller-runtime-source.md) | [[controller-runtime-source]] |
+
+## `#cutlass`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
+| `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
 
 ## `#decode`
 
@@ -646,12 +719,19 @@
 | `ai/inference` | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] |
 | `ai/inference` | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] |
 
-## `#lora`
+## `#learning-path`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
-| `ai/post-training` | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] |
+| `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
+| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
+
+## `#mla`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
+| `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
 
 ## `#nats`
 
@@ -659,6 +739,13 @@
 | --- | --- | --- |
 | `foundations/middleware` | [NATS 基础与核心概念](../foundations/middleware/nats-basics.md) | [[nats-basics]] |
 | `foundations/middleware` | [NATS JetStream 持久化与流处理](../foundations/middleware/nats-jetstream.md) | [[nats-jetstream]] |
+
+## `#paged-kv`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/kernels` | [FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约](../ai/kernels/flashinfer-intuition-and-engine-bridge.md) | [[flashinfer-intuition-and-engine-bridge]] |
+| `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
 
 ## `#post-training`
 
@@ -688,12 +775,12 @@
 | `ai/post-training` | [LLM Post-training](../ai/post-training/llm-post-training.md) | [[llm-post-training]] |
 | `ai/post-training` | [LLM 强化学习基础](../ai/post-training/llm-rl-fundamentals.md) | [[llm-rl-fundamentals]] |
 
-## `#sglang`
+## `#simd`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
-| `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
+| `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
+| `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
 
 ## `#string`
 
@@ -708,13 +795,6 @@
 | --- | --- | --- |
 | `cloud-native/kubernetes/networking` | [CNI 网络排障指南](../cloud-native/kubernetes/networking/cni-troubleshooting.md) | [[cni-troubleshooting]] |
 | `cloud-native/kubernetes/storage` | [CSI 存储排障指南](../cloud-native/kubernetes/storage/csi-troubleshooting.md) | [[csi-troubleshooting]] |
-
-## `#vllm`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
-| `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
 
 ## `#位运算`
 
@@ -737,13 +817,6 @@
 | `foundations/algorithm` | [打家劫舍 House Robber](../foundations/algorithm/house-robber.md) | [[house-robber]] |
 | `foundations/algorithm` | [完全背包 Unbounded Knapsack](../foundations/algorithm/unbounded-knapsack.md) | [[unbounded-knapsack]] |
 
-## `#学习路线`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
-| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
-
 ## `#总结`
 
 | 所属领域 | 文档 | Wikilink |
@@ -757,6 +830,13 @@
 | --- | --- | --- |
 | `ai/inference` | [LLM 推理学习进度](../ai/inference/llm-inference-progress.md) | [[llm-inference-progress]] |
 | `cloud-native/kubernetes/roadmaps` | [Kubernetes 深入学习进度](../cloud-native/kubernetes/roadmaps/progress.md) | [[progress]] |
+
+## `#数学基础`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
+| `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
 
 ## `#缓存策略`
 
@@ -886,13 +966,19 @@
 | --- | --- | --- |
 | `cloud-native/kubernetes/core` | [Kubernetes Operator 模式](../cloud-native/kubernetes/core/operator-pattern.md) | [[operator-pattern]] |
 
-## `#cute-dsl`
+## `#cuda-graph`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
+| `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
 
-## `#cutlass`
+## `#cute`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
+
+## `#cute-dsl`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
@@ -1036,12 +1122,6 @@
 | --- | --- | --- |
 | `cloud-native/kubernetes/components` | [Kubernetes 组件拆解](../cloud-native/kubernetes/components/README.md) | — |
 
-## `#learning-path`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
-
 ## `#LFU`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1108,12 +1188,6 @@
 | --- | --- | --- |
 | `foundations/middleware` | [NATS 基础与核心概念](../foundations/middleware/nats-basics.md) | [[nats-basics]] |
 
-## `#mla`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
-
 ## `#multus`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1162,11 +1236,11 @@
 | --- | --- | --- |
 | `cloud-native/kubernetes/storage` | [OpenEBS 云原生存储](../cloud-native/kubernetes/storage/openebs.md) | [[openebs]] |
 
-## `#paged-kv`
+## `#paged-attention`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `ai/kernels` | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] |
+| `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
 
 ## `#pd-disaggregation`
 
@@ -1210,11 +1284,23 @@
 | --- | --- | --- |
 | `ai/agents` | [生产级 Agent 开发](../ai/agents/production-agent-development.md) | [[production-agent-development]] |
 
+## `#ptx`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
+
 ## `#qlora`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `ai/post-training` | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] |
+
+## `#radix-attention`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
 
 ## `#rbac`
 
@@ -1258,6 +1344,12 @@
 | --- | --- | --- |
 | `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
 
+## `#rope`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
+
 ## `#router`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1287,6 +1379,12 @@
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `foundations/algorithm` | [Dijkstra 最短路径](../foundations/algorithm/dijkstra.md) | [[dijkstra]] |
+
+## `#simt`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
 
 ## `#slice`
 
@@ -1318,6 +1416,24 @@
 | --- | --- | --- |
 | `foundations/middleware` | [NATS JetStream 持久化与流处理](../foundations/middleware/nats-jetstream.md) | [[nats-jetstream]] |
 
+## `#structured-decoding`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
+
+## `#svd`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
+
+## `#tensor-core`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
+
 ## `#terminal`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1347,6 +1463,12 @@
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `foundations/algorithm` | [Trie 前缀树 Prefix Tree](../foundations/algorithm/trie.md) | [[trie]] |
+
+## `#triton`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
 
 ## `#tvm-ffi`
 
@@ -1395,6 +1517,12 @@
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `foundations/algorithm` | [Binary Search 二分查找](../foundations/algorithm/binary-search.md) | [[binary-search]] |
+
+## `#入门导览`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/kernels` | [FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约](../ai/kernels/flashinfer-intuition-and-engine-bridge.md) | [[flashinfer-intuition-and-engine-bridge]] |
 
 ## `#分布式事务`
 
@@ -1492,6 +1620,12 @@
 | --- | --- | --- |
 | `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
 
+## `#线性代数`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
+
 ## `#背包`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1509,3 +1643,9 @@
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `foundations/algorithm` | [链表 Linked List](../foundations/algorithm/linked-list.md) | [[linked-list]] |
+
+## `#高等代数`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |

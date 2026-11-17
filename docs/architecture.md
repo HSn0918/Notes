@@ -6,13 +6,13 @@
 
 ```mermaid
 flowchart TD
-    R[Root MOC] --> D["4 Pillars (ai / cloud-native / go / foundations)"]
-    D --> T[Topic MOC]
-    T --> N[Concept Note]
-    T --> C[Component View]
-    T --> S[Source Guide]
-    T --> P[Practice / Demo]
-    T --> Q[Review / Interview]
+    R["Root MOC"] --> D["4 Pillars (ai / cloud-native / go / foundations)"]
+    D --> T["Topic MOC"]
+    T --> N["Concept Note"]
+    T --> C["Component View"]
+    T --> S["Source Guide"]
+    T --> P["Practice / Demo"]
+    T --> Q["Review / Interview"]
 ```
 
 ## 为什么重构
@@ -29,6 +29,14 @@ flowchart TD
 2. 顶层收拢为四大支柱：`ai/`、`cloud-native/`、`go/`、`foundations/`（合并原 `algorithm/`、`database/`、`middleware/`、`misc/` 并扁平化内部子目录）。
 3. `cloud-native/docker/` 规范化为 `cloud-native/containers/`；Kubernetes 下 6 个微型子目录合并为 `cloud-native/kubernetes/core/`；`go/` 下散落笔记统一收敛到 `go/fundamentals/`。
 4. 为全部历史内容笔记补齐 `# H1` 一级标题，配合持久化 SQLite FTS5 全文索引（`.traces/notes_fts.sqlite3`）、[全库知识速查索引](catalog.md) 与 [全库标签聚合索引](tags.md) 实现毫秒级检索与 1-hop 跳转。
+
+### 2026-11 AI 全栈知识树升级（数学底座 → CUDA 生态 → FlashInfer → 双推理引擎）
+
+在原有数据流与 FlashInfer 源码导读基础上，进一步消除从“零散概念”跨入“底层算子与现代推理引擎内核”之间的断层，将 `ai/` 体系打通为纵横正交的完整闭环：
+
+1. **补齐大模型专属数学底座（`ai/foundations/`）**：新增面向大模型的线性代数（几何投影、矩阵乘法四视角与 Block GEMM 分块、高维张量 `Shape/Stride` 与向量化访存布局）与高等代数（秩与矩阵结合律 MLA 权重吸收、正交旋转与 RoPE、特征谱与残差/Pre-Norm、SVD 与 LoRA/KV 低秩压缩），配套零依赖离线实验 `ai/experiments/llm-math-and-simd-lab/`，无需盲啃整本数学教材即可掌握底层核心不变量。
+2. **铺设并行硬件演进与 CUDA 全景生态阶梯（`ai/kernels/`）**：新增 CPU SIMD → GPU SIMT / Tensor Core 底层并行模型、CUDA 全景软件栈与算子工程师进阶路线（PTX/SASS、CCCL/CUB、CUTLASS/CuTe、Triton、`nsys`/`ncu`）以及 FlashInfer 分页寻址手算与 `Plan-Run` 对接桥梁，将算子专题重组为“硬件与生态筑基 → 通俗桥梁与工作流 → FlashInfer v0.7.3 源码深潜”三层平滑阶梯。
+3. **形成“一纵一横”全栈推理架构深潜（`ai/inference/`）**：纵向新增 FlashInfer × vLLM × SGLang 全栈统一学习路线，并分别深入拆解 vLLM V1（统一 Token 预算调度、Hash Block Prefix Cache、Piecewise CUDA Graph）与 SGLang SRT（三进程解耦、RadixCache 压缩前缀树、Zero-Overhead Overlap Scheduler、Compressed FSM / XGrammar 结构化解码）；横向与分布式多级 KV Store、PD 分离及 K8s Inference Router 学习路线互补。
 
 ## Canonical 内容与辅助视图
 
@@ -79,3 +87,4 @@ flowchart TD
 | --- | --- |
 | 2026-08-13 | 领域化重构：旧跨领域学习目录拆分到 `ai/`、`go/internals/` 与 `cloud-native/kubernetes/{components,internals,roadmaps,demos,interview,networking,storage}/`；Scheduler Assume 笔记合入 `scheduler-deep-dive.md` |
 | 2026-11-17 | 四支柱扁平化与 FTS5 重建：新增 `ai/kernels/`；`cloud-native/docker/` 迁至 `cloud-native/containers/`；Kubernetes 6 个微目录合并至 `cloud-native/kubernetes/core/`；`go/*.md` 收敛至 `go/fundamentals/`；`algorithm/`、`database/`、`middleware/`、`misc/` 扁平收拢至 `foundations/` |
+| 2026-11-17 | AI 全栈知识树闭环升级：`ai/foundations/` 新增 LLM 专属线代/高代笔记及 `llm-math-and-simd-lab` 离线实验；`ai/kernels/` 新增 SIMD→SIMT、CUDA 全景生态与 FlashInfer 通俗桥梁并重排为三阶梯队；`ai/inference/` 新增三剑客全栈路线、vLLM V1 与 SGLang SRT 深度解析并清理历史非法 Mermaid 语法 |

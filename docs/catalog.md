@@ -8,7 +8,7 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Learning Notes](../README.md) | — | — | 这是一个聚焦 AI Infra & Systems Full-Stack 的个人技术学习笔记库，兼容 Obsidian 与 GitHub 阅读。顶层收拢为 AI / Cloud Native /... |
+| [Learning Notes](../README.md) | — | — | 这是一个聚焦 AI Infra & Systems Full-Stack 的个人技术学习笔记库，兼容 Obsidian 与 GitHub 阅读。内容以理解底层机制、源码导读和动手实验验证为核心，... |
 | [Learning Notes 协作规则](../AGENTS.md) | — | — | 顶层收拢为四大知识支柱与文档/工具目录： |
 | [Learning Notes 项目说明](../CLAUDE.md) | — | — | 本仓库按四大知识支柱组织个人技术学习笔记，兼容 Obsidian 与 GitHub，全部采用纯文本 Markdown + Python 标准库维护，不包含任何前端依赖或 node_modules。 |
 
@@ -18,7 +18,7 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [AI 学习索引](../ai/README.md) | — | — | AI 内容按“基础 → 推理 / 后训练 / Agent”组织。vLLM/SGLang 是推理系统；LoRA/QLoRA 是可组合的参数高效训练方法；SFT、DPO 和 Online RL 是不... |
+| [AI 学习索引](../ai/README.md) | — | — | 本支柱将大模型技术体系按 “底层数学与数据流 → 并行硬件 / CUDA 生态与 FlashInfer 算子 → vLLM / SGLang 双推理引擎与分布式路由 → Post-trainin... |
 
 ### ai/agents
 
@@ -35,6 +35,7 @@
 | --- | --- | --- | --- |
 | [AI Experiments](../ai/experiments/README.md) | — | — | 本目录把概念页中的关键机制落为小型、可检查的实验。除推理服务基准外，所有实验均只使用 Python 标准库，不需要网络、模型权重或 GPU。 |
 | [Two-armed bandit policy gradient](../ai/experiments/bandit-policy-gradient/README.md) | — | — | 在两个 Bernoulli 奖励臂上实现最小 REINFORCE：policy 根据 logits 采样 action，环境给 reward，更新后的 policy 逐渐偏向期望 reward... |
+| [LLM 数学直觉与 SIMD 并行离线实验](../ai/experiments/llm-math-and-simd-lab/README.md) | — | — | 脱离 GPU 与第三方依赖，用纯 Python 标准库在 CPU 上验证 linear-algebra-for-llm 与 advanced-algebra-for-llm 的全部核心数值不变量： |
 | [LoRA 参数量对比](../ai/experiments/lora-parameter-count/README.md) | — | — | 只用矩阵维度计算，比较全量训练一个 d_out × d_in 投影与 LoRA 的低秩增量 B × A 需要训练的参数量；再扩展到多层、多投影的简化 Transformer 估算。 |
 | [Online Softmax 与 Split-KV 离线实验](../ai/experiments/online-softmax-and-split-kv/README.md) | — | — | 脱离 CUDA 与 GPU，用纯 Python 标准库在 CPU 上复现 FlashInfer Attention 核心数据流与数值不变量： |
 | [OpenAI-compatible inference benchmark](../ai/experiments/openai-compatible-benchmark/README.md) | — | — | 对一个 OpenAI-compatible /v1/chat/completions 服务发送可控请求，记录流式首个 SSE 数据块延迟、端到端延迟、服务返回的 completion token... |
@@ -45,7 +46,9 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [LLM Foundations](../ai/foundations/README.md) | — | — | 本目录建立后续推理、训练和 Agent 共用的基础数据流。 |
+| [LLM Foundations](../ai/foundations/README.md) | — | — | 本目录是整个 AI 知识树的共同底座，负责把面向大模型的线性代数与高等代数直觉、模型全生命周期分类与单次前向/生成核心数据流一次性立稳，支撑后续向 CUDA 算子、推理引擎、后训练与 Agent... |
+| [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] | `#ai` `#llm` `#高等代数` `#数学基础` `#rope` `#svd` `#lora` `#mla` | 如果说 linear-algebra-for-llm 解决的是"矩阵乘怎么算、张量怎么放"，本笔记回答的是另一类问题：为什么大模型里的几个关键设计（MLA 权重吸收、RoPE、残差连接、LoRA... |
+| [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] | `#ai` `#llm` `#线性代数` `#数学基础` `#simd` `#cuda` | 很多工程背景的学习者一准备深入 FlashAttention / FlashInfer / vLLM 底层，就想先把数学系《线性代数》整本啃完，结果卡在行列式展开、伴随矩阵求逆和若尔当标准型里半... |
 | [LLM 基础概念](../ai/foundations/llm-fundamentals.md) | [[llm-fundamentals]] | `#ai` `#llm` `#transformer` `#基础概念` | 本笔记解释后续 LLM 推理与训练都会反复遇到的基础名词，并把它们串成一条真实的数据流。目标不是一次记住全部定义，而是每遇到一个对象，都知道它来自哪里、要去哪里。 |
 | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] | `#ai` `#llm` `#学习路线` `#vllm` `#sglang` `#lora` `#post-training` `#rl` | 这是一条面向零基础读者的 LLM 学习主线。目标不是先记住工具名称，而是理解一个模型从“文本如何变成数字”，到“如何训练、微调、生成、评测和部署”的完整生命周期。 |
 
@@ -54,23 +57,29 @@
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
 | [LLM Inference](../ai/inference/README.md) | — | — | 底层算子延伸：GPU 算子与 FlashInfer —— PagedAttention、Split-KV Decode、Ragged/Chunked Prefill 与 Cascade/MLA... |
+| [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] | `#ai` `#llm` `#inference` `#flashinfer` `#vllm` `#sglang` `#cuda` `#learning-path` | 很多初学者一头扎进大模型推理系统时，常陷入两类极端困境： |
 | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] | `#ai` `#llm` `#inference` `#kv-cache` `#pd-disaggregation` `#router` `#学习计划` | LLM 推理系统的三件大事——Inference Router（请求路由层）、KV Cache（显存最大的金山）、PD 分离（Prefill/Decode 解耦）——是 2024 年以后大模型基... |
 | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] | `#ai` `#llm` `#inference` `#prefill` `#decode` `#kv-cache` | 本笔记从一次真实请求出发，解释 LLM 如何把用户文字变成 Token，经过 Prefill 和 Decode 逐步生成回答，再由推理服务返回。第一次阅读只需要掌握数据流；PagedAttent... |
 | [LLM 推理学习进度](../ai/inference/llm-inference-progress.md) | [[llm-inference-progress]] | `#ai` `#llm` `#inference` `#学习计划` `#打卡` | 下面的「Week 1 ~ Week 8」是逻辑顺序，不是日历周。LLM 推理这条线的源码总量比 K8s 大、而且要看论文，节奏比 progress 更松一些： |
 | [Go Map 序列化导致 Prefill Cache Miss 问题分析](../ai/inference/prefill-cache-miss.md) | [[prefill-cache-miss]] | `#prefill` `#ai` `#go` | LLM 推理引擎通过 Prefix Cache 缓存 Prefill 阶段的 KV 状态，避免重复计算。Cache 命中的前提是：Prompt 的 Token 序列必须精确匹配。 |
+| [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] | `#ai` `#llm` `#inference` `#sglang` `#radix-attention` `#scheduler` `#structured-decoding` `#源码导读` | 早期大模型推理引擎的核心假设是“相互独立的单轮一问一答”：用户发来一段 Prompt，引擎做一次 Prefill 算出 KV Cache，逐 Token 自回归 Decode 吐完回答，随后立刻... |
 | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] | `#ai` `#llm` `#inference` `#vllm` `#sglang` | vLLM 和 SGLang 都能把模型权重变成高吞吐、低延迟的推理服务。学习顺序应当是：先用同一个模型跑通两个服务，再用可控实验观察差异，最后才读 Scheduler、KV Cache 和 Ke... |
+| [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] | `#ai` `#llm` `#inference` `#vllm` `#paged-attention` `#cuda-graph` `#flashinfer` `#源码导读` | 源码与版本边界：本文基于 vLLM V1 核心架构主线（源码根目录 vllm/v1/，自 vLLM v0.8+ 起成为新一代默认架构）与 FlashInfer v0.7.3（审查日期 2026-... |
 
 ### ai/kernels
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
 | [GPU 算子与 FlashInfer 学习索引](../ai/kernels/README.md) | — | — | 本专题把 LLM 推理系统（LLM Inference）向下打通到 GPU 硬件执行与 CUDA 内核实现：从 SM / Warp / SRAM / HBM 与 Roofline 模型出发，推导... |
+| [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] | `#ai` `#llm` `#gpu` `#cuda` `#ptx` `#cutlass` `#cute` `#triton` `#学习路线` | 很多立志往 CUDA 算子开发 / AI Infra / 推理引擎 方向深耕的学习者，一打开开源仓库（如 FlashInfer、vLLM、SGLang、DeepGEMM、DeepEP）就会迎面撞... |
 | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] | `#ai` `#llm` `#flashinfer` `#jit` `#tvm-ffi` `#cutlass` `#cute-dsl` `#源码导读` | FlashInfer 能够在单个算子参数组合爆炸（dtype、head_dim、layout、attention variant、SM 架构）的前提下同时保持可热重载的研发体验与跨框架复用能力，... |
+| [FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约](../ai/kernels/flashinfer-intuition-and-engine-bridge.md) | [[flashinfer-intuition-and-engine-bridge]] | `#ai` `#llm` `#flashinfer` `#cuda` `#paged-kv` `#入门导览` | 这是进入 FlashInfer 源码世界前的最后一篇零门槛导览：不需要 CUDA、不需要懂 C++ 模板、不需要 GPU，一支笔一张纸就能读完。读完后你将能回答三个问题： |
 | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] | `#ai` `#llm` `#flashinfer` `#cuda` `#learning-path` `#学习路线` | FlashInfer 是面向 LLM 服务的高性能 GPU 内核库，也是 vLLM、SGLang 等现代推理引擎的重要算子底座。它的工程复杂性横跨三层：Python 运行时与 Plan-Run... |
 | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] | `#ai` `#llm` `#flashinfer` `#cuda` `#rmsnorm` `#sampling` `#源码导读` | Norm 与 Sampling 是进入 FlashInfer 内核代码最理想的两条切入路径——它们没有复杂的 Paged KV 间接寻址，却完整覆盖了 FlashInfer 最常用的 GPU 工... |
 | [FlashInfer Paged KV 与 Decode 内核源码导读](../ai/kernels/flashinfer-paged-kv-and-decode-source.md) | [[flashinfer-paged-kv-and-decode-source]] | `#ai` `#llm` `#gpu` `#flashinfer` `#cuda` `#paged-kv` `#decode` | 源码版本边界：本文所有文件路径、结构体与函数签名均对照 FlashInfer v0.7.3 (commit 82caa5668, 审查日期 2026-11-17) 核验。为避免随提交漂移，文中仅... |
 | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] | `#ai` `#llm` `#gpu` `#flashinfer` `#cuda` `#prefill` `#cascade` `#mla` | 源码版本边界：本文所有文件路径、类与函数签名均对照 FlashInfer v0.7.3 (commit 82caa5668, 审查日期 2026-11-17) 核验。为避免随提交漂移，文中仅引用... |
 | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] | `#ai` `#llm` `#gpu` `#cuda` `#roofline` `#softmax` `#flashinfer` | 大模型推理服务的延迟与吞吐最终由 GPU 内核的执行效率决定。理解 FlashInfer 为什么这样切分任务（GQA 打包、Split-KV、Ragged 批处理）、为什么使用 128-bit... |
+| [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] | `#ai` `#llm` `#gpu` `#cuda` `#simd` `#simt` `#tensor-core` | 几乎所有刚接触 CUDA 的开发者都会产生同一个困惑：为什么 GPU 上明明有几万个线程并行，写高性能算子时还要讲究连续内存 Stride、还要让每个线程用 float4 一次搬 4 个数、还要... |
 
 ### ai/post-training
 
