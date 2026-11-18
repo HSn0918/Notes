@@ -25,6 +25,8 @@ flowchart TD
 
 ## 推荐阅读顺序
 
+初学 CUDA 先读 [从 SIMD 到 SIMT](simd-and-gpu-simt-foundations.md) 与 [CUDA 工具链](cuda-ecosystem-and-career-roadmap.md)。训练侧先完成[单卡训练计时](gpu-execution-and-memory-model.md#训练侧练习区分提交时间与设备时间)，再回[训练路线](../training/README.md)；推理侧从 [FlashInfer 的页表与 Plan/Run](flashinfer-intuition-and-engine-bridge.md) 进入下表源码。
+
 | 顺序 | 文档 | 核心内容 | 定位 |
 | --- | --- | --- | --- |
 | 1 | [GPU 执行、内存模型与 Online Softmax](gpu-execution-and-memory-model.md) | Grid/CTA/Warp/Thread 硬件映射、128-bit 合并访存与 Bank Conflict、Prefill/Decode Roofline 定量分析、Safe/Online Softmax 与 `state_t` 合并推导 | 概念与数学基石 |

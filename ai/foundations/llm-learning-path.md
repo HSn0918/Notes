@@ -110,6 +110,8 @@ flowchart TD
 
 ## 阶段 4B：训练与 Post-training 分支
 
+以训练平台为目标时，从[一次参数更新](training-step-and-gradients.md)直接转入[分布式训练路线](../training/README.md)。下面的微调与偏好对齐是另一条方向，不是进入多卡训练的前置条件。
+
 训练分支按下面顺序学习：
 
 ```mermaid

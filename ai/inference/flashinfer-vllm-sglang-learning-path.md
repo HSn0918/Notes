@@ -35,7 +35,7 @@
   2. 一份控制变量的 vLLM vs SGLang 基准压测报告（涵盖 TTFT、TPOT、ITL、Throughput 与 Prefix Cache 命中率）。
   3. 两张亲手梳理的全链路数据流图：请求从 `Scheduler` 页表转换到 FlashInfer `plan()/run()` 的内存映射图，以及 vLLM V1 与 SGLang SRT 的 CPU-GPU 协同时间线图。
 - **全局完成标准**：
-  - 给出任意一条在线推理请求（如带共享 System Prompt 的多轮对话或 JSON Schema 约束输出），能从头到尾讲清它在 **vLLM V1** 和 **SGLang SRT** 中各自如何分词、查缓存、排 Batch、构造 CSR 页表、调用 **FlashInfer** Kernel、录制/重放 **CUDA Graph** 并采样返回。
+  - 给定一条请求和具体引擎配置，能定位分词、缓存查找、组批和采样的证据。先查实际 attention 后端与 CUDA Graph 是否启用；仅在走 FlashInfer 时，才沿其页表与算子调用继续追踪。
   - 面对生产性能瓶颈（TTFT 高、TPOT 慢、GPU 利用率波谷、显存 OOM），能精准判断瓶颈位于 **CPU 调度层、KV 缓存复用层、HBM 访存带宽层还是 Tensor Core 算力层**。
 
 ---

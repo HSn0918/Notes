@@ -39,6 +39,7 @@
 | `cloud-native/kubernetes/core` | [Kubernetes RBAC 权限控制](../cloud-native/kubernetes/core/rbac.md) | [[rbac]] |
 | `cloud-native/kubernetes/core` | [Kubernetes RESTful API 设计](../cloud-native/kubernetes/core/restful-api-design.md) | [[restful-api-design]] |
 | `cloud-native/kubernetes/core` | [Kube-Scheduler 深度解析](../cloud-native/kubernetes/core/scheduler-deep-dive.md) | [[scheduler-deep-dive]] |
+| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
 | `cloud-native/kubernetes/core` | [Velero 集群备份与恢复](../cloud-native/kubernetes/core/velero.md) | [[velero]] |
 | `cloud-native/kubernetes/demos` | [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/demos/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] |
 | `cloud-native/kubernetes/demos` | [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/demos/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] |
@@ -98,6 +99,7 @@
 | `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
 | `ai/foundations` | [LLM 基础概念](../ai/foundations/llm-fundamentals.md) | [[llm-fundamentals]] |
 | `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
+| `ai/foundations` | [一次参数更新：从矩阵梯度到有效 token](../ai/foundations/training-step-and-gradients.md) | [[training-step-and-gradients]] |
 | `ai/inference` | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] |
 | `ai/inference` | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] |
 | `ai/inference` | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] |
@@ -118,6 +120,7 @@
 | `ai/post-training` | [LLM Post-training](../ai/post-training/llm-post-training.md) | [[llm-post-training]] |
 | `ai/post-training` | [LLM 强化学习基础](../ai/post-training/llm-rl-fundamentals.md) | [[llm-rl-fundamentals]] |
 | `ai/post-training` | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] |
+| `ai/training` | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] |
 
 ## `#llm`
 
@@ -225,6 +228,7 @@
 | `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
 | `cloud-native/kubernetes/components` | [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] |
 | `cloud-native/kubernetes/core` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] |
+| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
 | `cloud-native/kubernetes/demos` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
 | `cloud-native/kubernetes/demos` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
 | `cloud-native/kubernetes/demos` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
@@ -368,6 +372,18 @@
 | `foundations/algorithm` | [Trie 前缀树 Prefix Tree](../foundations/algorithm/trie.md) | [[trie]] |
 | `foundations/algorithm` | [Union-Find 并查集](../foundations/algorithm/union-find.md) | [[union-find]] |
 
+## `#ai-infra`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `cloud-native/kubernetes/core` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] |
+| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
+| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
+| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
+| `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
+| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
+
 ## `#inference`
 
 | 所属领域 | 文档 | Wikilink |
@@ -391,17 +407,6 @@
 | `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
 | `cloud-native/kubernetes/roadmaps` | [Kubernetes 开发学习路线](../cloud-native/kubernetes/roadmaps/k8s-development-roadmap.md) | [[k8s-development-roadmap]] |
 | `cloud-native/kubernetes/roadmaps` | [Kubernetes 深入学习进度](../cloud-native/kubernetes/roadmaps/progress.md) | [[progress]] |
-
-## `#ai-infra`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `cloud-native/kubernetes/core` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
-| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
-| `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
-| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
 
 ## `#device-plugin`
 
@@ -648,6 +653,14 @@
 | `cloud-native/kubernetes/demos` | [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/demos/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] |
 | `cloud-native/kubernetes/internals` | [etcd 源码导读](../cloud-native/kubernetes/internals/etcd-source.md) | [[etcd-source]] |
 
+## `#分布式训练`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [一次参数更新：从矩阵梯度到有效 token](../ai/foundations/training-step-and-gradients.md) | [[training-step-and-gradients]] |
+| `ai/training` | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] |
+| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
+
 ## `#学习路线`
 
 | 所属领域 | 文档 | Wikilink |
@@ -838,6 +851,13 @@
 | `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
 | `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
 
+## `#线性代数`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
+| `ai/foundations` | [一次参数更新：从矩阵梯度到有效 token](../ai/foundations/training-step-and-gradients.md) | [[training-step-and-gradients]] |
+
 ## `#缓存策略`
 
 | 所属领域 | 文档 | Wikilink |
@@ -996,6 +1016,12 @@
 | --- | --- | --- |
 | `foundations/database` | [PostgreSQL 基础与核心原理](../foundations/database/postgresql-basics.md) | [[postgresql-basics]] |
 
+## `#deepspeed`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/training` | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] |
+
 ## `#dns`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1037,6 +1063,12 @@
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `cloud-native/kubernetes/networking` | [Flannel 容器网络插件](../cloud-native/kubernetes/networking/flannel.md) | [[flannel]] |
+
+## `#fsdp`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/training` | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] |
 
 ## `#gang-scheduling`
 
@@ -1164,6 +1196,12 @@
 | --- | --- | --- |
 | `cloud-native/kubernetes/components` | [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/components/component-coverage-matrix.md) | [[component-coverage-matrix]] |
 
+## `#megatron`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/training` | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] |
+
 ## `#memory`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1211,6 +1249,12 @@
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `cloud-native/containers` | [Namespace 视图隔离机制](../cloud-native/containers/namespace.md) | [[namespace]] |
+
+## `#nccl`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/training` | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] |
 
 ## `#nfs`
 
@@ -1289,6 +1333,12 @@
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
+
+## `#pytorch`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/training` | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] |
 
 ## `#qlora`
 
@@ -1596,6 +1646,12 @@
 | --- | --- | --- |
 | `foundations/tools` | [Zsh / iTerm2 快捷键](../foundations/tools/zsh.md) | [[zsh]] |
 
+## `#机器学习`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/foundations` | [一次参数更新：从矩阵梯度到有效 token](../ai/foundations/training-step-and-gradients.md) | [[training-step-and-gradients]] |
+
 ## `#深度优先`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1620,12 +1676,6 @@
 | --- | --- | --- |
 | `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
 
-## `#线性代数`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
-
 ## `#背包`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1637,6 +1687,12 @@
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `foundations/algorithm` | [Quick Sort 快速排序](../foundations/algorithm/quick-sort.md) | [[quick-sort]] |
+
+## `#调度`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
 
 ## `#链表`
 

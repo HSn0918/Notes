@@ -6,6 +6,8 @@
 
 ## 推荐顺序
 
+做万卡训练平台可从[作业成组准入、拓扑放置与恢复](kubernetes/core/training-job-placement.md)开始，并用[训练侧路线图](../ai/training/README.md)核对进程组和训练进度；初学 Kubernetes 则按下图推进。
+
 ```mermaid
 flowchart LR
     A[Linux 隔离与文件系统] --> B[Containers / OCI]

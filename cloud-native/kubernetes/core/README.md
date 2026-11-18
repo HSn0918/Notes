@@ -26,6 +26,7 @@
 
 - [Kube-Scheduler 深度解析](scheduler-deep-dive.md) —— 调度框架、Assume/Bind、抢占与队列
 - [GPU 调度与 Device Plugin](gpu-scheduling.md) —— Extended Resource 与设备插件机制
+- [分布式训练作业的成组准入与放置](training-job-placement.md) —— 从队列和跨节点拓扑追到 rank 会合、第一步更新与断点恢复
 - [Kubebuilder 自定义控制器](kubebuilder.md) —— CRD + Controller 开发骨架与脚手架
 - [Operator Pattern](operator-pattern.md) —— 声明式调谐闭环与复杂有状态应用自动化
 - [Velero 集群备份恢复](velero.md) —— 资源与持久化卷的备份还原机制

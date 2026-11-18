@@ -246,6 +246,30 @@ struct state_t {
 
 ---
 
+## 训练侧练习：区分提交时间与设备时间
+
+GPU 工作通常异步提交。用 CPU 时钟只包住一次 `x @ w`，可能只测到提交时间。下面的例子适用于已安装 CUDA 版 PyTorch 的单卡环境；比较同一 stream 上前向矩阵乘和反向传播的设备耗时。它不含数据加载、主机到设备拷贝或优化器，不代表完整训练吞吐。
+
+```python
+import torch
+
+x = torch.randn(1024, 512, device="cuda")
+w = torch.randn(512, 512, device="cuda", requires_grad=True)
+for _ in range(5):  # 排除首次初始化和预热
+    (x @ w).sum().backward()
+    w.grad = None
+start, forward, backward = [torch.cuda.Event(enable_timing=True) for _ in range(3)]
+start.record()
+loss = (x @ w).sum()
+forward.record()
+loss.backward()
+backward.record()
+backward.synchronize()
+print("forward_ms", start.elapsed_time(forward), "backward_ms", forward.elapsed_time(backward))
+```
+
+实际训练收集多次稳态 step，而非据一次读数排名。先用时间线对齐输入供给、H2D、各 stream 与 collective，定位占用关键路径的区间，再考虑用 kernel profiler 分析访存或指令。跨 stream 不能直接把各段持续时间相加当作墙钟时间。参见 [PyTorch CUDA 异步执行与计时](https://docs.pytorch.org/docs/stable/notes/cuda.html#asynchronous-execution)。此练习未在本仓库用 CUDA 实测，不预填耗时。
+
 ## 自检清单
 
 - [ ] 能画出 Grid / CTA / Warp / Thread 到 GPU / SM / Warp Scheduler / Register / SMEM / HBM 的映射关系。

@@ -2,44 +2,17 @@
 
 这是一个聚焦 **AI Infra & Systems Full-Stack** 的个人技术学习笔记库，兼容 Obsidian 与 GitHub 阅读。内容以理解底层机制、源码导读和动手实验验证为核心，面试题只作为辅助复习视图。
 
-## 快速导航
+## 从目标选入口
 
-| 你的情况 | 去这里 |
-| --- | --- |
-| 想系统学某个领域 | 下面四大支柱的领域索引，每个索引自带推荐阅读顺序 |
-| 想查某个概念 / 算子 / 笔记 | [全库知识速查索引](docs/catalog.md) 或文末 SQLite 检索 |
-| 读到不懂的名词 | 先查本文的[名词解释](#名词解释)，再回领域索引 |
+| 目标 | 入口 | 阅读顺序 |
+| --- | --- | --- |
+| **万卡集群调度与模型训练** | [AI 学习索引](ai/README.md) | 线代与机器学习 → 单卡 CUDA 与训练基线 → 多卡通信与训练框架 → 拓扑放置、扩展效率和故障恢复 |
+| 从平台侧做 GPU 调度 | [云原生学习索引](cloud-native/README.md) | GPU 资源如何上报 → 作业如何成组拿卡 → 放置结果能否满足训练通信需求 |
+| 优化大模型推理 | [AI 学习索引](ai/README.md) | CUDA 执行与访存 → FlashInfer 算子 → vLLM / SGLang 请求调度；这不是做训练的前置课 |
+| 学 Go 或查运行时实现 | [Go 学习索引](go/README.md) | 语言机制 → Go Runtime 源码与验证 |
+| 补计算机与后端基础 | [工程基石索引](foundations/README.md) | 按问题进入算法、数据库、中间件或工具 |
 
-## 地图：四大支柱怎么连
-
-```mermaid
-flowchart TD
-    AI["① AI / LLM Systems<br/>大模型怎么被算出来、跑起来"]
-    CN["② Cloud Native<br/>容器与 Kubernetes，GPU 上集群"]
-    GO["③ Go & Runtime<br/>Go 语言与运行时源码"]
-    FND["④ Foundations<br/>算法 · 数据库 · 中间件 · 工具"]
-
-    CN -. "AI 推理服务部署上 K8s 集群，先懂 GPU 调度" .-> AI
-    FND --> GO --> CN
-```
-
-- **① AI 支柱内部的学习链**（最重要的一条主线）：
-
-```mermaid
-flowchart LR
-    A1["数学基础<br/>线代 · 高代"] --> A2["GPU 与 CUDA<br/>FlashInfer 算子"] --> A3["推理引擎<br/>vLLM · SGLang"] --> A4["后训练与 RL<br/>LoRA · GRPO"] --> A5["Agent 应用"]
-```
-
-- ②③④ 三个支柱相对独立，按需进入；遇到不认识的名词直接查下面的名词解释。
-
-## 四大支柱
-
-| 领域 | 入口 | 内容一句话 | 建议第一步 |
-| --- | --- | --- | --- |
-| **① AI / LLM Systems** | [AI 学习索引](ai/README.md) | 从数学与 CUDA 算子（FlashInfer）底座，到 vLLM / SGLang 推理引擎，再到后训练与 Agent | 没基础先看 [LLM 零基础学习路线](ai/foundations/llm-learning-path.md)；做 Infra 直接走 [AI 学习索引](ai/README.md) 的路线 A |
-| **② Cloud Native** | [云原生学习索引](cloud-native/README.md) | 容器与 OCI、Kubernetes 核心/网络/存储、GPU 调度与可运行 Demo | [容器基础](cloud-native/containers/README.md) |
-| **③ Go & Runtime** | [Go 学习索引](go/README.md) | 语言核心机制 + Go 1.26 Runtime 源码导读（GMP / SwissMap / GC） | [语言核心机制](go/fundamentals/README.md) |
-| **④ Engineering Foundations** | [工程基石索引](foundations/README.md) | 算法、数据库、中间件与常用工具 | [算法与数据结构](foundations/algorithm/README.md) |
+找一篇笔记用 [全库知识速查索引](docs/catalog.md)，跨目录找同一主题用 [标签索引](docs/tags.md)。路线图负责安排先后，索引不代表每篇都要读。
 
 ## 名词解释
 
@@ -51,9 +24,11 @@ flowchart LR
 | --- | --- |
 | 线代 / 高代 | 大学数学课：线性代数管矩阵乘法与向量投影，高等代数管秩、正交旋转、特征值——本库只挑大模型用得上的部分 |
 | CUDA | NVIDIA GPU 的编程平台，用它写代码让 GPU 并行干活 |
-| SIMD / SIMT | CPU 一条指令同时算 8 个数（SIMD）；GPU 一条指令让 32 个线程同时执行（SIMT） |
+| rank / world size | rank 是进程在组内的编号，world size 是组的进程数；按一进程一卡启动时，全局进程数等于本作业使用的卡数 |
+| DP / TP / PP | 数据并行分样本，张量并行切一层内的计算，流水线并行把不同层放在不同 stage；三者可组合 |
+| SIMD / SIMT | SIMD 对向量的多个元素执行同一操作；NVIDIA GPU 以 32 个线程组成的 warp 调度，分支可能让部分线程不活跃 |
 | 算子（Kernel） | 一个具体的 GPU 计算函数，比如"做一次 RMSNorm""算一次注意力" |
-| FlashInfer | 高性能算子库；vLLM / SGLang 底层用它算注意力、采样、归一化 |
+| FlashInfer | GPU 推理算子库；是否被推理引擎选为某个操作的后端，要看版本、硬件和配置 |
 | KV Cache | 生成文本时缓存的"历史记忆"，避免每生成一个字就重算全部历史 |
 | Prefill / Decode | Prefill = 一次性读完整个输入；Decode = 一个字一个字往外蹦 |
 | Paged KV（分页） | 把 KV Cache 像操作系统管内存一样切成小块页来分配 |
@@ -63,7 +38,7 @@ flowchart LR
 | vLLM / SGLang | 两个主流推理引擎（服务进程），负责调度请求、管理显存、调用算子 |
 | Post-training | 模型预训练完成之后的所有训练：微调、对齐、强化学习 |
 | SFT | 监督微调：用示范问答数据教模型按指令行事 |
-| LoRA | 只训练一小块低秩矩阵来微调大模型，参数省 100 倍量级 |
+| LoRA | 冻结原权重，用一对低秩矩阵学习权重增量；节省比例取决于秩和目标层 |
 | DPO / PPO / GRPO | 三种"按人类偏好调整模型"的训练方法（偏好对齐 / 强化学习） |
 | Rollout | RL 训练中"让模型自己生成一批回答"的步骤，速度依赖推理引擎 |
 | Agent | 让 LLM 调用工具、多步规划完成任务的系统；RAG = 先检索资料再回答 |

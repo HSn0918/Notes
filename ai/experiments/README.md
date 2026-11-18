@@ -6,6 +6,8 @@
 
 | 实验 | 主题 | 环境 | 验证状态 |
 | --- | --- | --- | --- |
+| [数学与 SIMD](llm-math-and-simd-lab/README.md) | 分块 GEMM、RoPE、低秩与张量布局 | CPU | 离线数值验证 |
+| [不等长分片梯度](sharded-gradient/README.md) | 矩阵反向、中心差分、全局 token 加权与一步 SGD | CPU | 已验证整批梯度与加权分片一致 |
 | [Sampling](sampling/README.md) | `temperature`、`top_p` 与可复现采样 | Mac / Linux CPU | 已在本仓库 CPU 环境运行 |
 | [Prefix input determinism](prefix-input-determinism/README.md) | canonical JSON、字段顺序与输入 hash | Mac / Linux CPU | 已在本仓库 CPU 环境运行 |
 | [LoRA parameter count](lora-parameter-count/README.md) | 全量投影与 LoRA adapter 参数量 | Mac / Linux CPU | 已在本仓库 CPU 环境运行 |
@@ -22,6 +24,8 @@
 ## 一次运行全部 CPU 实验
 
 ```bash
+python3 ai/experiments/llm-math-and-simd-lab/llm_math_simd_lab.py
+python3 ai/experiments/sharded-gradient/sharded_gradient.py
 python3 ai/experiments/sampling/sampling_lab.py
 python3 ai/experiments/prefix-input-determinism/prefix_determinism.py
 python3 ai/experiments/lora-parameter-count/lora_parameter_count.py

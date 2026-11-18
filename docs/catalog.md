@@ -18,7 +18,7 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [AI 学习索引](../ai/README.md) | — | — | 本支柱将大模型技术体系按 “底层数学与数据流 → 并行硬件 / CUDA 生态与 FlashInfer 算子 → vLLM / SGLang 双推理引擎与分布式路由 → Post-trainin... |
+| [AI 学习索引](../ai/README.md) | — | — | 做万卡集群调度和模型训练，从 万卡集群调度与模型训练路线图 开始。先弄懂一次参数更新，再看这次更新拆到多张卡后，哪些数据必须在何时到达。做推理优化则从同一份数学和 CUDA 基础分支出去，不必先... |
 
 ### ai/agents
 
@@ -41,22 +41,24 @@
 | [OpenAI-compatible inference benchmark](../ai/experiments/openai-compatible-benchmark/README.md) | — | — | 对一个 OpenAI-compatible /v1/chat/completions 服务发送可控请求，记录流式首个 SSE 数据块延迟、端到端延迟、服务返回的 completion token... |
 | [Prefix 输入确定性：canonical JSON、字段顺序与 hash](../ai/experiments/prefix-input-determinism/README.md) | — | — | 演示同一组业务字段因为 JSON 字段顺序不同而产生不同 bytes 与 SHA-256；再用 canonical JSON 让等价对象稳定编码。这里刻意只测 bytes/hash，不是 tok... |
 | [Sampling: temperature、top-p 与 seed](../ai/experiments/sampling/README.md) | — | — | 用固定的一组 logits 手写最小采样器，观察 temperature 如何改变分布尖锐程度、top_p 如何裁剪候选集合，以及固定 seed 如何令随机选择可复现。 |
+| [不等长分片的训练梯度实验](../ai/experiments/sharded-gradient/README.md) | — | — | 用四个有效位置训练一个两类线性预测头。把同一批位置分成 1:3 两份，各自反向，再与不分片的参考梯度比较。目标不是跑快，而是判断两种训练方式是否仍在优化同一个目标。 |
 
 ### ai/foundations
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [LLM Foundations](../ai/foundations/README.md) | — | — | 本目录是整个 AI 知识树的共同底座，负责把面向大模型的线性代数与高等代数直觉、模型全生命周期分类与单次前向/生成核心数据流一次性立稳，支撑后续向 CUDA 算子、推理引擎、后训练与 Agent... |
+| [LLM Foundations](../ai/foundations/README.md) | — | — | 共同基础是矩阵乘、张量形状和一次前向计算。做训练，接着学生成梯度和更新参数；做推理，转向布局、访存和缓存。两条线不需要互相等待读完。 |
 | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] | `#ai` `#llm` `#高等代数` `#数学基础` `#rope` `#svd` `#lora` `#mla` | 如果说 linear-algebra-for-llm 解决的是"矩阵乘怎么算、张量怎么放"，本笔记回答的是另一类问题：为什么大模型里的几个关键设计（MLA 权重吸收、RoPE、残差连接、LoRA... |
 | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] | `#ai` `#llm` `#线性代数` `#数学基础` `#simd` `#cuda` | 很多工程背景的学习者一准备深入 FlashAttention / FlashInfer / vLLM 底层，就想先把数学系《线性代数》整本啃完，结果卡在行列式展开、伴随矩阵求逆和若尔当标准型里半... |
 | [LLM 基础概念](../ai/foundations/llm-fundamentals.md) | [[llm-fundamentals]] | `#ai` `#llm` `#transformer` `#基础概念` | 本笔记解释后续 LLM 推理与训练都会反复遇到的基础名词，并把它们串成一条真实的数据流。目标不是一次记住全部定义，而是每遇到一个对象，都知道它来自哪里、要去哪里。 |
 | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] | `#ai` `#llm` `#学习路线` `#vllm` `#sglang` `#lora` `#post-training` `#rl` | 这是一条面向零基础读者的 LLM 学习主线。目标不是先记住工具名称，而是理解一个模型从“文本如何变成数字”，到“如何训练、微调、生成、评测和部署”的完整生命周期。 |
+| [一次参数更新：从矩阵梯度到有效 token](../ai/foundations/training-step-and-gradients.md) | [[training-step-and-gradients]] | `#ai` `#机器学习` `#线性代数` `#分布式训练` | 把语言模型先缩小成一个预测头：每个有效位置给出一行特征，模型要为下一 token 的真实类别打高分。训练系统无论使用一张卡还是多张卡，都应先说明自己在最小化哪一个标量。下面假设无类别权重、无标签... |
 
 ### ai/inference
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [LLM Inference](../ai/inference/README.md) | — | — | 底层算子延伸：GPU 算子与 FlashInfer —— PagedAttention、Split-KV Decode、Ragged/Chunked Prefill 与 Cascade/MLA... |
+| [LLM Inference](../ai/inference/README.md) | — | — | 研究请求调度、KV Cache 和算子选择，从 FlashInfer × vLLM × SGLang 路线 进入。两条源码线分别在 vLLM V1 与 SGLang SRT；具体 attenti... |
 | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] | `#ai` `#llm` `#inference` `#flashinfer` `#vllm` `#sglang` `#cuda` `#learning-path` | 很多初学者一头扎进大模型推理系统时，常陷入两类极端困境： |
 | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] | `#ai` `#llm` `#inference` `#kv-cache` `#pd-disaggregation` `#router` `#学习计划` | LLM 推理系统的三件大事——Inference Router（请求路由层）、KV Cache（显存最大的金山）、PD 分离（Prefill/Decode 解耦）——是 2024 年以后大模型基... |
 | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] | `#ai` `#llm` `#inference` `#prefill` `#decode` `#kv-cache` | 本笔记从一次真实请求出发，解释 LLM 如何把用户文字变成 Token，经过 Prefill 和 Decode 逐步生成回答，再由推理服务返回。第一次阅读只需要掌握数据流；PagedAttent... |
@@ -89,6 +91,13 @@
 | [LLM Post-training](../ai/post-training/llm-post-training.md) | [[llm-post-training]] | `#ai` `#llm` `#post-training` `#sft` `#dpo` `#rlhf` | Post-training 指 Pre-training 之后，为了让模型更好地遵循指令、符合偏好、使用工具或完成特定任务而进行的一组训练过程。它不是单一算法，常见方法包括 SFT、Prefer... |
 | [LLM 强化学习基础](../ai/post-training/llm-rl-fundamentals.md) | [[llm-rl-fundamentals]] | `#ai` `#llm` `#reinforcement-learning` `#ppo` `#grpo` `#rlhf` | 强化学习（Reinforcement Learning，RL）研究 RL Agent 如何通过与 Environment 交互，根据 Reward 改进 Policy。这里的 RL Agent... |
 | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] | `#ai` `#llm` `#lora` `#qlora` `#peft` `#fine-tuning` | LoRA（Low-Rank Adaptation）是一种 Parameter-Efficient Fine-Tuning（PEFT）方法。它不改变训练目标，而是改变“哪些参数需要更新”：冻结 B... |
+
+### ai/training
+
+| 文档 | Wikilink | 标签 | 摘要 |
+| --- | --- | --- | --- |
+| [万卡集群调度与模型训练路线图](../ai/training/README.md) | — | — | 适合会 Python、能读 Linux 进程和 Kubernetes 作业状态，但还不能从一次参数更新推导出 GPU、网络和存储需求的工程师。目标是给出一份可验证的训练作业设计：申请多少卡、哪些... |
+| [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] | `#ai` `#分布式训练` `#pytorch` `#fsdp` `#deepspeed` `#megatron` `#nccl` | 先判断瓶颈发生在权重、梯度、优化器状态、激活还是通信等待。DDP 和 FSDP2 是 PyTorch 的并行实现；ZeRO 是 DeepSpeed 中的一组分片策略；Megatron Core... |
 
 ## Cloud Native & Kubernetes
 
@@ -163,6 +172,7 @@
 | [Kubernetes RBAC 权限控制](../cloud-native/kubernetes/core/rbac.md) | [[rbac]] | `#kubernetes` `#rbac` | 基于角色（Role）的访问控制（RBAC）是一种基于组织中用户的角色来调节控制对计算机或网络资源的访问的方法。 |
 | [Kubernetes RESTful API 设计](../cloud-native/kubernetes/core/restful-api-design.md) | [[restful-api-design]] | `#kubernetes` `#restful` | Kubernetes 的 RESTful API 是与集群交互的核心接口，通过不同的路由操作资源（如 Pod、Service、Deployment 等）。所有 kubectl 命令最终都会转化为... |
 | [Kube-Scheduler 深度解析](../cloud-native/kubernetes/core/scheduler-deep-dive.md) | [[scheduler-deep-dive]] | `#kubernetes` `#scheduler` | kube-scheduler 是 Kubernetes control plane 的核心组件之一，负责将未调度的 Pod（即 spec.nodeName 为空的 Pod）分配到合适的 Node 上。 |
+| [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] | `#kubernetes` `#gpu` `#分布式训练` `#调度` `#ai-infra` | 平台交付的是一组可用且互联的设备，训练作业交付的是可持久恢复的优化步。两者之间至少有四个不同事件：队列准入、Pod 绑定、所有 rank 会合（rendezvous）、第一次优化器更新。拿到前一... |
 | [Velero 集群备份与恢复](../cloud-native/kubernetes/core/velero.md) | [[velero]] | `#kubernetes` `#velero` | Velero 是一个开源的 Kubernetes 集群备份和恢复工具，支持按需备份、定时备份以及集群迁移。 |
 
 ### cloud-native/kubernetes/demos

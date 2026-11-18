@@ -2,6 +2,8 @@
 
 > 返回 [AI 学习索引](../README.md)
 
+研究请求调度、KV Cache 和算子选择，从 [FlashInfer × vLLM × SGLang 路线](flashinfer-vllm-sglang-learning-path.md) 进入。两条源码线分别在 [vLLM V1](vllm-v1-architecture-and-internals.md) 与 [SGLang SRT](sglang-srt-radix-and-scheduler.md)；具体 attention 后端以启动配置和实际调用为准。调度训练作业、切分模型参数则看[分布式训练路线](../training/README.md)。
+
 ## 阅读顺序
 
 1. [LLM 推理全流程](llm-inference-pipeline.md) —— Messages 到 Response 的完整数据流。
