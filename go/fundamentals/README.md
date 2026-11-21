@@ -1,11 +1,11 @@
-# Go 语言核心机制
+# Go 语言机制：从程序的行为入手
 
-> 返回 [Go 语言学习索引](../README.md)
+先选一段自己写过的并发代码，在纸上标出：谁创建 goroutine，谁负责通知它退出，它可能阻塞在哪里。用 [Context](context.md) 和 [Channel](channel.md) 核对答案，再上[源码](../internals/README.md)看具体唤醒路径。
 
-本目录收录 Go 数据结构、语言演进、并发原语、调度模型与 GC 基础笔记；进入 Go 1.26 源码热路径与版本对照请前往 [Go Runtime 源码导读](../internals/README.md)。
+- **改了一个值，另一处也跟着变**：从 [Slice 共享底层数组](slice.md)、[Map](map-internals.md) 与 [Interface](interface.md) 分清变量、引用和动态类型。
+- **有可运行任务却等不到 CPU**：读 [GMP](gmp-model.md)，再看 [runnext](p-runnext.md) 对本地执行顺序的影响。
+- **吞吐稳定，内存却在涨**：先区分仍被引用的对象和等待回收的空间，再查 [GC](gc.md)。
 
-## 阅读顺序
+读实现细节前记录 `go version`；跨版本差异查[版本演进](go-versions.md)。
 
-1. **数据结构与类型系统**：[Slice 底层实现与扩容](slice.md) · [Map 哈希表底层实现](map-internals.md) · [Interface 与 reflect](interface.md) · [Go 版本新特性演进](go-versions.md)
-2. **并发控制原语**：[Context 取消与传播](context.md) · [Channel 底层实现](channel.md)
-3. **调度与内存回收**：[GMP 调度模型](gmp-model.md) · [P.runnext 调度优化](p-runnext.md) · [并发三色标记 GC](gc.md)
+[返回 Go](../README.md)

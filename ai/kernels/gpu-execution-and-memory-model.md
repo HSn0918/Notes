@@ -1,6 +1,6 @@
 #ai #llm #gpu #cuda #roofline #softmax #flashinfer
 
-相关笔记：[[flashinfer-learning-roadmap]] | [[flashinfer-architecture-and-jit]] | [[flashinfer-paged-kv-and-decode-source]] | [[flashinfer-norm-and-sampling-source]] | [[llm-inference-pipeline]] | [Online Softmax 与 Split-KV 离线实验](../experiments/online-softmax-and-split-kv/README.md)
+相关笔记：[[flashinfer-learning-roadmap]] | [[flashinfer-architecture-and-jit]] | [[flashinfer-paged-kv-and-decode-source]] | [[flashinfer-norm-and-sampling-source]] | [[llm-inference-pipeline]] | [Online Softmax 与 Split-KV 离线实验](online-softmax-and-split-kv/README.md)
 
 # GPU 执行、内存模型与 Online Softmax
 
@@ -242,7 +242,7 @@ struct state_t {
    与合并 `(m, d, o)` 在代数上完全等价（当 `d_sum == 0` 时输出保持 0，避免 `0/0 = NaN`）。
 3. **空状态防护**：在因果掩码、滑窗或变长空切片下，`m` 可能保持初值 `-math::inf`。`state_t::merge()` 与 `MergeStateKernel` 都通过 `max(m_prev - m, -math::inf)` 确保 `(-inf) - (-inf)` 被钳位为 `-inf` 再取 `ptx_exp2(-inf) = 0`，避免整个输出被 `NaN` 污染。
 
-可在无 GPU 环境下运行 [Online Softmax 与 Split-KV 离线实验](../experiments/online-softmax-and-split-kv/README.md) 亲自验证 `state_t` base-2 缩放与任意分块合并的数学等价性。
+可在无 GPU 环境下运行 [Online Softmax 与 Split-KV 离线实验](online-softmax-and-split-kv/README.md) 亲自验证 `state_t` base-2 缩放与任意分块合并的数学等价性。
 
 ---
 

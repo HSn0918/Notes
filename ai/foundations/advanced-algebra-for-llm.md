@@ -1,6 +1,6 @@
 #ai #llm #高等代数 #数学基础 #rope #svd #lora #mla
 
-相关笔记：[[linear-algebra-for-llm]] | [[lora-and-qlora]] | [[llm-post-training]] | [[flashinfer-ragged-prefill-and-mla-source]] | [[sglang-srt-radix-and-scheduler]] | [[simd-and-gpu-simt-foundations]] | [LLM 数学直觉与 SIMD 并行离线实验](../experiments/llm-math-and-simd-lab/README.md)
+相关笔记：[[linear-algebra-for-llm]] | [[lora-and-qlora]] | [[llm-post-training]] | [[flashinfer-ragged-prefill-and-mla-source]] | [[sglang-srt-radix-and-scheduler]] | [[simd-and-gpu-simt-foundations]] | [LLM 数学直觉与 SIMD 并行离线实验](llm-math-and-simd-lab/README.md)
 
 # 面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解
 
@@ -213,5 +213,5 @@ $$W' = W + \Delta W = W + BA, \quad B \in \mathbb{R}^{d \times r},\ A \in \mathb
 ## 参考与版本边界
 
 - 本文为数学直觉笔记，公式为标准结果（Online Softmax 引 Milakov & Gimelshein 2018 思路、Eckart–Young 为经典定理）；涉及的算子与工程路径（`BatchMLAPagedAttentionWrapper`、MLA 双路径、RoPE 在线融合）以 [[flashinfer-ragged-prefill-and-mla-source]] 与 [[sglang-srt-radix-and-scheduler]] 记载的版本边界（FlashInfer v0.7.3, commit `82caa5668`，审查日期 `2026-11-17`）为准。
-- 配套可运行验证：[LLM 数学直觉与 SIMD 并行离线实验](../experiments/llm-math-and-simd-lab/README.md)（Exp 2 RoPE 旋转不变量、Exp 3 MLA 吸收等价与 HBM 字节审计、Exp 4 SVD 与 LoRA 等价）。
+- 配套可运行验证：[LLM 数学直觉与 SIMD 并行离线实验](llm-math-and-simd-lab/README.md)（Exp 2 RoPE 旋转不变量、Exp 3 MLA 吸收等价与 HBM 字节审计、Exp 4 SVD 与 LoRA 等价）。
 - 深入方向：低秩近似的算子实现见 [[flashinfer-ragged-prefill-and-mla-source]]；LoRA/QLoRA 工程实践见 [[lora-and-qlora]]；Decode 带宽受限的定量分析见 [[gpu-execution-and-memory-model]]。

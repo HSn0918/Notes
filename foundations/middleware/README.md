@@ -1,45 +1,11 @@
-# 中间件 (Middleware) · 学习索引
+# 消息系统：跟踪一条任务完成事件
 
-中间件学习围绕跨进程与跨服务协作展开：消息怎样传递、状态怎样持久化、失败怎样恢复、数据怎样保持最终一致。本索引以 Kafka、NATS、Canal 和分布式事务为主线，逐步建立吞吐、可靠性与一致性的权衡能力。
+给事件一个 ID，在纸上标出生产者发出、服务端确认、消费者处理、业务结果写入四个时刻。只知道“消息发过了”，还不能断定任务状态已经更新。
 
-> ⬆ 返回 [工程基石索引](../README.md)
+- **Kafka**：从[一条消息的路径](kafka-basics.md)入手，对照[分区选择](producer-partition.md)与[确认和丢失边界](zero-message-loss.md)。要解释带宽或调优才查[消息压缩](producer-compression.md)与[集群配置](cluster-config.md)。
+- **NATS**：先区分[即时发布订阅](nats-basics.md)和 [JetStream 的持久化与重放](nats-jetstream.md)，再判断订阅者离线期间会错过什么。
+- **数据库变更与业务结果不同步**：从 [Canal 读取 binlog](canal.md)追源事件。要解决多个系统的提交或补偿问题，再比较[分布式事务方案](distributed-transaction.md)。
 
-## 推荐学习顺序
+能说清各段证据后，再用 [Kafka 复习题](kafka-interview.md)检查遗漏。
 
-**入门**：Kafka 基础概念与设计理念 → Kafka 面试知识点 → NATS 基础与核心概念 → Canal 数据同步中间件
-
-**进阶**：生产者分区机制 → 消息压缩机制 → Kafka 集群参数配置 → NATS JetStream 持久化
-
-**深入**：Kafka 零消息丢失保证 → 分布式事务方案（2PC/TCC/Saga）
-
-## 笔记清单
-
-### Kafka
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [Kafka 基础概念与设计理念](kafka-basics.md) | 讲 Kafka 的设计目标、Pub-Sub 模型与 Producer/Broker/Topic 核心架构，是入门 Kafka 的起点。 | 入门 |
-| [Kafka 面试知识点](kafka-interview.md) | 汇总 Kafka 核心组件、Broker/Partition 分配关系与高性能原因（PageCache、顺序写）等高频面试题。 | 入门 |
-| [Producer 分区机制](producer-partition.md) | 讲 Topic-Partition-Message 三级结构与轮询/Key 等分区策略，解决负载均衡与顺序保证问题。 | 进阶 |
-| [Kafka 消息压缩机制](producer-compression.md) | 讲 Producer/Broker 端压缩、V1/V2 消息格式演进与压缩粒度，用于节省磁盘和带宽。 | 进阶 |
-| [Kafka 零消息丢失保证](zero-message-loss.md) | 讲 committed 语义、acks 配置与 ISR 副本同步，剖析消息丢失场景及可靠投递的端到端保证。 | 深入 |
-| [Kafka 集群参数配置](cluster-config.md) | 梳理 Broker/Producer/Consumer 三端关键参数（日志、副本、min.insync.replicas），用于稳定运维调优。 | 进阶 |
-
-### NATS
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [NATS 基础与核心概念](nats-basics.md) | 讲云原生轻量消息系统 NATS 的定位、与 Kafka 对比及 Subject 路由模型，适合微服务通信场景。 | 入门 |
-| [NATS JetStream 持久化与流处理](nats-jetstream.md) | 讲 JetStream 持久化层的 Stream/Consumer、消息回溯、Ack 语义与背压，补齐 Core NATS 的持久化能力。 | 进阶 |
-
-### Canal
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [Canal 数据同步中间件](canal.md) | 讲 Canal 伪装 Slave 解析 MySQL Binlog 实现增量订阅，用于缓存刷新、索引构建与异构数据同步。 | 入门 |
-
-### 分布式事务
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [分布式事务方案（2PC/TCC/Saga）](distributed-transaction.md) | 对比 2PC/XA、TCC、Saga 等分布式事务方案，剖析跨库一致性与可用性的权衡取舍。 | 深入 |
+[返回工程基础](../README.md)

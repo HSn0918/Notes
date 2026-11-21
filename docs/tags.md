@@ -8,84 +8,86 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件拆解](../cloud-native/kubernetes/components/README.md) | — |
-| `cloud-native/kubernetes/components` | [Admission Webhook](../cloud-native/kubernetes/components/admission-webhook-component.md) | [[admission-webhook-component]] |
-| `cloud-native/kubernetes/components` | [cloud-controller-manager](../cloud-native/kubernetes/components/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] |
-| `cloud-native/kubernetes/components` | [CNI Plugin](../cloud-native/kubernetes/components/cni-plugin-component.md) | [[cni-plugin-component]] |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/components/component-coverage-matrix.md) | [[component-coverage-matrix]] |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件笔记标准](../cloud-native/kubernetes/components/component-note-standard.md) | [[component-note-standard]] |
-| `cloud-native/kubernetes/components` | [Container Runtime](../cloud-native/kubernetes/components/container-runtime-component.md) | [[container-runtime-component]] |
-| `cloud-native/kubernetes/components` | [CoreDNS](../cloud-native/kubernetes/components/coredns-component.md) | [[coredns-component]] |
-| `cloud-native/kubernetes/components` | [CSI Driver](../cloud-native/kubernetes/components/csi-driver-component.md) | [[csi-driver-component]] |
-| `cloud-native/kubernetes/components` | [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] |
-| `cloud-native/kubernetes/components` | [etcd](../cloud-native/kubernetes/components/etcd-component.md) | [[etcd-component]] |
-| `cloud-native/kubernetes/components` | [Ingress Controller](../cloud-native/kubernetes/components/ingress-controller-component.md) | [[ingress-controller-component]] |
-| `cloud-native/kubernetes/components` | [kube-apiserver](../cloud-native/kubernetes/components/kube-apiserver-component.md) | [[kube-apiserver-component]] |
-| `cloud-native/kubernetes/components` | [kube-controller-manager](../cloud-native/kubernetes/components/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
-| `cloud-native/kubernetes/components` | [kube-proxy](../cloud-native/kubernetes/components/kube-proxy-component.md) | [[kube-proxy-component]] |
-| `cloud-native/kubernetes/components` | [kube-scheduler](../cloud-native/kubernetes/components/kube-scheduler-component.md) | [[kube-scheduler-component]] |
-| `cloud-native/kubernetes/components` | [kubelet](../cloud-native/kubernetes/components/kubelet-component.md) | [[kubelet-component]] |
-| `cloud-native/kubernetes/components` | [Kubernetes Dashboard](../cloud-native/kubernetes/components/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] |
-| `cloud-native/kubernetes/components` | [Logging Agent](../cloud-native/kubernetes/components/logging-agent-component.md) | [[logging-agent-component]] |
-| `cloud-native/kubernetes/components` | [Metrics Server](../cloud-native/kubernetes/components/metrics-server-component.md) | [[metrics-server-component]] |
+| `cloud-native/kubernetes/core` | [Admission Webhook](../cloud-native/kubernetes/core/admission-webhook-component.md) | [[admission-webhook-component]] |
 | `cloud-native/kubernetes/core` | [Kubernetes API Resource 设计文档](../cloud-native/kubernetes/core/api-resource.md) | [[api-resource]] |
-| `cloud-native/kubernetes/core` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] |
+| `cloud-native/kubernetes/core` | [client-go 源码导读](../cloud-native/kubernetes/core/client-go-source.md) | [[client-go-source]] |
+| `cloud-native/kubernetes/core` | [cloud-controller-manager](../cloud-native/kubernetes/core/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] |
+| `cloud-native/kubernetes/core` | [controller-runtime 源码导读](../cloud-native/kubernetes/core/controller-runtime-source.md) | [[controller-runtime-source]] |
+| `cloud-native/kubernetes/core` | [etcd](../cloud-native/kubernetes/core/etcd-component.md) | [[etcd-component]] |
 | `cloud-native/kubernetes/core` | [Kubernetes Informer List-Watch 机制](../cloud-native/kubernetes/core/informer.md) | [[informer]] |
+| `cloud-native/kubernetes/core` | [kube-apiserver](../cloud-native/kubernetes/core/kube-apiserver-component.md) | [[kube-apiserver-component]] |
+| `cloud-native/kubernetes/core` | [kube-controller-manager](../cloud-native/kubernetes/core/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
+| `cloud-native/kubernetes/core` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/core/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
 | `cloud-native/kubernetes/core` | [Kubebuilder 自定义控制器开发](../cloud-native/kubernetes/core/kubebuilder.md) | [[kubebuilder]] |
 | `cloud-native/kubernetes/core` | [Kubernetes 基础架构](../cloud-native/kubernetes/core/kubernetes-basics.md) | [[kubernetes-basics]] |
-| `cloud-native/kubernetes/core` | [OCI 容器运行时规范（runc）](../cloud-native/kubernetes/core/oci-runtime.md) | [[oci-runtime]] |
+| `cloud-native/kubernetes/core` | [Kubernetes Dashboard](../cloud-native/kubernetes/core/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] |
+| `cloud-native/kubernetes/core` | [Logging Agent](../cloud-native/kubernetes/core/logging-agent-component.md) | [[logging-agent-component]] |
+| `cloud-native/kubernetes/core` | [Metrics Server](../cloud-native/kubernetes/core/metrics-server-component.md) | [[metrics-server-component]] |
 | `cloud-native/kubernetes/core` | [Kubernetes Operator 模式](../cloud-native/kubernetes/core/operator-pattern.md) | [[operator-pattern]] |
-| `cloud-native/kubernetes/core` | [Pod 健康检查探针（Probes）](../cloud-native/kubernetes/core/probes.md) | [[probes]] |
 | `cloud-native/kubernetes/core` | [Kubernetes RBAC 权限控制](../cloud-native/kubernetes/core/rbac.md) | [[rbac]] |
 | `cloud-native/kubernetes/core` | [Kubernetes RESTful API 设计](../cloud-native/kubernetes/core/restful-api-design.md) | [[restful-api-design]] |
-| `cloud-native/kubernetes/core` | [Kube-Scheduler 深度解析](../cloud-native/kubernetes/core/scheduler-deep-dive.md) | [[scheduler-deep-dive]] |
-| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
-| `cloud-native/kubernetes/core` | [Velero 集群备份与恢复](../cloud-native/kubernetes/core/velero.md) | [[velero]] |
-| `cloud-native/kubernetes/demos` | [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/demos/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] |
-| `cloud-native/kubernetes/demos` | [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/demos/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] |
-| `cloud-native/kubernetes/demos` | [Device Plugin 设备插件可运行 Demo](../cloud-native/kubernetes/demos/device-plugin/demo-device-plugin.md) | [[demo-device-plugin]] |
-| `cloud-native/kubernetes/demos` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/demos/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
-| `cloud-native/kubernetes/demos` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
-| `cloud-native/kubernetes/demos` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
-| `cloud-native/kubernetes/demos` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
-| `cloud-native/kubernetes/demos` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/demos/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
-| `cloud-native/kubernetes/demos` | [Sample Controller 源码走读与可运行 Demo](../cloud-native/kubernetes/demos/sample-controller/demo-sample-controller.md) | [[demo-sample-controller]] |
-| `cloud-native/kubernetes/demos` | [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/demos/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] |
-| `cloud-native/kubernetes/internals` | [client-go 源码导读](../cloud-native/kubernetes/internals/client-go-source.md) | [[client-go-source]] |
-| `cloud-native/kubernetes/internals` | [CNI 插件调用链源码导读](../cloud-native/kubernetes/internals/cni-source.md) | [[cni-source]] |
-| `cloud-native/kubernetes/internals` | [controller-runtime 源码导读](../cloud-native/kubernetes/internals/controller-runtime-source.md) | [[controller-runtime-source]] |
-| `cloud-native/kubernetes/internals` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/internals/cri-source.md) | [[cri-source]] |
-| `cloud-native/kubernetes/internals` | [CSI 存储调用链源码导读](../cloud-native/kubernetes/internals/csi-source.md) | [[csi-source]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
-| `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/internals/scheduler-framework-source.md) | [[scheduler-framework-source]] |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/internals/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
-| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
+| `cloud-native/kubernetes/core` | [Sample Controller 源码走读与可运行 Demo](../cloud-native/kubernetes/core/sample-controller/demo-sample-controller.md) | [[demo-sample-controller]] |
 | `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
 | `cloud-native/kubernetes/interview` | [Kubernetes 面试题汇总](../cloud-native/kubernetes/interview/k8s-interview.md) | [[k8s-interview]] |
 | `cloud-native/kubernetes/networking` | [Calico 网络插件原理](../cloud-native/kubernetes/networking/calico.md) | [[calico]] |
 | `cloud-native/kubernetes/networking` | [Cilium eBPF 深度解析](../cloud-native/kubernetes/networking/cilium-deep-dive.md) | [[cilium-deep-dive]] |
 | `cloud-native/kubernetes/networking` | [Cilium eBPF 容器网络](../cloud-native/kubernetes/networking/cilium.md) | [[cilium]] |
+| `cloud-native/kubernetes/networking` | [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/networking/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] |
+| `cloud-native/kubernetes/networking` | [CNI Plugin](../cloud-native/kubernetes/networking/cni-plugin-component.md) | [[cni-plugin-component]] |
+| `cloud-native/kubernetes/networking` | [CNI 插件调用链源码导读](../cloud-native/kubernetes/networking/cni-source.md) | [[cni-source]] |
 | `cloud-native/kubernetes/networking` | [CNI 网络排障指南](../cloud-native/kubernetes/networking/cni-troubleshooting.md) | [[cni-troubleshooting]] |
 | `cloud-native/kubernetes/networking` | [CNI 容器网络接口](../cloud-native/kubernetes/networking/cni.md) | [[cni]] |
+| `cloud-native/kubernetes/networking` | [CoreDNS](../cloud-native/kubernetes/networking/coredns-component.md) | [[coredns-component]] |
 | `cloud-native/kubernetes/networking` | [Flannel 容器网络插件](../cloud-native/kubernetes/networking/flannel.md) | [[flannel]] |
 | `cloud-native/kubernetes/networking` | [Headless Service 无头服务](../cloud-native/kubernetes/networking/headless-service.md) | [[headless-service]] |
+| `cloud-native/kubernetes/networking` | [Ingress Controller](../cloud-native/kubernetes/networking/ingress-controller-component.md) | [[ingress-controller-component]] |
+| `cloud-native/kubernetes/networking` | [kube-proxy](../cloud-native/kubernetes/networking/kube-proxy-component.md) | [[kube-proxy-component]] |
 | `cloud-native/kubernetes/networking` | [kube-proxy 服务转发与代理模式](../cloud-native/kubernetes/networking/kube-proxy.md) | [[kube-proxy]] |
 | `cloud-native/kubernetes/networking` | [Multus 多网卡 CNI 插件](../cloud-native/kubernetes/networking/multus.md) | [[multus]] |
 | `cloud-native/kubernetes/networking` | [Kubernetes 网络模型](../cloud-native/kubernetes/networking/network-model.md) | [[network-model]] |
 | `cloud-native/kubernetes/networking` | [Weave Net 容器网络](../cloud-native/kubernetes/networking/weave.md) | [[weave]] |
-| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
+| `cloud-native/kubernetes/node-runtime` | [Container Runtime](../cloud-native/kubernetes/node-runtime/container-runtime-component.md) | [[container-runtime-component]] |
+| `cloud-native/kubernetes/node-runtime` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/node-runtime/cri-source.md) | [[cri-source]] |
+| `cloud-native/kubernetes/node-runtime` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/node-runtime/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
+| `cloud-native/kubernetes/node-runtime` | [kubelet](../cloud-native/kubernetes/node-runtime/kubelet-component.md) | [[kubelet-component]] |
+| `cloud-native/kubernetes/node-runtime` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/node-runtime/kubelet-cri-source.md) | [[kubelet-cri-source]] |
+| `cloud-native/kubernetes/node-runtime` | [OCI 容器运行时规范（runc）](../cloud-native/kubernetes/node-runtime/oci-runtime.md) | [[oci-runtime]] |
+| `cloud-native/kubernetes/node-runtime` | [Pod 健康检查探针（Probes）](../cloud-native/kubernetes/node-runtime/probes.md) | [[probes]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/roadmaps/component-coverage-matrix.md) | [[component-coverage-matrix]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件笔记标准](../cloud-native/kubernetes/roadmaps/component-note-standard.md) | [[component-note-standard]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件拆解](../cloud-native/kubernetes/roadmaps/k8s-component-map.md) | [[k8s-component-map]] |
 | `cloud-native/kubernetes/roadmaps` | [Kubernetes 开发学习路线](../cloud-native/kubernetes/roadmaps/k8s-development-roadmap.md) | [[k8s-development-roadmap]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 实验环境与历史验证](../cloud-native/kubernetes/roadmaps/k8s-lab-environments.md) | [[k8s-lab-environments]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 源码导读](../cloud-native/kubernetes/roadmaps/k8s-source-map.md) | [[k8s-source-map]] |
 | `cloud-native/kubernetes/roadmaps` | [Kubernetes 深入学习进度](../cloud-native/kubernetes/roadmaps/progress.md) | [[progress]] |
+| `cloud-native/kubernetes/scheduling` | [Device Plugin](../cloud-native/kubernetes/scheduling/device-plugin-component.md) | [[device-plugin-component]] |
+| `cloud-native/kubernetes/scheduling` | [Device Plugin 设备插件可运行 Demo](../cloud-native/kubernetes/scheduling/device-plugin/demo-device-plugin.md) | [[demo-device-plugin]] |
+| `cloud-native/kubernetes/scheduling` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/scheduling/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/scheduling/gpu-scheduling.md) | [[gpu-scheduling]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi 学习路线](../cloud-native/kubernetes/scheduling/hami-learning-path.md) | [[hami-learning-path]] |
+| `cloud-native/kubernetes/scheduling` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
+| `cloud-native/kubernetes/scheduling` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/scheduling/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/scheduling/hami-source.md) | [[hami-source]] |
+| `cloud-native/kubernetes/scheduling` | [kube-scheduler](../cloud-native/kubernetes/scheduling/kube-scheduler-component.md) | [[kube-scheduler-component]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler 深度解析](../cloud-native/kubernetes/scheduling/scheduler-deep-dive.md) | [[scheduler-deep-dive]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/scheduling/scheduler-framework-source.md) | [[scheduler-framework-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/scheduling/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/scheduling/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
+| `cloud-native/kubernetes/scheduling` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/scheduling/training-job-placement.md) | [[training-job-placement]] |
+| `cloud-native/kubernetes/scheduling` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/scheduling/volcano-source.md) | [[volcano-source]] |
 | `cloud-native/kubernetes/storage` | [Ceph CSI 存储驱动](../cloud-native/kubernetes/storage/ceph-csi.md) | [[ceph-csi]] |
 | `cloud-native/kubernetes/storage` | [云厂商 CSI 存储驱动](../cloud-native/kubernetes/storage/cloud-provider-csi.md) | [[cloud-provider-csi]] |
+| `cloud-native/kubernetes/storage` | [CSI Driver](../cloud-native/kubernetes/storage/csi-driver-component.md) | [[csi-driver-component]] |
+| `cloud-native/kubernetes/storage` | [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/storage/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] |
 | `cloud-native/kubernetes/storage` | [CSI Sidecar 容器协作机制](../cloud-native/kubernetes/storage/csi-sidecars.md) | [[csi-sidecars]] |
+| `cloud-native/kubernetes/storage` | [CSI 存储调用链源码导读](../cloud-native/kubernetes/storage/csi-source.md) | [[csi-source]] |
 | `cloud-native/kubernetes/storage` | [CSI 存储排障指南](../cloud-native/kubernetes/storage/csi-troubleshooting.md) | [[csi-troubleshooting]] |
 | `cloud-native/kubernetes/storage` | [CSI 容器存储接口](../cloud-native/kubernetes/storage/csi.md) | [[csi]] |
 | `cloud-native/kubernetes/storage` | [Longhorn 分布式块存储](../cloud-native/kubernetes/storage/longhorn.md) | [[longhorn]] |
 | `cloud-native/kubernetes/storage` | [NFS CSI 存储驱动](../cloud-native/kubernetes/storage/nfs-csi.md) | [[nfs-csi]] |
 | `cloud-native/kubernetes/storage` | [OpenEBS 云原生存储](../cloud-native/kubernetes/storage/openebs.md) | [[openebs]] |
+| `cloud-native/kubernetes/storage` | [Velero 集群备份与恢复](../cloud-native/kubernetes/storage/velero.md) | [[velero]] |
 | `cloud-native/kubernetes/storage` | [Kubernetes Volume 生命周期](../cloud-native/kubernetes/storage/volume-lifecycle.md) | [[volume-lifecycle]] |
 
 ## `#ai`
@@ -95,6 +97,7 @@
 | `ai/agents` | [Agent 开发学习路线](../ai/agents/agent-development-learning-path.md) | [[agent-development-learning-path]] |
 | `ai/agents` | [Agent 开发框架源码导读](../ai/agents/agent-development-source.md) | [[agent-development-source]] |
 | `ai/agents` | [生产级 Agent 开发](../ai/agents/production-agent-development.md) | [[production-agent-development]] |
+| `ai` | [AI Infra 实战路线：交付一个能训练、能恢复、能服务的模型](../ai/ai-infra-fieldwork.md) | [[ai-infra-fieldwork]] |
 | `ai/foundations` | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] |
 | `ai/foundations` | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] |
 | `ai/foundations` | [LLM 基础概念](../ai/foundations/llm-fundamentals.md) | [[llm-fundamentals]] |
@@ -159,41 +162,42 @@
 | `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
 | `ai/kernels` | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] |
 | `ai/kernels` | [FlashInfer Norm 与 Sampling 源码导读](../ai/kernels/flashinfer-norm-and-sampling-source.md) | [[flashinfer-norm-and-sampling-source]] |
-| `cloud-native/kubernetes/internals` | [client-go 源码导读](../cloud-native/kubernetes/internals/client-go-source.md) | [[client-go-source]] |
-| `cloud-native/kubernetes/internals` | [CNI 插件调用链源码导读](../cloud-native/kubernetes/internals/cni-source.md) | [[cni-source]] |
-| `cloud-native/kubernetes/internals` | [controller-runtime 源码导读](../cloud-native/kubernetes/internals/controller-runtime-source.md) | [[controller-runtime-source]] |
-| `cloud-native/kubernetes/internals` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/internals/cri-source.md) | [[cri-source]] |
-| `cloud-native/kubernetes/internals` | [CSI 存储调用链源码导读](../cloud-native/kubernetes/internals/csi-source.md) | [[csi-source]] |
-| `cloud-native/kubernetes/internals` | [etcd 源码导读](../cloud-native/kubernetes/internals/etcd-source.md) | [[etcd-source]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
-| `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/internals/scheduler-framework-source.md) | [[scheduler-framework-source]] |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/internals/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
-| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
+| `cloud-native/kubernetes/core` | [client-go 源码导读](../cloud-native/kubernetes/core/client-go-source.md) | [[client-go-source]] |
+| `cloud-native/kubernetes/core` | [controller-runtime 源码导读](../cloud-native/kubernetes/core/controller-runtime-source.md) | [[controller-runtime-source]] |
+| `cloud-native/kubernetes/core` | [etcd 源码导读](../cloud-native/kubernetes/core/etcd-source.md) | [[etcd-source]] |
+| `cloud-native/kubernetes/networking` | [CNI 插件调用链源码导读](../cloud-native/kubernetes/networking/cni-source.md) | [[cni-source]] |
+| `cloud-native/kubernetes/node-runtime` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/node-runtime/cri-source.md) | [[cri-source]] |
+| `cloud-native/kubernetes/node-runtime` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/node-runtime/kubelet-cri-source.md) | [[kubelet-cri-source]] |
 | `cloud-native/kubernetes/roadmaps` | [Kubernetes 开发学习路线](../cloud-native/kubernetes/roadmaps/k8s-development-roadmap.md) | [[k8s-development-roadmap]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 源码导读](../cloud-native/kubernetes/roadmaps/k8s-source-map.md) | [[k8s-source-map]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/scheduling/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/scheduling/hami-source.md) | [[hami-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/scheduling/scheduler-framework-source.md) | [[scheduler-framework-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/scheduling/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
+| `cloud-native/kubernetes/scheduling` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/scheduling/volcano-source.md) | [[volcano-source]] |
+| `cloud-native/kubernetes/storage` | [CSI 存储调用链源码导读](../cloud-native/kubernetes/storage/csi-source.md) | [[csi-source]] |
 
 ## `#component`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Admission Webhook](../cloud-native/kubernetes/components/admission-webhook-component.md) | [[admission-webhook-component]] |
-| `cloud-native/kubernetes/components` | [cloud-controller-manager](../cloud-native/kubernetes/components/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] |
-| `cloud-native/kubernetes/components` | [CNI Plugin](../cloud-native/kubernetes/components/cni-plugin-component.md) | [[cni-plugin-component]] |
-| `cloud-native/kubernetes/components` | [Container Runtime](../cloud-native/kubernetes/components/container-runtime-component.md) | [[container-runtime-component]] |
-| `cloud-native/kubernetes/components` | [CoreDNS](../cloud-native/kubernetes/components/coredns-component.md) | [[coredns-component]] |
-| `cloud-native/kubernetes/components` | [CSI Driver](../cloud-native/kubernetes/components/csi-driver-component.md) | [[csi-driver-component]] |
-| `cloud-native/kubernetes/components` | [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] |
-| `cloud-native/kubernetes/components` | [etcd](../cloud-native/kubernetes/components/etcd-component.md) | [[etcd-component]] |
-| `cloud-native/kubernetes/components` | [Ingress Controller](../cloud-native/kubernetes/components/ingress-controller-component.md) | [[ingress-controller-component]] |
-| `cloud-native/kubernetes/components` | [kube-apiserver](../cloud-native/kubernetes/components/kube-apiserver-component.md) | [[kube-apiserver-component]] |
-| `cloud-native/kubernetes/components` | [kube-controller-manager](../cloud-native/kubernetes/components/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
-| `cloud-native/kubernetes/components` | [kube-proxy](../cloud-native/kubernetes/components/kube-proxy-component.md) | [[kube-proxy-component]] |
-| `cloud-native/kubernetes/components` | [kube-scheduler](../cloud-native/kubernetes/components/kube-scheduler-component.md) | [[kube-scheduler-component]] |
-| `cloud-native/kubernetes/components` | [kubelet](../cloud-native/kubernetes/components/kubelet-component.md) | [[kubelet-component]] |
-| `cloud-native/kubernetes/components` | [Kubernetes Dashboard](../cloud-native/kubernetes/components/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] |
-| `cloud-native/kubernetes/components` | [Logging Agent](../cloud-native/kubernetes/components/logging-agent-component.md) | [[logging-agent-component]] |
-| `cloud-native/kubernetes/components` | [Metrics Server](../cloud-native/kubernetes/components/metrics-server-component.md) | [[metrics-server-component]] |
+| `cloud-native/kubernetes/core` | [Admission Webhook](../cloud-native/kubernetes/core/admission-webhook-component.md) | [[admission-webhook-component]] |
+| `cloud-native/kubernetes/core` | [cloud-controller-manager](../cloud-native/kubernetes/core/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] |
+| `cloud-native/kubernetes/core` | [etcd](../cloud-native/kubernetes/core/etcd-component.md) | [[etcd-component]] |
+| `cloud-native/kubernetes/core` | [kube-apiserver](../cloud-native/kubernetes/core/kube-apiserver-component.md) | [[kube-apiserver-component]] |
+| `cloud-native/kubernetes/core` | [kube-controller-manager](../cloud-native/kubernetes/core/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
+| `cloud-native/kubernetes/core` | [Kubernetes Dashboard](../cloud-native/kubernetes/core/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] |
+| `cloud-native/kubernetes/core` | [Logging Agent](../cloud-native/kubernetes/core/logging-agent-component.md) | [[logging-agent-component]] |
+| `cloud-native/kubernetes/core` | [Metrics Server](../cloud-native/kubernetes/core/metrics-server-component.md) | [[metrics-server-component]] |
+| `cloud-native/kubernetes/networking` | [CNI Plugin](../cloud-native/kubernetes/networking/cni-plugin-component.md) | [[cni-plugin-component]] |
+| `cloud-native/kubernetes/networking` | [CoreDNS](../cloud-native/kubernetes/networking/coredns-component.md) | [[coredns-component]] |
+| `cloud-native/kubernetes/networking` | [Ingress Controller](../cloud-native/kubernetes/networking/ingress-controller-component.md) | [[ingress-controller-component]] |
+| `cloud-native/kubernetes/networking` | [kube-proxy](../cloud-native/kubernetes/networking/kube-proxy-component.md) | [[kube-proxy-component]] |
+| `cloud-native/kubernetes/node-runtime` | [Container Runtime](../cloud-native/kubernetes/node-runtime/container-runtime-component.md) | [[container-runtime-component]] |
+| `cloud-native/kubernetes/node-runtime` | [kubelet](../cloud-native/kubernetes/node-runtime/kubelet-component.md) | [[kubelet-component]] |
+| `cloud-native/kubernetes/scheduling` | [Device Plugin](../cloud-native/kubernetes/scheduling/device-plugin-component.md) | [[device-plugin-component]] |
+| `cloud-native/kubernetes/scheduling` | [kube-scheduler](../cloud-native/kubernetes/scheduling/kube-scheduler-component.md) | [[kube-scheduler-component]] |
+| `cloud-native/kubernetes/storage` | [CSI Driver](../cloud-native/kubernetes/storage/csi-driver-component.md) | [[csi-driver-component]] |
 
 ## `#go`
 
@@ -207,7 +211,6 @@
 | `go/fundamentals` | [Interface 与 reflect](../go/fundamentals/interface.md) | [[interface]] |
 | `go/fundamentals` | [P.runnext 调度优化](../go/fundamentals/p-runnext.md) | [[p-runnext]] |
 | `go/fundamentals` | [Slice 底层实现与扩容](../go/fundamentals/slice.md) | [[slice]] |
-| `go/internals` | [Go Runtime 源码学习索引](../go/internals/README.md) | — |
 | `go/internals` | [Channel 源码导读](../go/internals/go-channel-source.md) | [[go-channel-source]] |
 | `go/internals` | [Context 源码导读](../go/internals/go-context-source.md) | [[go-context-source]] |
 | `go/internals` | [Go GC 新旧实现对比](../go/internals/go-gc-old-vs-new.md) | [[go-gc-old-vs-new]] |
@@ -226,27 +229,27 @@
 | `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
 | `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
 | `ai/kernels` | [从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉](../ai/kernels/simd-and-gpu-simt-foundations.md) | [[simd-and-gpu-simt-foundations]] |
-| `cloud-native/kubernetes/components` | [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] |
-| `cloud-native/kubernetes/core` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] |
-| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
-| `cloud-native/kubernetes/demos` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
-| `cloud-native/kubernetes/demos` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
-| `cloud-native/kubernetes/demos` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
 | `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
-| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
+| `cloud-native/kubernetes/scheduling` | [Device Plugin](../cloud-native/kubernetes/scheduling/device-plugin-component.md) | [[device-plugin-component]] |
+| `cloud-native/kubernetes/scheduling` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/scheduling/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/scheduling/gpu-scheduling.md) | [[gpu-scheduling]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi 学习路线](../cloud-native/kubernetes/scheduling/hami-learning-path.md) | [[hami-learning-path]] |
+| `cloud-native/kubernetes/scheduling` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
+| `cloud-native/kubernetes/scheduling` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/scheduling/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/scheduling/hami-source.md) | [[hami-source]] |
+| `cloud-native/kubernetes/scheduling` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/scheduling/training-job-placement.md) | [[training-job-placement]] |
 
 ## `#csi`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [CSI Driver](../cloud-native/kubernetes/components/csi-driver-component.md) | [[csi-driver-component]] |
-| `cloud-native/kubernetes/demos` | [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/demos/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] |
-| `cloud-native/kubernetes/internals` | [CSI 存储调用链源码导读](../cloud-native/kubernetes/internals/csi-source.md) | [[csi-source]] |
 | `cloud-native/kubernetes/storage` | [Ceph CSI 存储驱动](../cloud-native/kubernetes/storage/ceph-csi.md) | [[ceph-csi]] |
 | `cloud-native/kubernetes/storage` | [云厂商 CSI 存储驱动](../cloud-native/kubernetes/storage/cloud-provider-csi.md) | [[cloud-provider-csi]] |
+| `cloud-native/kubernetes/storage` | [CSI Driver](../cloud-native/kubernetes/storage/csi-driver-component.md) | [[csi-driver-component]] |
+| `cloud-native/kubernetes/storage` | [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/storage/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] |
 | `cloud-native/kubernetes/storage` | [CSI Sidecar 容器协作机制](../cloud-native/kubernetes/storage/csi-sidecars.md) | [[csi-sidecars]] |
+| `cloud-native/kubernetes/storage` | [CSI 存储调用链源码导读](../cloud-native/kubernetes/storage/csi-source.md) | [[csi-source]] |
 | `cloud-native/kubernetes/storage` | [CSI 存储排障指南](../cloud-native/kubernetes/storage/csi-troubleshooting.md) | [[csi-troubleshooting]] |
 | `cloud-native/kubernetes/storage` | [CSI 容器存储接口](../cloud-native/kubernetes/storage/csi.md) | [[csi]] |
 | `cloud-native/kubernetes/storage` | [Longhorn 分布式块存储](../cloud-native/kubernetes/storage/longhorn.md) | [[longhorn]] |
@@ -258,12 +261,12 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [CNI Plugin](../cloud-native/kubernetes/components/cni-plugin-component.md) | [[cni-plugin-component]] |
-| `cloud-native/kubernetes/demos` | [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/demos/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] |
-| `cloud-native/kubernetes/internals` | [CNI 插件调用链源码导读](../cloud-native/kubernetes/internals/cni-source.md) | [[cni-source]] |
 | `cloud-native/kubernetes/networking` | [Calico 网络插件原理](../cloud-native/kubernetes/networking/calico.md) | [[calico]] |
 | `cloud-native/kubernetes/networking` | [Cilium eBPF 深度解析](../cloud-native/kubernetes/networking/cilium-deep-dive.md) | [[cilium-deep-dive]] |
 | `cloud-native/kubernetes/networking` | [Cilium eBPF 容器网络](../cloud-native/kubernetes/networking/cilium.md) | [[cilium]] |
+| `cloud-native/kubernetes/networking` | [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/networking/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] |
+| `cloud-native/kubernetes/networking` | [CNI Plugin](../cloud-native/kubernetes/networking/cni-plugin-component.md) | [[cni-plugin-component]] |
+| `cloud-native/kubernetes/networking` | [CNI 插件调用链源码导读](../cloud-native/kubernetes/networking/cni-source.md) | [[cni-source]] |
 | `cloud-native/kubernetes/networking` | [CNI 网络排障指南](../cloud-native/kubernetes/networking/cni-troubleshooting.md) | [[cni-troubleshooting]] |
 | `cloud-native/kubernetes/networking` | [CNI 容器网络接口](../cloud-native/kubernetes/networking/cni.md) | [[cni]] |
 | `cloud-native/kubernetes/networking` | [Flannel 容器网络插件](../cloud-native/kubernetes/networking/flannel.md) | [[flannel]] |
@@ -274,17 +277,17 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/demos` | [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/demos/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] |
-| `cloud-native/kubernetes/demos` | [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/demos/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] |
-| `cloud-native/kubernetes/demos` | [Device Plugin 设备插件可运行 Demo](../cloud-native/kubernetes/demos/device-plugin/demo-device-plugin.md) | [[demo-device-plugin]] |
-| `cloud-native/kubernetes/demos` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/demos/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
-| `cloud-native/kubernetes/demos` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
-| `cloud-native/kubernetes/demos` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
-| `cloud-native/kubernetes/demos` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/demos/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
-| `cloud-native/kubernetes/demos` | [etcd Raftexample 共识机制走读 Demo](../cloud-native/kubernetes/demos/raftexample-walkthrough/demo-raftexample-walkthrough.md) | [[demo-raftexample-walkthrough]] |
-| `cloud-native/kubernetes/demos` | [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/demos/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] |
-| `cloud-native/kubernetes/demos` | [Sample Controller 源码走读与可运行 Demo](../cloud-native/kubernetes/demos/sample-controller/demo-sample-controller.md) | [[demo-sample-controller]] |
-| `cloud-native/kubernetes/demos` | [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/demos/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] |
+| `cloud-native/kubernetes/core` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/core/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
+| `cloud-native/kubernetes/core` | [etcd Raftexample 共识机制走读 Demo](../cloud-native/kubernetes/core/raftexample-walkthrough/demo-raftexample-walkthrough.md) | [[demo-raftexample-walkthrough]] |
+| `cloud-native/kubernetes/core` | [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/core/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] |
+| `cloud-native/kubernetes/core` | [Sample Controller 源码走读与可运行 Demo](../cloud-native/kubernetes/core/sample-controller/demo-sample-controller.md) | [[demo-sample-controller]] |
+| `cloud-native/kubernetes/networking` | [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/networking/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] |
+| `cloud-native/kubernetes/node-runtime` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/node-runtime/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
+| `cloud-native/kubernetes/scheduling` | [Device Plugin 设备插件可运行 Demo](../cloud-native/kubernetes/scheduling/device-plugin/demo-device-plugin.md) | [[demo-device-plugin]] |
+| `cloud-native/kubernetes/scheduling` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
+| `cloud-native/kubernetes/scheduling` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/scheduling/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] |
+| `cloud-native/kubernetes/storage` | [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/storage/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] |
 
 ## `#docker`
 
@@ -331,12 +334,38 @@
 | `ai/kernels` | [FlashInfer Ragged Prefill、Cascade 与 MLA 源码导读](../ai/kernels/flashinfer-ragged-prefill-and-mla-source.md) | [[flashinfer-ragged-prefill-and-mla-source]] |
 | `ai/kernels` | [GPU 执行、内存模型与 Online Softmax](../ai/kernels/gpu-execution-and-memory-model.md) | [[gpu-execution-and-memory-model]] |
 
+## `#scheduler`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/scheduling/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/scheduling` | [kube-scheduler](../cloud-native/kubernetes/scheduling/kube-scheduler-component.md) | [[kube-scheduler-component]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler 深度解析](../cloud-native/kubernetes/scheduling/scheduler-deep-dive.md) | [[scheduler-deep-dive]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/scheduling/scheduler-framework-source.md) | [[scheduler-framework-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/scheduling/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/scheduling/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
+| `cloud-native/kubernetes/scheduling` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/scheduling/volcano-source.md) | [[volcano-source]] |
+| `go/internals` | [GMP 调度器源码导读](../go/internals/go-gmp-source.md) | [[go-gmp-source]] |
+
+## `#ai-infra`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai` | [AI Infra 实战路线：交付一个能训练、能恢复、能服务的模型](../ai/ai-infra-fieldwork.md) | [[ai-infra-fieldwork]] |
+| `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/scheduling/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/scheduling/gpu-scheduling.md) | [[gpu-scheduling]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi 学习路线](../cloud-native/kubernetes/scheduling/hami-learning-path.md) | [[hami-learning-path]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/scheduling/hami-source.md) | [[hami-source]] |
+| `cloud-native/kubernetes/scheduling` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/scheduling/training-job-placement.md) | [[training-job-placement]] |
+| `cloud-native/kubernetes/scheduling` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/scheduling/volcano-source.md) | [[volcano-source]] |
+
 ## `#runtime`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Container Runtime](../cloud-native/kubernetes/components/container-runtime-component.md) | [[container-runtime-component]] |
-| `go/internals` | [Go Runtime 源码学习索引](../go/internals/README.md) | — |
+| `cloud-native/kubernetes/node-runtime` | [Container Runtime](../cloud-native/kubernetes/node-runtime/container-runtime-component.md) | [[container-runtime-component]] |
 | `go/internals` | [Channel 源码导读](../go/internals/go-channel-source.md) | [[go-channel-source]] |
 | `go/internals` | [Go GC 新旧实现对比](../go/internals/go-gc-old-vs-new.md) | [[go-gc-old-vs-new]] |
 | `go/internals` | [Go GC 源码导读](../go/internals/go-gc-source.md) | [[go-gc-source]] |
@@ -344,20 +373,6 @@
 | `go/internals` | [Go Map 新旧实现对比](../go/internals/go-map-old-vs-new.md) | [[go-map-old-vs-new]] |
 | `go/internals` | [Map 源码导读](../go/internals/go-map-source.md) | [[go-map-source]] |
 | `go/internals` | [Slice 源码导读](../go/internals/go-slice-source.md) | [[go-slice-source]] |
-
-## `#scheduler`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/inference` | [SGLang (SRT) 核心架构深度解析：RadixAttention、零开销重叠调度与结构化解码](../ai/inference/sglang-srt-radix-and-scheduler.md) | [[sglang-srt-radix-and-scheduler]] |
-| `cloud-native/kubernetes/components` | [kube-scheduler](../cloud-native/kubernetes/components/kube-scheduler-component.md) | [[kube-scheduler-component]] |
-| `cloud-native/kubernetes/core` | [Kube-Scheduler 深度解析](../cloud-native/kubernetes/core/scheduler-deep-dive.md) | [[scheduler-deep-dive]] |
-| `cloud-native/kubernetes/demos` | [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/demos/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/internals/scheduler-framework-source.md) | [[scheduler-framework-source]] |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/internals/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
-| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
-| `go/internals` | [GMP 调度器源码导读](../go/internals/go-gmp-source.md) | [[go-gmp-source]] |
 
 ## `#算法`
 
@@ -371,18 +386,6 @@
 | `foundations/algorithm` | [Topological Sort 拓扑排序](../foundations/algorithm/topological-sort.md) | [[topological-sort]] |
 | `foundations/algorithm` | [Trie 前缀树 Prefix Tree](../foundations/algorithm/trie.md) | [[trie]] |
 | `foundations/algorithm` | [Union-Find 并查集](../foundations/algorithm/union-find.md) | [[union-find]] |
-
-## `#ai-infra`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `cloud-native/kubernetes/core` | [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] |
-| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
-| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
-| `cloud-native/kubernetes/interview` | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] |
-| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
 
 ## `#inference`
 
@@ -403,21 +406,21 @@
 | `ai/agents` | [Agent 开发学习路线](../ai/agents/agent-development-learning-path.md) | [[agent-development-learning-path]] |
 | `ai/inference` | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] |
 | `ai/inference` | [LLM 推理学习进度](../ai/inference/llm-inference-progress.md) | [[llm-inference-progress]] |
-| `cloud-native/kubernetes/demos` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
-| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
 | `cloud-native/kubernetes/roadmaps` | [Kubernetes 开发学习路线](../cloud-native/kubernetes/roadmaps/k8s-development-roadmap.md) | [[k8s-development-roadmap]] |
 | `cloud-native/kubernetes/roadmaps` | [Kubernetes 深入学习进度](../cloud-native/kubernetes/roadmaps/progress.md) | [[progress]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi 学习路线](../cloud-native/kubernetes/scheduling/hami-learning-path.md) | [[hami-learning-path]] |
+| `cloud-native/kubernetes/scheduling` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/scheduling/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
 
 ## `#device-plugin`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] |
-| `cloud-native/kubernetes/demos` | [Device Plugin 设备插件可运行 Demo](../cloud-native/kubernetes/demos/device-plugin/demo-device-plugin.md) | [[demo-device-plugin]] |
-| `cloud-native/kubernetes/demos` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
-| `cloud-native/kubernetes/demos` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
-| `cloud-native/kubernetes/internals` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
-| `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
+| `cloud-native/kubernetes/node-runtime` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/node-runtime/kubelet-cri-source.md) | [[kubelet-cri-source]] |
+| `cloud-native/kubernetes/scheduling` | [Device Plugin](../cloud-native/kubernetes/scheduling/device-plugin-component.md) | [[device-plugin-component]] |
+| `cloud-native/kubernetes/scheduling` | [Device Plugin 设备插件可运行 Demo](../cloud-native/kubernetes/scheduling/device-plugin/demo-device-plugin.md) | [[demo-device-plugin]] |
+| `cloud-native/kubernetes/scheduling` | [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] |
+| `cloud-native/kubernetes/scheduling` | [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/scheduling/gpu-scheduling-source.md) | [[gpu-scheduling-source]] |
+| `cloud-native/kubernetes/scheduling` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
 
 ## `#kafka`
 
@@ -434,29 +437,29 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [cloud-controller-manager](../cloud-native/kubernetes/components/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] |
-| `cloud-native/kubernetes/components` | [etcd](../cloud-native/kubernetes/components/etcd-component.md) | [[etcd-component]] |
-| `cloud-native/kubernetes/components` | [kube-apiserver](../cloud-native/kubernetes/components/kube-apiserver-component.md) | [[kube-apiserver-component]] |
-| `cloud-native/kubernetes/components` | [kube-controller-manager](../cloud-native/kubernetes/components/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
-| `cloud-native/kubernetes/components` | [kube-scheduler](../cloud-native/kubernetes/components/kube-scheduler-component.md) | [[kube-scheduler-component]] |
+| `cloud-native/kubernetes/core` | [cloud-controller-manager](../cloud-native/kubernetes/core/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] |
+| `cloud-native/kubernetes/core` | [etcd](../cloud-native/kubernetes/core/etcd-component.md) | [[etcd-component]] |
+| `cloud-native/kubernetes/core` | [kube-apiserver](../cloud-native/kubernetes/core/kube-apiserver-component.md) | [[kube-apiserver-component]] |
+| `cloud-native/kubernetes/core` | [kube-controller-manager](../cloud-native/kubernetes/core/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
+| `cloud-native/kubernetes/scheduling` | [kube-scheduler](../cloud-native/kubernetes/scheduling/kube-scheduler-component.md) | [[kube-scheduler-component]] |
 
 ## `#etcd`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [etcd](../cloud-native/kubernetes/components/etcd-component.md) | [[etcd-component]] |
+| `cloud-native/kubernetes/core` | [etcd](../cloud-native/kubernetes/core/etcd-component.md) | [[etcd-component]] |
+| `cloud-native/kubernetes/core` | [etcd 源码导读](../cloud-native/kubernetes/core/etcd-source.md) | [[etcd-source]] |
 | `cloud-native/kubernetes/core` | [etcd 分布式键值存储](../cloud-native/kubernetes/core/etcd.md) | [[etcd]] |
-| `cloud-native/kubernetes/demos` | [etcd Raftexample 共识机制走读 Demo](../cloud-native/kubernetes/demos/raftexample-walkthrough/demo-raftexample-walkthrough.md) | [[demo-raftexample-walkthrough]] |
-| `cloud-native/kubernetes/demos` | [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/demos/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] |
-| `cloud-native/kubernetes/internals` | [etcd 源码导读](../cloud-native/kubernetes/internals/etcd-source.md) | [[etcd-source]] |
+| `cloud-native/kubernetes/core` | [etcd Raftexample 共识机制走读 Demo](../cloud-native/kubernetes/core/raftexample-walkthrough/demo-raftexample-walkthrough.md) | [[demo-raftexample-walkthrough]] |
+| `cloud-native/kubernetes/core` | [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/core/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] |
 
 ## `#networking`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [CNI Plugin](../cloud-native/kubernetes/components/cni-plugin-component.md) | [[cni-plugin-component]] |
-| `cloud-native/kubernetes/components` | [Ingress Controller](../cloud-native/kubernetes/components/ingress-controller-component.md) | [[ingress-controller-component]] |
-| `cloud-native/kubernetes/components` | [kube-proxy](../cloud-native/kubernetes/components/kube-proxy-component.md) | [[kube-proxy-component]] |
+| `cloud-native/kubernetes/networking` | [CNI Plugin](../cloud-native/kubernetes/networking/cni-plugin-component.md) | [[cni-plugin-component]] |
+| `cloud-native/kubernetes/networking` | [Ingress Controller](../cloud-native/kubernetes/networking/ingress-controller-component.md) | [[ingress-controller-component]] |
+| `cloud-native/kubernetes/networking` | [kube-proxy](../cloud-native/kubernetes/networking/kube-proxy-component.md) | [[kube-proxy-component]] |
 | `cloud-native/kubernetes/networking` | [kube-proxy 服务转发与代理模式](../cloud-native/kubernetes/networking/kube-proxy.md) | [[kube-proxy]] |
 | `cloud-native/kubernetes/networking` | [Kubernetes 网络模型](../cloud-native/kubernetes/networking/network-model.md) | [[network-model]] |
 
@@ -464,37 +467,37 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [CoreDNS](../cloud-native/kubernetes/components/coredns-component.md) | [[coredns-component]] |
-| `cloud-native/kubernetes/components` | [Kubernetes Dashboard](../cloud-native/kubernetes/components/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] |
-| `cloud-native/kubernetes/components` | [Logging Agent](../cloud-native/kubernetes/components/logging-agent-component.md) | [[logging-agent-component]] |
-| `cloud-native/kubernetes/components` | [Metrics Server](../cloud-native/kubernetes/components/metrics-server-component.md) | [[metrics-server-component]] |
+| `cloud-native/kubernetes/core` | [Kubernetes Dashboard](../cloud-native/kubernetes/core/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] |
+| `cloud-native/kubernetes/core` | [Logging Agent](../cloud-native/kubernetes/core/logging-agent-component.md) | [[logging-agent-component]] |
+| `cloud-native/kubernetes/core` | [Metrics Server](../cloud-native/kubernetes/core/metrics-server-component.md) | [[metrics-server-component]] |
+| `cloud-native/kubernetes/networking` | [CoreDNS](../cloud-native/kubernetes/networking/coredns-component.md) | [[coredns-component]] |
 
 ## `#cri`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Container Runtime](../cloud-native/kubernetes/components/container-runtime-component.md) | [[container-runtime-component]] |
-| `cloud-native/kubernetes/demos` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/demos/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
-| `cloud-native/kubernetes/internals` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/internals/cri-source.md) | [[cri-source]] |
-| `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
+| `cloud-native/kubernetes/node-runtime` | [Container Runtime](../cloud-native/kubernetes/node-runtime/container-runtime-component.md) | [[container-runtime-component]] |
+| `cloud-native/kubernetes/node-runtime` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/node-runtime/cri-source.md) | [[cri-source]] |
+| `cloud-native/kubernetes/node-runtime` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/node-runtime/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
+| `cloud-native/kubernetes/node-runtime` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/node-runtime/kubelet-cri-source.md) | [[kubelet-cri-source]] |
 
 ## `#hami`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/demos` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
-| `cloud-native/kubernetes/demos` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
-| `cloud-native/kubernetes/internals` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] |
-| `cloud-native/kubernetes/roadmaps` | [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi 学习路线](../cloud-native/kubernetes/scheduling/hami-learning-path.md) | [[hami-learning-path]] |
+| `cloud-native/kubernetes/scheduling` | [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] |
+| `cloud-native/kubernetes/scheduling` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/scheduling/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
+| `cloud-native/kubernetes/scheduling` | [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/scheduling/hami-source.md) | [[hami-source]] |
 
 ## `#node`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Container Runtime](../cloud-native/kubernetes/components/container-runtime-component.md) | [[container-runtime-component]] |
-| `cloud-native/kubernetes/components` | [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] |
-| `cloud-native/kubernetes/components` | [kube-proxy](../cloud-native/kubernetes/components/kube-proxy-component.md) | [[kube-proxy-component]] |
-| `cloud-native/kubernetes/components` | [kubelet](../cloud-native/kubernetes/components/kubelet-component.md) | [[kubelet-component]] |
+| `cloud-native/kubernetes/networking` | [kube-proxy](../cloud-native/kubernetes/networking/kube-proxy-component.md) | [[kube-proxy-component]] |
+| `cloud-native/kubernetes/node-runtime` | [Container Runtime](../cloud-native/kubernetes/node-runtime/container-runtime-component.md) | [[container-runtime-component]] |
+| `cloud-native/kubernetes/node-runtime` | [kubelet](../cloud-native/kubernetes/node-runtime/kubelet-component.md) | [[kubelet-component]] |
+| `cloud-native/kubernetes/scheduling` | [Device Plugin](../cloud-native/kubernetes/scheduling/device-plugin-component.md) | [[device-plugin-component]] |
 
 ## `#redis`
 
@@ -509,8 +512,8 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [kube-proxy](../cloud-native/kubernetes/components/kube-proxy-component.md) | [[kube-proxy-component]] |
 | `cloud-native/kubernetes/networking` | [Headless Service 无头服务](../cloud-native/kubernetes/networking/headless-service.md) | [[headless-service]] |
+| `cloud-native/kubernetes/networking` | [kube-proxy](../cloud-native/kubernetes/networking/kube-proxy-component.md) | [[kube-proxy-component]] |
 | `cloud-native/kubernetes/networking` | [kube-proxy 服务转发与代理模式](../cloud-native/kubernetes/networking/kube-proxy.md) | [[kube-proxy]] |
 | `cloud-native/kubernetes/networking` | [Kubernetes Service 服务暴露](../cloud-native/kubernetes/networking/service.md) | [[service]] |
 
@@ -527,7 +530,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [CSI Driver](../cloud-native/kubernetes/components/csi-driver-component.md) | [[csi-driver-component]] |
+| `cloud-native/kubernetes/storage` | [CSI Driver](../cloud-native/kubernetes/storage/csi-driver-component.md) | [[csi-driver-component]] |
 | `cloud-native/kubernetes/storage` | [CSI Sidecar 容器协作机制](../cloud-native/kubernetes/storage/csi-sidecars.md) | [[csi-sidecars]] |
 | `cloud-native/kubernetes/storage` | [CSI 存储排障指南](../cloud-native/kubernetes/storage/csi-troubleshooting.md) | [[csi-troubleshooting]] |
 | `cloud-native/kubernetes/storage` | [Kubernetes Volume 生命周期](../cloud-native/kubernetes/storage/volume-lifecycle.md) | [[volume-lifecycle]] |
@@ -541,6 +544,15 @@
 | `ai/inference` | [vLLM 与 SGLang](../ai/inference/vllm-and-sglang.md) | [[vllm-and-sglang]] |
 | `ai/inference` | [vLLM 架构演进与 V1 核心机制深度解析：统一调度、BlockPool 与 Piecewise CUDA Graph](../ai/inference/vllm-v1-architecture-and-internals.md) | [[vllm-v1-architecture-and-internals]] |
 
+## `#学习路线`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `ai` | [AI Infra 实战路线：交付一个能训练、能恢复、能服务的模型](../ai/ai-infra-fieldwork.md) | [[ai-infra-fieldwork]] |
+| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
+| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
+| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
+
 ## `#agent`
 
 | 所属领域 | 文档 | Wikilink |
@@ -553,9 +565,9 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件拆解](../cloud-native/kubernetes/components/README.md) | — |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/components/component-coverage-matrix.md) | [[component-coverage-matrix]] |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件笔记标准](../cloud-native/kubernetes/components/component-note-standard.md) | [[component-note-standard]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/roadmaps/component-coverage-matrix.md) | [[component-coverage-matrix]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件笔记标准](../cloud-native/kubernetes/roadmaps/component-note-standard.md) | [[component-note-standard]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件拆解](../cloud-native/kubernetes/roadmaps/k8s-component-map.md) | [[k8s-component-map]] |
 
 ## `#concurrency`
 
@@ -601,9 +613,9 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [kubelet](../cloud-native/kubernetes/components/kubelet-component.md) | [[kubelet-component]] |
-| `cloud-native/kubernetes/demos` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/demos/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
-| `cloud-native/kubernetes/internals` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] |
+| `cloud-native/kubernetes/node-runtime` | [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/node-runtime/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] |
+| `cloud-native/kubernetes/node-runtime` | [kubelet](../cloud-native/kubernetes/node-runtime/kubelet-component.md) | [[kubelet-component]] |
+| `cloud-native/kubernetes/node-runtime` | [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/node-runtime/kubelet-cri-source.md) | [[kubelet-cri-source]] |
 
 ## `#lora`
 
@@ -633,9 +645,9 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
+| `cloud-native/kubernetes/core` | [controller-runtime 源码导读](../cloud-native/kubernetes/core/controller-runtime-source.md) | [[controller-runtime-source]] |
+| `cloud-native/kubernetes/core` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/core/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
 | `cloud-native/kubernetes/core` | [Kubernetes Operator 模式](../cloud-native/kubernetes/core/operator-pattern.md) | [[operator-pattern]] |
-| `cloud-native/kubernetes/demos` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/demos/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
-| `cloud-native/kubernetes/internals` | [controller-runtime 源码导读](../cloud-native/kubernetes/internals/controller-runtime-source.md) | [[controller-runtime-source]] |
 
 ## `#prefill`
 
@@ -649,9 +661,9 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/demos` | [etcd Raftexample 共识机制走读 Demo](../cloud-native/kubernetes/demos/raftexample-walkthrough/demo-raftexample-walkthrough.md) | [[demo-raftexample-walkthrough]] |
-| `cloud-native/kubernetes/demos` | [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/demos/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] |
-| `cloud-native/kubernetes/internals` | [etcd 源码导读](../cloud-native/kubernetes/internals/etcd-source.md) | [[etcd-source]] |
+| `cloud-native/kubernetes/core` | [etcd 源码导读](../cloud-native/kubernetes/core/etcd-source.md) | [[etcd-source]] |
+| `cloud-native/kubernetes/core` | [etcd Raftexample 共识机制走读 Demo](../cloud-native/kubernetes/core/raftexample-walkthrough/demo-raftexample-walkthrough.md) | [[demo-raftexample-walkthrough]] |
+| `cloud-native/kubernetes/core` | [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/core/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] |
 
 ## `#分布式训练`
 
@@ -659,15 +671,7 @@
 | --- | --- | --- |
 | `ai/foundations` | [一次参数更新：从矩阵梯度到有效 token](../ai/foundations/training-step-and-gradients.md) | [[training-step-and-gradients]] |
 | `ai/training` | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] |
-| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
-
-## `#学习路线`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `ai/foundations` | [LLM 零基础学习路线](../ai/foundations/llm-learning-path.md) | [[llm-learning-path]] |
-| `ai/kernels` | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] |
-| `ai/kernels` | [FlashInfer 系统学习路线与实验工作流](../ai/kernels/flashinfer-learning-roadmap.md) | [[flashinfer-learning-roadmap]] |
+| `cloud-native/kubernetes/scheduling` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/scheduling/training-job-placement.md) | [[training-job-placement]] |
 
 ## `#cilium`
 
@@ -680,22 +684,22 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/demos` | [Sample Controller 源码走读与可运行 Demo](../cloud-native/kubernetes/demos/sample-controller/demo-sample-controller.md) | [[demo-sample-controller]] |
-| `cloud-native/kubernetes/internals` | [client-go 源码导读](../cloud-native/kubernetes/internals/client-go-source.md) | [[client-go-source]] |
+| `cloud-native/kubernetes/core` | [client-go 源码导读](../cloud-native/kubernetes/core/client-go-source.md) | [[client-go-source]] |
+| `cloud-native/kubernetes/core` | [Sample Controller 源码走读与可运行 Demo](../cloud-native/kubernetes/core/sample-controller/demo-sample-controller.md) | [[demo-sample-controller]] |
 
 ## `#cloud`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [cloud-controller-manager](../cloud-native/kubernetes/components/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] |
+| `cloud-native/kubernetes/core` | [cloud-controller-manager](../cloud-native/kubernetes/core/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] |
 | `cloud-native/kubernetes/storage` | [云厂商 CSI 存储驱动](../cloud-native/kubernetes/storage/cloud-provider-csi.md) | [[cloud-provider-csi]] |
 
 ## `#controller-runtime`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/demos` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/demos/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
-| `cloud-native/kubernetes/internals` | [controller-runtime 源码导读](../cloud-native/kubernetes/internals/controller-runtime-source.md) | [[controller-runtime-source]] |
+| `cloud-native/kubernetes/core` | [controller-runtime 源码导读](../cloud-native/kubernetes/core/controller-runtime-source.md) | [[controller-runtime-source]] |
+| `cloud-native/kubernetes/core` | [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/core/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] |
 
 ## `#cutlass`
 
@@ -834,7 +838,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/demos` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
+| `cloud-native/kubernetes/scheduling` | [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/scheduling/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] |
 | `foundations/algorithm` | [排序算法总结 Sorting Overview](../foundations/algorithm/sorting-overview.md) | [[sorting-overview]] |
 
 ## `#打卡`
@@ -876,7 +880,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Admission Webhook](../cloud-native/kubernetes/components/admission-webhook-component.md) | [[admission-webhook-component]] |
+| `cloud-native/kubernetes/core` | [Admission Webhook](../cloud-native/kubernetes/core/admission-webhook-component.md) | [[admission-webhook-component]] |
 
 ## `#advanced`
 
@@ -894,7 +898,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [kube-apiserver](../cloud-native/kubernetes/components/kube-apiserver-component.md) | [[kube-apiserver-component]] |
+| `cloud-native/kubernetes/core` | [kube-apiserver](../cloud-native/kubernetes/core/kube-apiserver-component.md) | [[kube-apiserver-component]] |
 
 ## `#borg`
 
@@ -960,13 +964,13 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/core` | [OCI 容器运行时规范（runc）](../cloud-native/kubernetes/core/oci-runtime.md) | [[oci-runtime]] |
+| `cloud-native/kubernetes/node-runtime` | [OCI 容器运行时规范（runc）](../cloud-native/kubernetes/node-runtime/oci-runtime.md) | [[oci-runtime]] |
 
 ## `#containerd`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/internals` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/internals/cri-source.md) | [[cri-source]] |
+| `cloud-native/kubernetes/node-runtime` | [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/node-runtime/cri-source.md) | [[cri-source]] |
 
 ## `#context`
 
@@ -978,7 +982,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [kube-controller-manager](../cloud-native/kubernetes/components/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
+| `cloud-native/kubernetes/core` | [kube-controller-manager](../cloud-native/kubernetes/core/kube-controller-manager-component.md) | [[kube-controller-manager-component]] |
 
 ## `#crd`
 
@@ -1008,7 +1012,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Kubernetes Dashboard](../cloud-native/kubernetes/components/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] |
+| `cloud-native/kubernetes/core` | [Kubernetes Dashboard](../cloud-native/kubernetes/core/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] |
 
 ## `#database`
 
@@ -1026,7 +1030,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [CoreDNS](../cloud-native/kubernetes/components/coredns-component.md) | [[coredns-component]] |
+| `cloud-native/kubernetes/networking` | [CoreDNS](../cloud-native/kubernetes/networking/coredns-component.md) | [[coredns-component]] |
 
 ## `#dockerfile`
 
@@ -1050,7 +1054,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Admission Webhook](../cloud-native/kubernetes/components/admission-webhook-component.md) | [[admission-webhook-component]] |
+| `cloud-native/kubernetes/core` | [Admission Webhook](../cloud-native/kubernetes/core/admission-webhook-component.md) | [[admission-webhook-component]] |
 
 ## `#fine-tuning`
 
@@ -1074,7 +1078,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/internals/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/scheduling/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
 
 ## `#go底层实现`
 
@@ -1098,19 +1102,13 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Ingress Controller](../cloud-native/kubernetes/components/ingress-controller-component.md) | [[ingress-controller-component]] |
+| `cloud-native/kubernetes/networking` | [Ingress Controller](../cloud-native/kubernetes/networking/ingress-controller-component.md) | [[ingress-controller-component]] |
 
 ## `#interface`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
 | `go/fundamentals` | [Interface 与 reflect](../go/fundamentals/interface.md) | [[interface]] |
-
-## `#internals`
-
-| 所属领域 | 文档 | Wikilink |
-| --- | --- | --- |
-| `go/internals` | [Go Runtime 源码学习索引](../go/internals/README.md) | — |
 
 ## `#interview`
 
@@ -1152,7 +1150,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件拆解](../cloud-native/kubernetes/components/README.md) | — |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件拆解](../cloud-native/kubernetes/roadmaps/k8s-component-map.md) | [[k8s-component-map]] |
 
 ## `#LFU`
 
@@ -1170,7 +1168,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Logging Agent](../cloud-native/kubernetes/components/logging-agent-component.md) | [[logging-agent-component]] |
+| `cloud-native/kubernetes/core` | [Logging Agent](../cloud-native/kubernetes/core/logging-agent-component.md) | [[logging-agent-component]] |
 
 ## `#longhorn`
 
@@ -1194,7 +1192,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/components/component-coverage-matrix.md) | [[component-coverage-matrix]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/roadmaps/component-coverage-matrix.md) | [[component-coverage-matrix]] |
 
 ## `#megatron`
 
@@ -1218,7 +1216,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Metrics Server](../cloud-native/kubernetes/components/metrics-server-component.md) | [[metrics-server-component]] |
+| `cloud-native/kubernetes/core` | [Metrics Server](../cloud-native/kubernetes/core/metrics-server-component.md) | [[metrics-server-component]] |
 
 ## `#middleware`
 
@@ -1272,7 +1270,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/core` | [OCI 容器运行时规范（runc）](../cloud-native/kubernetes/core/oci-runtime.md) | [[oci-runtime]] |
+| `cloud-native/kubernetes/node-runtime` | [OCI 容器运行时规范（runc）](../cloud-native/kubernetes/node-runtime/oci-runtime.md) | [[oci-runtime]] |
 
 ## `#openebs`
 
@@ -1308,7 +1306,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/internals` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/internals/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
+| `cloud-native/kubernetes/scheduling` | [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/scheduling/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] |
 
 ## `#ppo`
 
@@ -1320,7 +1318,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/core` | [Pod 健康检查探针（Probes）](../cloud-native/kubernetes/core/probes.md) | [[probes]] |
+| `cloud-native/kubernetes/node-runtime` | [Pod 健康检查探针（Probes）](../cloud-native/kubernetes/node-runtime/probes.md) | [[probes]] |
 
 ## `#production`
 
@@ -1452,7 +1450,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/components` | [Kubernetes 组件笔记标准](../cloud-native/kubernetes/components/component-note-standard.md) | [[component-note-standard]] |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 组件笔记标准](../cloud-native/kubernetes/roadmaps/component-note-standard.md) | [[component-note-standard]] |
 
 ## `#stdlib`
 
@@ -1542,13 +1540,13 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/core` | [Velero 集群备份与恢复](../cloud-native/kubernetes/core/velero.md) | [[velero]] |
+| `cloud-native/kubernetes/storage` | [Velero 集群备份与恢复](../cloud-native/kubernetes/storage/velero.md) | [[velero]] |
 
 ## `#volcano`
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/internals` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] |
+| `cloud-native/kubernetes/scheduling` | [Volcano 批调度器源码导读](../cloud-native/kubernetes/scheduling/volcano-source.md) | [[volcano-source]] |
 
 ## `#weave`
 
@@ -1622,6 +1620,12 @@
 | --- | --- | --- |
 | `ai/agents` | [生产级 Agent 开发](../ai/agents/production-agent-development.md) | [[production-agent-development]] |
 
+## `#实验`
+
+| 所属领域 | 文档 | Wikilink |
+| --- | --- | --- |
+| `cloud-native/kubernetes/roadmaps` | [Kubernetes 实验环境与历史验证](../cloud-native/kubernetes/roadmaps/k8s-lab-environments.md) | [[k8s-lab-environments]] |
+
 ## `#导航`
 
 | 所属领域 | 文档 | Wikilink |
@@ -1692,7 +1696,7 @@
 
 | 所属领域 | 文档 | Wikilink |
 | --- | --- | --- |
-| `cloud-native/kubernetes/core` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] |
+| `cloud-native/kubernetes/scheduling` | [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/scheduling/training-job-placement.md) | [[training-job-placement]] |
 
 ## `#链表`
 

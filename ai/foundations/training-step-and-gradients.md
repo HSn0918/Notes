@@ -34,6 +34,6 @@
 
 ## 验证与参考
 
-运行[不等长分片梯度实验](../experiments/sharded-gradient/README.md)：先用中心差分验证每个权重，再用 1:3 的分片对照同一完整 batch。它验证的是数值目标，而不是 DDP 或 NCCL 实现。
+运行[不等长分片梯度实验](../training/sharded-gradient/README.md)：先用中心差分验证每个权重，再用 1:3 的分片对照同一完整 batch。它验证的是数值目标，而不是 DDP 或 NCCL 实现。
 
 实现对照：[PyTorch 训练循环](https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html)、[CrossEntropyLoss](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html)、[DistributedDataParallel](https://docs.pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html)。换用类别加权、其他归约或自定义通信 hook 时需要重新推导分母。

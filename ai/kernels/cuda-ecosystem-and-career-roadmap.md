@@ -361,7 +361,7 @@ flowchart TD
 
 - **核心阅读**：[[flashinfer-vllm-sglang-learning-path]] → [[vllm-v1-architecture-and-internals]] → [[sglang-srt-radix-and-scheduler]]。
 - **高性价比“Mac 本地 + 按需云端 GPU”开发工作流**：
-  - 90% 的源码阅读、调用链追踪、方案设计与纯 Python 寻址/数值原型验证（如 `ai/experiments/` 下的离线脚本）全部在本地 Mac 上零成本完成；
+  - 90% 的源码阅读、调用链追踪、方案设计与纯 Python 寻址/数值原型验证（如[分块与索引实验](online-softmax-and-split-kv/README.md)）全部在本地 Mac 上零成本完成；
   - 攒好明确验证清单后，按小时租用云端 Ampere/Hopper 实例（1~2 小时即可跑完 `pytest`、`compute-sanitizer`、`flashinfer_benchmark.py --refcheck` 与 `ncu` 截图），成本极低却极具工程纪律。
 - **如何在 FlashInfer / vLLM / SGLang 找到第一个高质量 PR 切入点**：
   1. **Good First Issues & 边界 Bug 修复**：搜索标签 `good first issue`、`bug` 或非典型形状边界问题（如特殊 `head_dim`、空 Batch / 零长度切片下的 `NaN`、CUDA Graph 捕获泄漏、混卡架构校验）；

@@ -15,28 +15,21 @@ flowchart TD
     T --> Q["Review / Interview"]
 ```
 
-## 为什么重构
+## 目录如何服务学习
 
-### 2026-08 领域化重构
+**归档按系统，入门按任务。** AI 下区分模型基础、训练、GPU 算子、推理服务、后训练和 Agent；Kubernetes 下区分控制面、调度、节点运行时、网络和存储。一个子系统的机制、源码、实验是同一件事的不同深度，不是三个平行体系。Go 的语义与版本化实现保留双视图，工程基础继续按算法、数据、消息与工具查找。
 
-旧结构把路线、源码、组件、排障、Demo 和题库集中到一个跨领域目录；同一主题又在领域目录中存在概念页，造成两套导航、职责重复和首页过载，因此拆分为按领域归属的布局。
+[实战路线](../ai/ai-infra-fieldwork.md)负责连接不同系统，不拥有它们的代码。只有代码/数据/手册必须一起使用时才创建实验目录；单篇原理或一次学习记录不再新建多级分类。[学习方法](learning-by-doing.md)记录研究依据、适用边界和一条写好的复盘。
 
-### 2026-11 四支柱扁平化与 FTS5 检索重建
+### 旧入口迁移
 
-随着学习重心演进为 **AI Infra & Systems Full-Stack**（新增 `ai/kernels/` 深入 GPU 算子与 FlashInfer 源码），原结构暴露出三类新问题：顶层分散 7 个大小极不均衡的目录、Kubernetes 下 6 个仅含 1~4 篇笔记的微型子目录带来多余点击、根目录残留 333 MB `node_modules/` 拖慢检索。本轮重构完成了：
+| 原先去哪里找 | 现在怎么找 |
+| --- | --- |
+| AI experiments | 数学实验在模型基础，梯度与恢复在训练，Split-KV 在算子，服务基准在推理，LoRA 与策略梯度在后训练。找任务用[实战路线](../ai/ai-infra-fieldwork.md) |
+| Kubernetes core 里的 GPU/调度、容器运行与备份 | 分别进入[调度](../cloud-native/kubernetes/scheduling/README.md)、[节点运行时](../cloud-native/kubernetes/node-runtime/README.md)、[存储](../cloud-native/kubernetes/storage/README.md) |
+| Kubernetes components、internals、demos | 正文与完整实验包搬到各子系统；按形式回查仍有[组件地图](../cloud-native/kubernetes/roadmaps/k8s-component-map.md)、[源码地图](../cloud-native/kubernetes/roadmaps/k8s-source-map.md)、[实验环境表](../cloud-native/kubernetes/roadmaps/k8s-lab-environments.md) |
 
-1. 清理根目录下未使用的 `node_modules/`、`package.json`、`package-lock.json` 及历史一次性迁移脚本。
-2. 顶层收拢为四大支柱：`ai/`、`cloud-native/`、`go/`、`foundations/`（合并原 `algorithm/`、`database/`、`middleware/`、`misc/` 并扁平化内部子目录）。
-3. `cloud-native/docker/` 规范化为 `cloud-native/containers/`；Kubernetes 下 6 个微型子目录合并为 `cloud-native/kubernetes/core/`；`go/` 下散落笔记统一收敛到 `go/fundamentals/`。
-4. 为全部历史内容笔记补齐 `# H1` 一级标题，配合持久化 SQLite FTS5 全文索引（`.traces/notes_fts.sqlite3`）、[全库知识速查索引](catalog.md) 与 [全库标签聚合索引](tags.md) 实现毫秒级检索与 1-hop 跳转。
-
-### 2026-11 AI 全栈知识树升级（数学底座 → CUDA 生态 → FlashInfer → 双推理引擎）
-
-在原有数据流与 FlashInfer 源码导读基础上，进一步消除从“零散概念”跨入“底层算子与现代推理引擎内核”之间的断层，将 `ai/` 体系打通为纵横正交的完整闭环：
-
-1. **补齐大模型专属数学底座（`ai/foundations/`）**：新增面向大模型的线性代数（几何投影、矩阵乘法四视角与 Block GEMM 分块、高维张量 `Shape/Stride` 与向量化访存布局）与高等代数（秩与矩阵结合律 MLA 权重吸收、正交旋转与 RoPE、特征谱与残差/Pre-Norm、SVD 与 LoRA/KV 低秩压缩），配套零依赖离线实验 `ai/experiments/llm-math-and-simd-lab/`，无需盲啃整本数学教材即可掌握底层核心不变量。
-2. **铺设并行硬件演进与 CUDA 全景生态阶梯（`ai/kernels/`）**：新增 CPU SIMD → GPU SIMT / Tensor Core 底层并行模型、CUDA 全景软件栈与算子工程师进阶路线（PTX/SASS、CCCL/CUB、CUTLASS/CuTe、Triton、`nsys`/`ncu`）以及 FlashInfer 分页寻址手算与 `Plan-Run` 对接桥梁，将算子专题重组为“硬件与生态筑基 → 通俗桥梁与工作流 → FlashInfer v0.7.3 源码深潜”三层平滑阶梯。
-3. **形成“一纵一横”全栈推理架构深潜（`ai/inference/`）**：纵向新增 FlashInfer × vLLM × SGLang 全栈统一学习路线，并分别深入拆解 vLLM V1（统一 Token 预算调度、Hash Block Prefix Cache、Piecewise CUDA Graph）与 SGLang SRT（三进程解耦、RadixCache 压缩前缀树、Zero-Overhead Overlap Scheduler、Compressed FSM / XGrammar 结构化解码）；横向与分布式多级 KV Store、PD 分离及 K8s Inference Router 学习路线互补。
+普通笔记保留 basename，Obsidian 可继续按笔记名定位。仓库内相对链接、命令和索引跟随迁移更新；仓库外硬编码的旧路径不会自动转发。找不到旧文件时，先按标题或 basename 搜索。
 
 ## Canonical 内容与辅助视图
 
@@ -51,11 +44,11 @@ flowchart TD
 
 ## MOC 层级
 
-- L0：根 `README.md`，只链接四大支柱入口与全局快速检索入口。
+- L0：根 `README.md`，只保留一条开场实验命令、四大支柱与文档查询入口。
 - L1：支柱 `README.md`，链接内部主题入口。
 - L2：主题 MOC，覆盖责任范围内的知识文件。
 
-新增一篇普通笔记通常只更新最近的 L2/L1 MOC，再运行 `python3 scripts/search_notes.py --rebuild-catalog` 同步全局速查索引。
+可达性从手写导航检查；全库生成索引不能替代子系统入口。新增一篇普通笔记通常只更新最近的 L2/L1 MOC，再运行 `python3 scripts/search_notes.py --rebuild-catalog` 同步全局速查索引。
 
 ## 快速检索与全局索引（1-hop）
 
@@ -88,3 +81,4 @@ flowchart TD
 | 2026-08-13 | 领域化重构：旧跨领域学习目录拆分到 `ai/`、`go/internals/` 与 `cloud-native/kubernetes/{components,internals,roadmaps,demos,interview,networking,storage}/`；Scheduler Assume 笔记合入 `scheduler-deep-dive.md` |
 | 2026-11-17 | 四支柱扁平化与 FTS5 重建：新增 `ai/kernels/`；`cloud-native/docker/` 迁至 `cloud-native/containers/`；Kubernetes 6 个微目录合并至 `cloud-native/kubernetes/core/`；`go/*.md` 收敛至 `go/fundamentals/`；`algorithm/`、`database/`、`middleware/`、`misc/` 扁平收拢至 `foundations/` |
 | 2026-11-17 | AI 全栈知识树闭环升级：`ai/foundations/` 新增 LLM 专属线代/高代笔记及 `llm-math-and-simd-lab` 离线实验；`ai/kernels/` 新增 SIMD→SIMT、CUDA 全景生态与 FlashInfer 通俗桥梁并重排为三阶梯队；`ai/inference/` 新增三剑客全栈路线、vLLM V1 与 SGLang SRT 深度解析并清理历史非法 Mermaid 语法 |
+| 2026-11-21 | 实验、组件和源码按实际子系统归位；课程改为训练正确性、放置、恢复与服务的可验证任务 |

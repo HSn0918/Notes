@@ -1,6 +1,6 @@
 #ai #llm #flashinfer #cuda #learning-path #学习路线
 
-相关笔记：[[gpu-execution-and-memory-model]] | [[flashinfer-architecture-and-jit]] | [[flashinfer-norm-and-sampling-source]] | [[flashinfer-paged-kv-and-decode-source]] | [[flashinfer-ragged-prefill-and-mla-source]] | [[llm-inference-learning-path]] | [Online Softmax 与 Split-KV 离线实验](../experiments/online-softmax-and-split-kv/README.md)
+相关笔记：[[gpu-execution-and-memory-model]] | [[flashinfer-architecture-and-jit]] | [[flashinfer-norm-and-sampling-source]] | [[flashinfer-paged-kv-and-decode-source]] | [[flashinfer-ragged-prefill-and-mla-source]] | [[llm-inference-learning-path]] | [Online Softmax 与 Split-KV 离线实验](online-softmax-and-split-kv/README.md)
 
 # FlashInfer 系统学习路线与实验工作流
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ### Mac 本地环境能做什么、不能做什么
 
-- **能做**：完整精读全部 Python 调度、JIT 模板生成、TVM-FFI 绑定与 CUDA C++ `.cuh` 内核代码；运行不依赖 CUDA 驱动的纯 Python 机制实验（如 [Online Softmax 与 Split-KV 离线实验](../experiments/online-softmax-and-split-kv/README.md)）以及纯 CPU 协调/缓存逻辑测试（如 `pytest --confcutdir=tests/test_sharding tests/test_sharding/` 或 `tests/cpu/` 中不触发 CUDA 设备探测的纯 Python 测试）。
+- **能做**：完整精读全部 Python 调度、JIT 模板生成、TVM-FFI 绑定与 CUDA C++ `.cuh` 内核代码；运行不依赖 CUDA 驱动的纯 Python 机制实验（如 [Online Softmax 与 Split-KV 离线实验](online-softmax-and-split-kv/README.md)）以及纯 CPU 协调/缓存逻辑测试（如 `pytest --confcutdir=tests/test_sharding tests/test_sharding/` 或 `tests/cpu/` 中不触发 CUDA 设备探测的纯 Python 测试）。
 - **不能做**：Mac 没有 NVIDIA GPU 与 `nvcc`/CUDA Driver，无法编译 `.cu` 为 `.so` 或执行任何 GPU Kernel，切勿把 Mac 上“Python 文件语法检查通过”当作算子可执行或通过验证。
 
 ### 云端 GPU 环境准备要点
@@ -95,7 +95,7 @@ pip install -U cupti-python
 - **Mac 阶段产出**：
   - 运行离线验证脚本，核对 `paged_kv_t` NHD 寻址与 Split-KV 任意切分归并的最大误差 `< 1e-12`：
     ```bash
-    python3 ai/experiments/online-softmax-and-split-kv/online_softmax_split_kv_lab.py
+    python3 ai/kernels/online-softmax-and-split-kv/online_softmax_split_kv_lab.py
     ```
   - 写出 `plan()` 阶段 CPU 调度元信息生成与 `run()` 阶段 CUDA Graph 缓冲区生命周期的边界说明（参考 `CLAUDE.md` 中“Attention plan and CUDA Graph lifetime”约束）。
 - **云端 GPU 实操**：

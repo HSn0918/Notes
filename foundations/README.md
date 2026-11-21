@@ -1,14 +1,27 @@
-# 计算机与后端工程基石
+# 工程基础：任务没启动，不一定是 GPU 不够
 
-> ⬆ 返回 [知识库首页](../README.md)
+一个训练流水线有三个步骤：准备数据、训练、写 checkpoint。假如有人把最后一步的完成事件误接为第一步的前置条件，所有步骤都会等。用 Python 标准库看正常和异常两条路径：
 
-本支柱汇总长期沉淀的通用计算机基础与后端工程组件知识，涵盖算法与数据结构、数据库存储与事务、消息中间件与分布式事务，以及日常终端工具速查。
+```bash
+python3 - <<'PYTHON'
+from graphlib import CycleError, TopologicalSorter
+deps = {"prepare": (), "train": ("prepare",), "save": ("train",)}
+print(tuple(TopologicalSorter(deps).static_order()))
+deps["prepare"] = ("save",)
+try:
+    tuple(TopologicalSorter(deps).static_order())
+except CycleError as error:
+    print("cycle:", error.args[1])
+PYTHON
+```
 
-## 模块入口
+第一行给出合法的执行顺序；第二行打印依赖环。还没有可运行的任务，调度器即使有空卡也帮不上忙。用[拓扑排序](algorithm/topological-sort.md)解释这两次结果。
 
-| 模块 | 入口 | 核心主题 |
-| --- | --- | --- |
-| 算法与数据结构 | [Algorithm 学习索引](algorithm/README.md) | 搜索与图论、排序、前缀和/滑动窗口/位运算、动态规划、LRU/LFU、KMP/Trie |
-| 数据库系统 | [Database 学习索引](database/README.md) | MySQL (InnoDB/B+Tree/MVCC/锁)、Redis (结构/持久化/高可用)、PostgreSQL、Elasticsearch |
-| 消息中间件与分布式事务 | [Middleware 学习索引](middleware/README.md) | Kafka (架构/分区/压缩/零丢失)、NATS JetStream、Canal Binlog、2PC/TCC/Saga |
-| 终端与效率工具 | [Tools 工具笔记](tools/README.md) | Zsh 与 iTerm2 高效快捷键 |
+接下来按症状选：
+
+- [算法与数据结构](algorithm/README.md)：依赖排序、队列、缓存淘汰该选什么结构。
+- [数据库](database/README.md)：状态查询慢，先分清扫描、锁等待与缓存。
+- [消息与一致性](middleware/README.md)：同一完成事件被消费两次，从发送、确认和提交位置逐段查。
+- [终端操作](tools/README.md)：找回上一次的诊断命令，不用重打一遍。
+
+[返回首页](../README.md)

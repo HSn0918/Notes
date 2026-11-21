@@ -1,75 +1,22 @@
-# 算法 (Algorithm) · 学习索引
+# 算法：按手头的问题选工具
 
-算法学习的核心不是背模板，而是建立“数据结构—状态—复杂度—边界条件”的解题模型。本索引覆盖搜索图论、排序、常用技巧、动态规划、核心数据结构与字符串匹配六个方向，面试题只作为检验理解的一种方式。
+先做[工程基础首页的依赖环实验](../README.md)，再读[拓扑排序](topological-sort.md)。把一条边反过来，画出再也不能降到零的入度。其余算法不用按课表通读。
 
-> ⬆ 返回 [工程基石索引](../README.md)
+## 查图、路径与候选解
 
-## 推荐学习顺序
+- 按层找最近节点用 [BFS](bfs.md)，沿一条路径找到底用 [DFS](dfs.md)；[图遍历案例](graph-bfs-dfs.md)对照两者。
+- 边带非负权时查 [Dijkstra](dijkstra.md)；反复判断两个节点是否连通查[并查集](union-find.md)；树上找共同祖先查 [LCA](lca.md)。
+- 在有序区间找边界，先写出[二分查找](binary-search.md)的不变量。要枚举选择并撤销，则是[回溯](backtracking.md)。
 
-**入门（搭骨架，先建立遍历与排序的基本直觉）**
-Binary Search 二分查找 → BFS 广度优先搜索 → DFS 深度优先搜索 → 链表 Linked List → Sorting 排序算法总结 → Quick Sort 快速排序 → Merge Sort 归并排序
+## 查序列、区间与状态
 
-**进阶（高频考点，从模板套用到独立建模）**
-Backtracking 回溯算法 → 前缀和 Prefix Sum → 差分数组 Difference Array → 滑动窗口 Sliding Window → 单调栈 Monotonic Stack → House Robber 打家劫舍（DP 入门）→ Heap Sort 堆排序 → XOR 异或运算 → Bitwise AND 位运算技巧 → LRU Cache
+- 多次查区间和用[前缀和](prefix-sum.md)，多次改一段区间用[差分](diff-array.md)；窗口边界移动查[滑动窗口](sliding-window.md)，找下一个更大值查[单调栈](monotonic-stack.md)。
+- 从[不能相邻选取](house-robber.md)练习状态转移，再对比[可以重复选取](unbounded-knapsack.md)。位运算按需要选[异或](xor.md)或[按位与](bitwise-and.md)。
+- 需要排序先比较[稳定性、空间和输入分布](sorting-overview.md)，再选[快排](quick-sort.md)、[归并](merge-sort.md)、[堆排](heap-sort.md)或[基数排序](radix-sort.md)。
 
-**深入（区分度高，理解门槛与建模难度较大）**
-图论 BFS/DFS 应用 → Topological Sort 拓扑排序 → Dijkstra 最短路径 → Union-Find 并查集 → LCA 最低公共祖先 → Unbounded Knapsack 完全背包 → Radix Sort 基数排序 → LFU Cache → Trie 前缀树 → KMP 字符串匹配
+## 查缓存与字符串
 
-## 笔记清单
+- 对访问序列 `A B A C` 手推一次淘汰，区分[最近没用](lru.md)和[使用频率低](lfu.md)；维护顺序时回查[链表](linked-list.md)。
+- 一批词共享前缀查 [Trie](trie.md)，单个模式的连续匹配查 [KMP](kmp.md)。
 
-### 搜索与图论
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [BFS 广度优先搜索](bfs.md) | 用 queue 逐层遍历图/树，FIFO 扩展邻居，适合求无权图最短路径与层序遍历 | 入门 |
-| [DFS 深度优先搜索](dfs.md) | 用递归或 stack 尽可能深入再回溯，遍历图/树的所有路径，是回溯与连通性问题的基础 | 入门 |
-| [Backtracking 回溯算法](backtracking.md) | 基于 DFS 穷举所有选择，做选择-递归-撤销选择，解决排列组合、子集等搜索问题 | 进阶 |
-| [Binary Search 二分查找](binary-search.md) | 在有序数组中 O(log n) 定位目标，处理第一次/最后一次出现等边界变体 | 入门 |
-| [LCA 最低公共祖先](lca.md) | 在二叉树/BST 中后序递归查找两节点最近共同祖先，含多种树结构变种 | 进阶 |
-| [图论基础与 BFS/DFS 应用](graph-bfs-dfs.md) | 讲解邻接矩阵/邻接表表示及 BFS/DFS 在图遍历、连通性问题上的落地 | 进阶 |
-| [Dijkstra 最短路径](dijkstra.md) | 基于贪心+松弛的单源最短路径算法，适用于非负边权加权图 | 深入 |
-| [Topological Sort 拓扑排序](topological-sort.md) | 对 DAG 做线性排序，Kahn 入度法与 DFS 逆后序两种实现，可检测环 | 深入 |
-| [Union-Find 并查集](union-find.md) | 管理元素分组的数据结构，路径压缩+按秩合并把 Union/Find 降到近 O(1) | 深入 |
-
-### 排序
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [排序算法总结 Sorting Overview](sorting-overview.md) | 对比八大排序的时间/空间复杂度与稳定性，建立排序选型全局视图 | 入门 |
-| [Quick Sort 快速排序](quick-sort.md) | 分治+随机 pivot 分区，结合荷兰国旗三路分区处理重复元素，平均 O(N logN) | 进阶 |
-| [Merge Sort 归并排序](merge-sort.md) | 分治归并的稳定 O(N logN) 排序，附 Master 公式推导递归复杂度 | 进阶 |
-| [Heap Sort 堆排序](heap-sort.md) | 基于完全二叉树的大/小根堆，数组实现的原地 O(N logN) 排序 | 进阶 |
-| [Radix Sort 基数排序](radix-sort.md) | 非比较型整数排序，按位用计数排序稳定分配，达到线性时间复杂度 | 深入 |
-
-### 技巧
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [前缀和 Prefix Sum](prefix-sum.md) | 预处理累加和实现 O(1) 区间求和，常配合 HashMap 解子数组和问题 | 进阶 |
-| [差分数组 Difference Array](diff-array.md) | 前缀和的逆运算，把区间批量加操作优化为 O(1)，适合频繁区间修改 | 进阶 |
-| [滑动窗口 Sliding Window](sliding-window.md) | 双指针维护动态区间，解决子串/子数组最优化问题，模板化收缩窗口 | 进阶 |
-| [单调栈 Monotonic Stack](monotonic-stack.md) | 维护单调递增/减的栈，O(N) 解决 Next Greater Element 类问题 | 进阶 |
-| [XOR 异或运算](xor.md) | 无进位相加性质，靠成对抵消找出唯一/奇数次出现的数，区间异或和技巧 | 进阶 |
-| [位运算 AND 技巧 Bitwise AND](bitwise-and.md) | 利用 n&(n-1) 消除最低位 1，Brian Kernighan 算法高效统计 1 的个数 | 进阶 |
-
-### 动态规划
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [打家劫舍 House Robber](house-robber.md) | 经典线性 DP，不能偷相邻房屋，f(i)=max(f(i-1), f(i-2)+nums[i]) 状态转移 | 进阶 |
-| [完全背包 Unbounded Knapsack](unbounded-knapsack.md) | 物品可无限选取，靠内层容量从小到大遍历实现重复选取的背包 DP | 深入 |
-
-### 数据结构
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [LRU Cache 最近最少使用缓存](lru.md) | HashMap + 双向链表实现 O(1) 读写，淘汰最久未访问条目，高频手撕题 | 进阶 |
-| [LFU Cache 最不经常使用缓存](lfu.md) | 按访问频率淘汰，频率桶+双向链表+minFreq 维持 O(1) 读写，难度高于 LRU | 深入 |
-| [链表 Linked List](linked-list.md) | 线性指针结构，dummy head、快慢指针、迭代反转等高频技巧汇总 | 入门 |
-
-### 字符串
-
-| 笔记 | 简介 | 难度 |
-|------|------|------|
-| [KMP 字符串匹配](kmp.md) | 靠 next 前缀函数避免文本指针回退，把字符串匹配优化到 O(n+m) | 深入 |
-| [Trie 前缀树 Prefix Tree](trie.md) | 树形结构存储字符串集合，前缀查询 O(m) 与集合大小无关，适合自动补全 | 深入 |
+[返回工程基础](../README.md)

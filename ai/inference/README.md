@@ -1,17 +1,11 @@
-# LLM Inference
+# 推理服务：先量用户等了多久
 
-> 返回 [AI 学习索引](../README.md)
+做[流式请求实验](openai-compatible-benchmark/README.md)：固定模型和请求集，分别看首次响应、生成结束、实际输出 token 数。没有服务时可先跑客户端自测，它不给出引擎排名。
 
-研究请求调度、KV Cache 和算子选择，从 [FlashInfer × vLLM × SGLang 路线](flashinfer-vllm-sglang-learning-path.md) 进入。两条源码线分别在 [vLLM V1](vllm-v1-architecture-and-internals.md) 与 [SGLang SRT](sglang-srt-radix-and-scheduler.md)；具体 attention 后端以启动配置和实际调用为准。调度训练作业、切分模型参数则看[分布式训练路线](../training/README.md)。
+- **第一次部署**：先沿[一条请求的完整路径](llm-inference-pipeline.md)找出哪里在等，再用[同一模型比较 vLLM 和 SGLang](vllm-and-sglang.md)。
+- **相似请求没变快**：用[输入字节对照](prefix-input-determinism/README.md)排除前缀差异，再查[缓存未命中案例](prefill-cache-miss.md)。回答不同则先用[采样实验](sampling/README.md)分开参数影响。
+- **要改引擎**：带着一次请求去读 [vLLM V1](vllm-v1-architecture-and-internals.md) 或 [SGLang SRT](sglang-srt-radix-and-scheduler.md)。进入 GPU 算子前，确认实际选中的 attention 后端。
 
-## 阅读顺序
+按阶段练习用[算子与双引擎路线](flashinfer-vllm-sglang-learning-path.md)；做跨节点服务时转到[分布式推理](llm-inference-learning-path.md)，用[实践表](llm-inference-progress.md)记录测量条件。
 
-1. [LLM 推理全流程](llm-inference-pipeline.md) —— Messages 到 Response 的完整数据流。
-2. [vLLM 与 SGLang](vllm-and-sglang.md) —— 两个推理引擎的最小使用、指标和设计重点。
-3. [Prefill Cache Miss](prefill-cache-miss.md) —— 输入确定性与 Prefix Cache 的工程案例。
-4. [LLM 推理进阶路线](llm-inference-learning-path.md) —— Scheduler、KV Cache、PD 分离和 Router。
-5. [LLM 推理实践表](llm-inference-progress.md) —— 按实验和完成标准推进。
-
-底层算子延伸：[GPU 算子与 FlashInfer](../kernels/README.md) —— PagedAttention、Split-KV Decode、Ragged/Chunked Prefill 与 Cascade/MLA 的 CUDA Kernel 源码导读与离线实验。
-
-基础页负责稳定概念；进阶路线中的命令、指标与源码路径容易随版本变化，使用时应结合官方文档核对。
+[返回 AI](../README.md)

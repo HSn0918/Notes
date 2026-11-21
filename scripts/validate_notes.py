@@ -14,6 +14,7 @@ from urllib.parse import unquote
 
 IGNORED_MARKDOWN = {"AGENTS.md", "CLAUDE.md"}
 SPECIAL_MARKDOWN = IGNORED_MARKDOWN | {"README.md"}
+GENERATED_NAVIGATION = {"docs/catalog.md", "docs/tags.md"}
 IMAGE_SUFFIXES = {".gif", ".jpeg", ".jpg", ".png", ".svg", ".webp"}
 KEBAB_MARKDOWN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*\.md$")
 WIKILINK = re.compile(r"(!?)\[\[([^\[\]\n]+)\]\]")
@@ -380,6 +381,9 @@ def validate(root: Path, include_quality: bool = False) -> Report:
             if current in visited:
                 continue
             visited.add(current)
+            # A catalog lists everything by construction; it isn't a learning path.
+            if relative(current, root) in GENERATED_NAVIGATION:
+                continue
             queue.extend(graph.get(current, set()) - visited)
         unreachable = [path for path in content_markdown if path.resolve() not in visited]
         for path in unreachable:

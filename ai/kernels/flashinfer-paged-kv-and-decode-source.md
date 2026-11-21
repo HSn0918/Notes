@@ -15,7 +15,7 @@ Decode 阶段每次自回归步只为每个请求生成 1 个（或投机采样�
 3. **Plan-Run 生命周期与 CUDA Graph 解耦**：将 SM 占用率估算、二分搜索 Split-KV 切分粒度与偏移表分配全部前置到主机侧 `plan()`，令热路径 `run()` 零分配、零同步、可直接录制进 CUDA Graph。
 4. **GQA 组内共享 + Split-KV 两阶段归约**：把共享同一 KV Head 的 `GROUP_SIZE` 个 Query Head 打包进同一个 CTA 共享一次 K/V HBM 读取；当 Batch 较小不足以打满 SM 时，按 KV 长度切分给多个 CTA，再经 `VariableLengthMergeStates` 合并。
 
-可配套运行纯 CPU 机制实验：[Online Softmax 与 Split-KV 实验手册](../experiments/online-softmax-and-split-kv/README.md)。
+可配套运行纯 CPU 机制实验：[Online Softmax 与 Split-KV 实验手册](online-softmax-and-split-kv/README.md)。
 
 ---
 

@@ -4,47 +4,7 @@
 
 ## 稳定目录职责
 
-```text
-ai/
-  foundations/      LLM 基础与零基础路线
-  kernels/          GPU 执行模型、CUDA 算子与 FlashInfer 源码导读
-  inference/        推理链路、vLLM、SGLang 与进阶路线
-  post-training/    LoRA、SFT、DPO、RLHF、PPO、GRPO
-  agents/           Agent 路线、源码与生产化
-  experiments/      可运行的采样、Prefix、LoRA、RL、Split-KV 与推理基准实验
-
-cloud-native/
-  containers/       Docker、OCI、Cgroup、Namespace、UnionFS 与容器网络
-  kubernetes/
-    core/           集群基础、etcd、API/RBAC/Informer、Probe/OCI、调度与 Operator
-    networking/     CNI、Service、网络实现与排障
-    storage/        CSI、Volume、驱动与排障
-    components/     组件职责与故障边界
-    internals/      源码调用链
-    roadmaps/       学习路线与进度
-    demos/          可运行代码
-    interview/      复习题库
-
-go/
-  fundamentals/     Slice、Map、Interface、Context、Channel、GMP、GC 核心机制
-  internals/        Go 1.26 Runtime 与标准库源码导读
-
-foundations/
-  algorithm/        搜索与图论、排序、常用技巧、DP、数据结构与字符串
-  database/         MySQL、Redis、PostgreSQL、Elasticsearch
-  middleware/       Kafka、NATS、Canal、分布式事务
-  tools/            Zsh / iTerm2 等常用效率工具
-
-docs/
-  architecture.md   信息架构、迁移记录与文档类型边界
-  catalog.md        脚本生成的全库 1-hop 知识速查索引
-  tags.md           脚本生成的全库标签聚合索引
-
-scripts/
-  validate_notes.py       结构、H1 标题与问答格式自动校验
-  search_notes.py         SQLite FTS5 全文检索（.traces/notes_fts.sqlite3）与索引生成工具
-  test_validate_notes.py  校验脚本单元测试
-```
+AI、云原生、Go 和工程基础是知识归属，不是必修课表。实验在所属子系统内与 README、代码和数据一起维护；跨领域课程从 [AI Infra 实战路线](ai/ai-infra-fieldwork.md)串联，不复制正文。Kubernetes 的控制面、调度、节点运行时、网络和存储分别收录自己的组件、源码和 Demo。目录说明与旧入口迁移见[架构文档](docs/architecture.md)。
 
 ## 快速检索工作流（1-hop）
 

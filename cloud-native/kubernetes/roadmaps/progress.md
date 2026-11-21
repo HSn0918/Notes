@@ -262,7 +262,7 @@
 ### 动手
 
 - [ ] 跑 [[demo-cni-bridge]] 的 `./run-in-docker.sh`，看两个 netns 通过 cni0 互 ping
-- [ ] 读 `demos/cni-bridge/learning-bridge` 100 行 bash，对照 [[cni-source]] § 3 的真实 bridge 源码
+- [ ] 读 `networking/cni-bridge/learning-bridge` 100 行 bash，对照 [[cni-source]] § 3 的真实 bridge 源码
 - [ ] **改造**：给 [[demo-cni-bridge]] 加一个 portmap 链插件，模拟 hostport
 - [ ] 在 kind 节点里看 iptables / ipvs 规则，对照 Service 配置
 

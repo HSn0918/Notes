@@ -1,6 +1,6 @@
 #ai #llm #flashinfer #cuda #paged-kv #入门导览
 
-相关笔记：[[flashinfer-learning-roadmap]] | [[flashinfer-architecture-and-jit]] | [[flashinfer-paged-kv-and-decode-source]] | [[flashinfer-ragged-prefill-and-mla-source]] | [[gpu-execution-and-memory-model]] | [[vllm-v1-architecture-and-internals]] | [[sglang-srt-radix-and-scheduler]] | [[cuda-ecosystem-and-career-roadmap]] | [Online Softmax 与 Split-KV 离线实验](../experiments/online-softmax-and-split-kv/README.md)
+相关笔记：[[flashinfer-learning-roadmap]] | [[flashinfer-architecture-and-jit]] | [[flashinfer-paged-kv-and-decode-source]] | [[flashinfer-ragged-prefill-and-mla-source]] | [[gpu-execution-and-memory-model]] | [[vllm-v1-architecture-and-internals]] | [[sglang-srt-radix-and-scheduler]] | [[cuda-ecosystem-and-career-roadmap]] | [Online Softmax 与 Split-KV 离线实验](online-softmax-and-split-kv/README.md)
 
 # FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约
 
@@ -127,7 +127,7 @@ CUDA Graph 录制后 Grid 形状不能变，所以 `plan()` **必须在 Graph �
 
 ### 微型例子：小批量也需要排班
 
-我们的场景里 `batch_size × num_kv_heads` 很小，打不满 SM，于是二分搜索会把 req0 的 10 个 KV Token 切成多段，多个 CTA 并行扫描，各自产出局部状态 $(m, d, o)$，Stage-2 再归并。**为什么切了还能算对？** 因为 Online Softmax 的状态合并满足结合律——手推见 [[gpu-execution-and-memory-model]]，离线验证见 [Online Softmax 与 Split-KV 离线实验](../experiments/online-softmax-and-split-kv/README.md)。
+我们的场景里 `batch_size × num_kv_heads` 很小，打不满 SM，于是二分搜索会把 req0 的 10 个 KV Token 切成多段，多个 CTA 并行扫描，各自产出局部状态 $(m, d, o)$，Stage-2 再归并。**为什么切了还能算对？** 因为 Online Softmax 的状态合并满足结合律——手推见 [[gpu-execution-and-memory-model]]，离线验证见 [Online Softmax 与 Split-KV 离线实验](online-softmax-and-split-kv/README.md)。
 
 ---
 
@@ -187,4 +187,4 @@ CUDA Graph 录制后 Grid 形状不能变，所以 `plan()` **必须在 Graph �
 ## 参考与版本边界
 
 - 接口语义与内部机制（`DecodePlanImpl` 二分搜索、`request_indices` 等调度元信息、CUDA Graph 约束）以 [[flashinfer-paged-kv-and-decode-source]] 与 [[flashinfer-learning-roadmap]] 记载为准：**FlashInfer v0.7.3（commit `82caa5668`，审查日期 `2026-11-17`）**；文中数字为教学用微型手算，非真实引擎参数。
-- 延伸阅读：Prefill 侧的 Ragged `qo_indptr` / Chunked Prefill 与 Cascade / MLA 见 [[flashinfer-ragged-prefill-and-mla-source]]；Split-KV 数值结合律的 CPU 离线验证见 [Online Softmax 与 Split-KV 离线实验](../experiments/online-softmax-and-split-kv/README.md)。
+- 延伸阅读：Prefill 侧的 Ragged `qo_indptr` / Chunked Prefill 与 Cascade / MLA 见 [[flashinfer-ragged-prefill-and-mla-source]]；Split-KV 数值结合律的 CPU 离线验证见 [Online Softmax 与 Split-KV 离线实验](online-softmax-and-split-kv/README.md)。

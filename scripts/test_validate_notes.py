@@ -8,6 +8,18 @@ from scripts.validate_notes import validate
 
 
 class ValidateNotesTest(unittest.TestCase):
+    def test_generated_index_cannot_hide_an_orphan(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "docs").mkdir()
+            (root / "README.md").write_text("# Home\n\n[Index](docs/catalog.md)\n")
+            (root / "docs/catalog.md").write_text("# Index\n\n[Note](../topic.md)\n")
+            (root / "topic.md").write_text("# Topic\n")
+            self.assertIn("topic.md: 无法从根 README 经 MOC 到达", validate(root).errors)
+            with (root / "README.md").open("a") as home:
+                home.write("\n[Topic](topic.md)\n")
+            self.assertEqual([], validate(root).errors)
+
     def make_repo(self) -> tuple[tempfile.TemporaryDirectory[str], Path]:
         temporary = tempfile.TemporaryDirectory()
         root = Path(temporary.name)

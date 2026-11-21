@@ -1,27 +1,14 @@
-# 云原生学习索引
+# 让训练作业拿到 GPU
 
-> ⬆ 返回 [知识库首页](../README.md)
+[先给一个 64 卡作业找位置](kubernetes/scheduling/placement-lab/README.md)。跑完静态布局，再跑队列回放：短作业能否用掉暂时空闲的节点，又不推迟队首的大作业？只需 CPU，不会访问集群。
 
-云原生目录分为两部分：`containers/` 负责容器与镜像基础（Docker / OCI / Cgroup / Namespace / 网络），`kubernetes/` 负责 Kubernetes 的核心概念、网络存储、组件拆解、源码导读、路线与可运行 Demo。
+## 在真实作业里定位等待
 
-## 推荐顺序
+- **还没分到节点**：查[队列、配额与 GPU 放置](kubernetes/scheduling/README.md)。空闲卡总数不等于可用整机数。
+- **已经分到节点，进程还没起来**：查[节点运行时](kubernetes/node-runtime/README.md)；看不懂镜像、隔离或资源限制时再回[容器基础](containers/README.md)。
+- **各进程都启动了，训练却没进展**：先区分[进程之间连不通](kubernetes/networking/README.md)和[训练数据或断点读不到](kubernetes/storage/README.md)。
+- **对象改了，控制器没动作**：跟踪[一次事件从写入到调谐](kubernetes/core/README.md)。
 
-做万卡训练平台可从[作业成组准入、拓扑放置与恢复](kubernetes/core/training-job-placement.md)开始，并用[训练侧路线图](../ai/training/README.md)核对进程组和训练进度；初学 Kubernetes 则按下图推进。
+看[完整 Kubernetes 目录](kubernetes/README.md)，或回[训练侧](../ai/training/README.md)核对每个进程实际用的卡。
 
-```mermaid
-flowchart LR
-    A[Linux 隔离与文件系统] --> B[Containers / OCI]
-    B --> C[Kubernetes Core]
-    C --> D[Networking / Storage]
-    D --> E[Components / Internals]
-    E --> F[Demos / Troubleshooting]
-```
-
-## 领域入口
-
-| 方向 | 入口 | 主要内容 |
-| --- | --- | --- |
-| 容器与镜像 | [Containers / Docker 笔记](containers/README.md) | Cgroup、Namespace、UnionFS、Dockerfile、网络模式与镜像构建 |
-| Kubernetes | [Kubernetes 学习索引](kubernetes/README.md) | 核心控制面/调度、网络、存储、组件、源码、路线、Demo 与题库 |
-
-第一次学习 Kubernetes 从 [Kubernetes 基础架构](kubernetes/core/kubernetes-basics.md) 开始；已有使用经验、希望进入源码或平台开发，直接进入 [Kubernetes 开发路线](kubernetes/roadmaps/k8s-development-roadmap.md)。
+[返回首页](../README.md)

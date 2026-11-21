@@ -1,12 +1,10 @@
-# Kubernetes 复习与题库
+# 用一次真实排障复习 Kubernetes
 
-> 返回 [Kubernetes 学习索引](../README.md)
+挑一个做过的实验，合上笔记，只说三件事：看见了什么、凭哪条证据排除了什么、下一步该查谁。说不清楚时，再展开题目里的参考答案。
 
-题库是复习视图，不作为技术内容的唯一来源。答案应链接概念页、组件页或源码页，避免在题库中复制整篇正文。
+- [GPU 与 AI Infra 题库](k8s-gpu-ai-infra-interview-modules.md)：做过排队、设备分配或恢复实验后，用同一个作业练系统设计。
+- [Kubernetes 基础题库](k8s-interview.md)：选对应的控制面、网络或存储题，不必从第一题顺序刷。
 
-| 文档 | 定位 |
-| --- | --- |
-| [Kubernetes 面试题汇总](k8s-interview.md) | 核心架构、控制面、网络、存储与常见追问 |
-| [K8s / GPU / AI Infra 模块题库](k8s-gpu-ai-infra-interview-modules.md) | Operator、GPU 调度、Device Plugin、资源视图、容错和系统设计 |
+遇到陌生机制先回[对应子系统](../README.md)跑例子。这里负责复习，不重复维护实现细节。
 
-新增题目时使用“问题 → 考察点 → 回答骨架 → 设计延伸 → 常见误区”，并链接 canonical 笔记。
+[返回 Kubernetes](../README.md)

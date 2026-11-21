@@ -1,6 +1,6 @@
 #ai #llm #gpu #cuda #simd #simt #tensor-core
 
-相关笔记：[[linear-algebra-for-llm]] | [[advanced-algebra-for-llm]] | [[gpu-execution-and-memory-model]] | [[cuda-ecosystem-and-career-roadmap]] | [[flashinfer-intuition-and-engine-bridge]] | [[flashinfer-vllm-sglang-learning-path]] | [LLM 数学直觉与 SIMD 并行离线实验](../experiments/llm-math-and-simd-lab/README.md)
+相关笔记：[[linear-algebra-for-llm]] | [[advanced-algebra-for-llm]] | [[gpu-execution-and-memory-model]] | [[cuda-ecosystem-and-career-roadmap]] | [[flashinfer-intuition-and-engine-bridge]] | [[flashinfer-vllm-sglang-learning-path]] | [LLM 数学直觉与 SIMD 并行离线实验](../foundations/llm-math-and-simd-lab/README.md)
 
 # 从 CPU SIMD 到 GPU SIMT：并行计算底层模型与向量化编程直觉
 
@@ -141,7 +141,7 @@ Step 3 (最后两车道相加提取标量):
   lane0 + lane1              -> s0 + s1 + s2 + s3 + s4 + s5 + s6 + s7 (仅需 log2(8) = 3 步!)
 ```
 
-你会发现，这套“**跨车道洗牌对折求和（$\log_2 W$ 步）**”的思想，到了 GPU 上就原封不动变成了 **Warp Shuffle 蝴蝶归约（`__shfl_xor_sync`，$\log_2 32 = 5$ 步）**！你可以在本地直接运行 [LLM 数学直觉与 SIMD 并行离线实验](../experiments/llm-math-and-simd-lab/README.md) 观察 8-lane 树形归约的精确执行过程。
+你会发现，这套“**跨车道洗牌对折求和（$\log_2 W$ 步）**”的思想，到了 GPU 上就原封不动变成了 **Warp Shuffle 蝴蝶归约（`__shfl_xor_sync`，$\log_2 32 = 5$ 步）**！你可以在本地直接运行 [LLM 数学直觉与 SIMD 并行离线实验](../foundations/llm-math-and-simd-lab/README.md) 观察 8-lane 树形归约的精确执行过程。
 
 ### 分支如何用谓词掩码（Predicate Mask / Blend）消除跳转
 
@@ -451,4 +451,4 @@ flowchart TD
   - NVIDIA PTX ISA Reference（Ampere `mma.sync`、Hopper `wgmma`、Blackwell `tcgen05` 与谓词执行规范）。
 - **本仓库源码与实验关联**：
   - 文中涉及的 `vec_t`（128-bit 向量化访存）、`shfl_xor_sync` 蝴蝶归约及 Causal Mask Tile 外提，均对应 **FlashInfer v0.7.3（commit `82caa5668`，审查日期 `2026-11-17`）** 的 `include/flashinfer/vec_dtypes.cuh`、`math.cuh`、`norm.cuh` 与 `attention/prefill.cuh`。
-  - 动手验证：可在 Mac/Linux 无 GPU 环境直接运行 [LLM 数学直觉与 SIMD 并行离线实验](../experiments/llm-math-and-simd-lab/README.md) 体验分块矩阵乘与 8-lane SIMD 树形归约。
+  - 动手验证：可在 Mac/Linux 无 GPU 环境直接运行 [LLM 数学直觉与 SIMD 并行离线实验](../foundations/llm-math-and-simd-lab/README.md) 体验分块矩阵乘与 8-lane SIMD 树形归约。

@@ -1,6 +1,6 @@
 #ai #llm #线性代数 #数学基础 #simd #cuda
 
-相关笔记：[[advanced-algebra-for-llm]] | [[llm-fundamentals]] | [[llm-learning-path]] | [[simd-and-gpu-simt-foundations]] | [[gpu-execution-and-memory-model]] | [LLM 数学直觉与 SIMD 并行离线实验](../experiments/llm-math-and-simd-lab/README.md)
+相关笔记：[[advanced-algebra-for-llm]] | [[llm-fundamentals]] | [[llm-learning-path]] | [[simd-and-gpu-simt-foundations]] | [[gpu-execution-and-memory-model]] | [LLM 数学直觉与 SIMD 并行离线实验](llm-math-and-simd-lab/README.md)
 
 # 面向大模型的线性代数：从几何直觉到张量与分块计算
 
@@ -132,7 +132,7 @@ GPU 的存储金字塔里，HBM（几十 GB、约数 TB/s）远而慢，SRAM/Sha
 
 ### 与真实算子的映射
 
-- 实验脚本（[LLM 数学直觉与 SIMD 并行离线实验](../experiments/llm-math-and-simd-lab/README.md)）Exp 1 用故意**非整除**的形状 `29×37 @ 37×31`、`tile=8×8×8` 验证分块与全量的最大误差 `< 1e-12`，并统计 SRAM Tile 装载次数（80 次）——尾块（tail tile）处理是真实 Kernel 里最容易写错边界的地方。
+- 实验脚本（[LLM 数学直觉与 SIMD 并行离线实验](llm-math-and-simd-lab/README.md)）Exp 1 用故意**非整除**的形状 `29×37 @ 37×31`、`tile=8×8×8` 验证分块与全量的最大误差 `< 1e-12`，并统计 SRAM Tile 装载次数（80 次）——尾块（tail tile）处理是真实 Kernel 里最容易写错边界的地方。
 - FlashAttention / FlashInfer 的 Prefill Kernel 就是"分块 GEMM + Online Softmax"的组合：外层沿 $S_q$ / $S_{kv}$ 双重分块，内层用视角 4 在 SRAM 里完成 $QK^T$ 与 $PV$，全程不让 $N \times N$ 注意力矩阵落盘 HBM（实验 Exp 1 的 `attention_tiled_online_softmax` 复现了这一结构）。
 
 ---
@@ -241,5 +241,5 @@ CPU SIMD 与 GPU 都靠"**一批车道同时搬运连续地址**"吃饭（详见
 ## 参考与版本边界
 
 - 本文为数学直觉笔记，不绑定具体库版本；涉及的算子名（`RMSNormKernel`、`vec_t`、`paged_kv_t` 的 NHD/HND）以 [[flashinfer-norm-and-sampling-source]] 与 [[flashinfer-paged-kv-and-decode-source]] 中的版本边界（FlashInfer v0.7.3, commit `82caa5668`）为准。
-- 配套可运行验证：[LLM 数学直觉与 SIMD 并行离线实验](../experiments/llm-math-and-simd-lab/README.md)（Exp 1 分块 GEMM 与分块 Attention、Exp 5 SIMD 点积与 Stride 视图）。
+- 配套可运行验证：[LLM 数学直觉与 SIMD 并行离线实验](llm-math-and-simd-lab/README.md)（Exp 1 分块 GEMM 与分块 Attention、Exp 5 SIMD 点积与 Stride 视图）。
 - 深入方向：结合律/正交旋转/特征谱/SVD 见 [[advanced-algebra-for-llm]]；从 SIMD 到 SIMT 的硬件映射见 [[simd-and-gpu-simt-foundations]]；Roofline 定量分析见 [[gpu-execution-and-memory-model]]。

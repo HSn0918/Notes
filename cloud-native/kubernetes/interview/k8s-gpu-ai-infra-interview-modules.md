@@ -716,4 +716,4 @@ DNS -> Service -> EndpointSlice -> node datapath -> Pod IP -> application
 2. 把问题归入已有知识模块。
 3. 每个问题补齐参考答案和设计延伸。
 4. 如果出现新知识域，再新增模块。
-5. 如果发现学习路线缺口，回链到对应领域笔记、`internals/` 源码导读或 [[progress]]。
+5. 如果发现学习路线缺口，回链到对应领域笔记、[源码地图](../roadmaps/k8s-source-map.md)或 [[progress]]。

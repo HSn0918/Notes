@@ -146,9 +146,9 @@ flowchart LR
   2. [[advanced-algebra-for-llm]]（必读：秩与低维子空间、结合律驱动的 MLA 权重吸收、正交旋转矩阵与 RoPE 手推、特征值谱与残差连接、SVD 最优低秩近似与 LoRA）。
   3. 辅读回顾：[[llm-fundamentals]]、[[lora-and-qlora]]。
 - **动手验证任务**：
-  在本地电脑（Mac 或任意装有 Python 3 的环境，零第三方依赖）直接运行配套离线数学与并行实验（手册见 [LLM 数学与 SIMD 离线实验](../experiments/llm-math-and-simd-lab/README.md)）：
+  在本地电脑（Mac 或任意装有 Python 3 的环境，零第三方依赖）直接运行配套离线数学与并行实验（手册见 [LLM 数学与 SIMD 离线实验](../foundations/llm-math-and-simd-lab/README.md)）：
   ```bash
-  python3 ai/experiments/llm-math-and-simd-lab/llm_math_simd_lab.py
+  python3 ai/foundations/llm-math-and-simd-lab/llm_math_simd_lab.py
   ```
   再用纸笔手算一组 $4 \times 4$ 矩阵按 $2 \times 2$ 子块相乘，以及二维向量经旋转角 $m\theta, n\theta$ 后的内积展开式。
 - **阶段产出**：
@@ -170,9 +170,9 @@ flowchart LR
   2. [[gpu-execution-and-memory-model]]（必读：SM/CTA/Warp 硬件映射、Shared Memory Bank Conflict、Roofline 算术强度定量计算、Safe/Online Softmax 与 `state_t` 合并公式推导）。
   3. [[cuda-ecosystem-and-career-roadmap]]（必读：CUDA 软硬件代际全景栈、官方库边界、原生 CUDA C++ vs CuTe Layout 代数 vs Triton 深度对比、`nsys`/`ncu` 性能调优闭环与五阶段职业路线）。
 - **动手验证任务**：
-  在本地运行纯 Python 离线状态合并实验（手册见 [Online Softmax 与 Split-KV 离线实验](../experiments/online-softmax-and-split-kv/README.md)）：
+  在本地运行纯 Python 离线状态合并实验（手册见 [Online Softmax 与 Split-KV 离线实验](../kernels/online-softmax-and-split-kv/README.md)）：
   ```bash
-  python3 ai/experiments/online-softmax-and-split-kv/online_softmax_split_kv_lab.py
+  python3 ai/kernels/online-softmax-and-split-kv/online_softmax_split_kv_lab.py
   ```
   并选取一张目标显卡（如 H100 SXM：BF16 Tensor Core 约 `989 TFLOPS`，HBM3 带宽约 `3.35 TB/s`，拐点约 `295 FLOPs/Byte`），亲手算出 GQA `group_size=4` 与 `group_size=8` 时 Decode Attention 的算术强度落在 Roofline 哪一侧。
 - **阶段产出**：
@@ -192,7 +192,7 @@ flowchart LR
   1. [[llm-inference-pipeline]]（必读：一次请求的四层完整数据流、Prefill vs Decode、KV Cache vs Prefix Cache、Streaming 与核心指标时间轴）。
   2. [[vllm-and-sglang]]（必读：双引擎公平对照实验控制变量清单、最小启动命令、V1 vs SRT 核心机制全景速查与工程选型指南）。
   3. [[prefill-cache-miss]]（必读：真实工程排障案例——输入确定性如何决定 Prefix Cache 生死）。
-  4. 配套实验手册：[OpenAI-Compatible Benchmark 实验](../experiments/openai-compatible-benchmark/README.md)、[Prefix 输入确定性实验](../experiments/prefix-input-determinism/README.md)。
+  4. 配套实验手册：[OpenAI-Compatible Benchmark 实验](openai-compatible-benchmark/README.md)、[Prefix 输入确定性实验](prefix-input-determinism/README.md)。
 - **动手验证任务**：
   1. 在本地跑通 Prefix 确定性检查实验；
   2. 在单卡 GPU 环境固定同一模型权重（如 `Qwen/Qwen3-0.6B` 或 `Qwen/Qwen2.5-7B-Instruct`）、同一 `max_model_len` 与 `temperature=0`，分别启动 vLLM 与 SGLang：

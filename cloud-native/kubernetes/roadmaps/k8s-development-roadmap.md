@@ -14,7 +14,7 @@
 - **[[llm-inference-learning-path]] = LLM 推理专题**：位于 AI 领域，串起引擎、分布式 KV、PD 分离和 Router。
 - **[[agent-development-learning-path]] = Agent 专题**：位于 AI 领域，串起 RAG、Tool Calling、Planning、Graph Workflow 和生产化。
 
-Kubernetes 概念与排障按主题放在相邻目录；组件边界见 `../components/`，源码导读见 `../internals/`，可运行代码见 `../demos/`。
+Kubernetes 概念与排障按主题放在相邻目录；组件边界见 [组件地图](k8s-component-map.md)，源码导读见 [源码地图](k8s-source-map.md)，可运行代码见 [实验入口](k8s-lab-environments.md)。
 
 ## 你该走哪条路？（决策图）
 
@@ -45,7 +45,7 @@ flowchart TD
 
 ## 概述
 
-本笔记把 Kubernetes 平台开发所需能力拆成 12 个主题，给出子目标、推荐顺序、源码切入点、配套笔记和阶段产出。它与 `../internals/` 的源码导读、网络/存储主题页、`../demos/` 的可运行代码及 `../interview/` 的复习材料共同形成闭环。
+本笔记把 Kubernetes 平台开发所需能力拆成 12 个主题，给出子目标、推荐顺序、源码切入点、配套笔记和阶段产出。它与 [源码地图](k8s-source-map.md) 的源码导读、网络/存储主题页、[实验入口](k8s-lab-environments.md) 的可运行代码及 `../interview/` 的复习材料共同形成闭环。
 
 ## 学习路线图
 
@@ -312,7 +312,7 @@ gantt
 
 ## 源码导读与专题索引
 
-12 篇 Kubernetes 导读集中放在 `cloud-native/kubernetes/internals/`，每篇都包含三层：① 概念与架构；② 真实源码片段或源码目录定位；③ 手写简化复现或阅读练习。其中多数基于本地 `~/github/kubernetes`、`~/github/etcd` 源码，带**文件路径 + 行号**；[[cni-source]] / [[hami-source]] 因对应仓库不在本地，只给**目录 + 函数名 / 抽象**定位，clone 后可补行号。Agent 框架源码导读属于 AI 领域，入口见 [[agent-development-source]]。
+Kubernetes 导读按子系统归档，从[源码地图](k8s-source-map.md)进入，每篇都包含三层：① 概念与架构；② 真实源码片段或源码目录定位；③ 手写简化复现或阅读练习。其中多数基于本地 `~/github/kubernetes`、`~/github/etcd` 源码，带**文件路径 + 行号**；[[cni-source]] / [[hami-source]] 因对应仓库不在本地，只给**目录 + 函数名 / 抽象**定位，clone 后可补行号。Agent 框架源码导读属于 AI 领域，入口见 [[agent-development-source]]。
 
 | 源码                 | 笔记                             | 配套 demo                          | 关键模块                                                                | demo 在 Mac 上能跑吗                             |
 | ------------------ | ------------------------------ | -------------------------------- | ------------------------------------------------------------------- | ------------------------------------------- |
@@ -329,7 +329,7 @@ gantt
 | HAMi GPU 虚拟化       | [[hami-source]]                | [[demo-hami-mac]]                | webhook / scheduler-extender / device-plugin / libvgpu.so CUDA hook | ✅ 直接编过；libvgpu hook 部分需 docker              |
 | etcd               | [[etcd-source]]                | [[demo-raftexample-walkthrough]] | raft / WAL / MVCC / Watch / Lease                                   | ✅ etcd-client-demo 先 `go mod tidy`          |
 
-> **demo 通用前置**：除 hami-mac 外，多数 demo 首次构建要先 `cd <demo> && go mod tidy` 补全 go.sum。每个 demo 的 README 有具体步骤，验证状态见 `demos/README.md`。
+> **demo 通用前置**：除 hami-mac 外，多数 demo 首次构建要先 `cd <demo> && go mod tidy` 补全 go.sum。每个 demo 的 README 有具体步骤，历史验证状态见[实验环境](k8s-lab-environments.md)。
 
 ### 研发深挖专题
 

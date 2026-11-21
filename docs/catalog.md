@@ -8,7 +8,7 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Learning Notes](../README.md) | — | — | 这是一个聚焦 AI Infra & Systems Full-Stack 的个人技术学习笔记库，兼容 Obsidian 与 GitHub 阅读。内容以理解底层机制、源码导读和动手实验验证为核心，... |
+| [AI Infra 学习笔记](../README.md) | — | — | 从单卡训练到万卡集群，要同时看模型怎样更新、GPU 怎样分配，以及跨机通信花了多少时间。 |
 | [Learning Notes 协作规则](../AGENTS.md) | — | — | 顶层收拢为四大知识支柱与文档/工具目录： |
 | [Learning Notes 项目说明](../CLAUDE.md) | — | — | 本仓库按四大知识支柱组织个人技术学习笔记，兼容 Obsidian 与 GitHub，全部采用纯文本 Markdown + Python 标准库维护，不包含任何前端依赖或 node_modules。 |
 
@@ -18,36 +18,24 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [AI 学习索引](../ai/README.md) | — | — | 做万卡集群调度和模型训练，从 万卡集群调度与模型训练路线图 开始。先弄懂一次参数更新，再看这次更新拆到多张卡后，哪些数据必须在何时到达。做推理优化则从同一份数学和 CUDA 基础分支出去，不必先... |
+| [模型训练与推理](../ai/README.md) | — | — | 刚开始补基础时，用矩阵乘法算出一个线性层的输出，再跟着损失、梯度与参数更新手算一个训练步。 |
+| [AI Infra 实战路线：交付一个能训练、能恢复、能服务的模型](../ai/ai-infra-fieldwork.md) | [[ai-infra-fieldwork]] | `#ai` `#ai-infra` `#学习路线` | 适合会运行 Python 脚本、刚开始做训练平台的人。先拿一份可比的单步更新，再把它交给多进程和调度器；最后判断恢复后是否重复算了数据，以及服务延迟量的到底是什么。以下命令都从仓库根目录执行。没... |
 
 ### ai/agents
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Agent 学习索引](../ai/agents/README.md) | — | — | Agent 学习索引 |
+| [跟一次模型工具调用](../ai/agents/README.md) | — | — | 打开工具调用源码导读，选一个例子，只记三样东西：模型请求了什么参数、工具实际返回什么、模型下一轮看到了什么。这样才能分清是工具执行错了，还是模型拿到正确结果后解释错了。 |
 | [Agent 开发学习路线](../ai/agents/agent-development-learning-path.md) | [[agent-development-learning-path]] | `#ai` `#agent` `#rag` `#面试` `#学习计划` | Agent 开发面试的三件大事——RAG（可信知识）、ReAct / Tool Loop（动作闭环）、Plan / Graph Workflow（复杂任务编排）——不是三个孤立名词，而是一条能落... |
 | [Agent 开发框架源码导读](../ai/agents/agent-development-source.md) | [[agent-development-source]] | `#ai` `#agent` `#rag` `#源码导读` | 本篇是 Agent 开发框架源码导读，目标不是把每个框架都读完，而是抓住生产 Agent 的共同骨架：状态图 / loop runtime / tool schema / handoff / c... |
 | [生产级 Agent 开发](../ai/agents/production-agent-development.md) | [[production-agent-development]] | `#ai` `#agent` `#production` `#observability` `#安全` | 生产级 Agent 不是“能调用工具的 Demo”，而是一个受控的自动化系统：LLM 只负责理解、规划和生成结构化决策；真正决定能否上线的是状态管理、工具权限、幂等、可观测、评估、灰度、回滚和人... |
-
-### ai/experiments
-
-| 文档 | Wikilink | 标签 | 摘要 |
-| --- | --- | --- | --- |
-| [AI Experiments](../ai/experiments/README.md) | — | — | 本目录把概念页中的关键机制落为小型、可检查的实验。除推理服务基准外，所有实验均只使用 Python 标准库，不需要网络、模型权重或 GPU。 |
-| [Two-armed bandit policy gradient](../ai/experiments/bandit-policy-gradient/README.md) | — | — | 在两个 Bernoulli 奖励臂上实现最小 REINFORCE：policy 根据 logits 采样 action，环境给 reward，更新后的 policy 逐渐偏向期望 reward... |
-| [LLM 数学直觉与 SIMD 并行离线实验](../ai/experiments/llm-math-and-simd-lab/README.md) | — | — | 脱离 GPU 与第三方依赖，用纯 Python 标准库在 CPU 上验证 linear-algebra-for-llm 与 advanced-algebra-for-llm 的全部核心数值不变量： |
-| [LoRA 参数量对比](../ai/experiments/lora-parameter-count/README.md) | — | — | 只用矩阵维度计算，比较全量训练一个 d_out × d_in 投影与 LoRA 的低秩增量 B × A 需要训练的参数量；再扩展到多层、多投影的简化 Transformer 估算。 |
-| [Online Softmax 与 Split-KV 离线实验](../ai/experiments/online-softmax-and-split-kv/README.md) | — | — | 脱离 CUDA 与 GPU，用纯 Python 标准库在 CPU 上复现 FlashInfer Attention 核心数据流与数值不变量： |
-| [OpenAI-compatible inference benchmark](../ai/experiments/openai-compatible-benchmark/README.md) | — | — | 对一个 OpenAI-compatible /v1/chat/completions 服务发送可控请求，记录流式首个 SSE 数据块延迟、端到端延迟、服务返回的 completion token... |
-| [Prefix 输入确定性：canonical JSON、字段顺序与 hash](../ai/experiments/prefix-input-determinism/README.md) | — | — | 演示同一组业务字段因为 JSON 字段顺序不同而产生不同 bytes 与 SHA-256；再用 canonical JSON 让等价对象稳定编码。这里刻意只测 bytes/hash，不是 tok... |
-| [Sampling: temperature、top-p 与 seed](../ai/experiments/sampling/README.md) | — | — | 用固定的一组 logits 手写最小采样器，观察 temperature 如何改变分布尖锐程度、top_p 如何裁剪候选集合，以及固定 seed 如何令随机选择可复现。 |
-| [不等长分片的训练梯度实验](../ai/experiments/sharded-gradient/README.md) | — | — | 用四个有效位置训练一个两类线性预测头。把同一批位置分成 1:3 两份，各自反向，再与不分片的参考梯度比较。目标不是跑快，而是判断两种训练方式是否仍在优化同一个目标。 |
 
 ### ai/foundations
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [LLM Foundations](../ai/foundations/README.md) | — | — | 共同基础是矩阵乘、张量形状和一次前向计算。做训练，接着学生成梯度和更新参数；做推理，转向布局、访存和缓存。两条线不需要互相等待读完。 |
+| [模型基础：看懂一次矩阵乘法](../ai/foundations/README.md) | — | — | 从分块矩阵乘实验开始。矩阵边长不能整除分块宽度时，最后一小块也要参与计算。先对比整块乘和分块乘的结果，再手算一个元素的位置。 |
+| [在 CPU 上验证矩阵分块、RoPE 和低秩分解](../ai/foundations/llm-math-and-simd-lab/README.md) | — | — | 先看第一组乘法。把同一个矩阵切成小块再乘，最后的边缘块凑不满 8 行时，结果还应和整块相乘一致。输出里的 block_tiling_err 就是两种写法的最大误差。 |
 | [面向大模型的高等代数：子空间、正交旋转、特征谱与低秩分解](../ai/foundations/advanced-algebra-for-llm.md) | [[advanced-algebra-for-llm]] | `#ai` `#llm` `#高等代数` `#数学基础` `#rope` `#svd` `#lora` `#mla` | 如果说 linear-algebra-for-llm 解决的是"矩阵乘怎么算、张量怎么放"，本笔记回答的是另一类问题：为什么大模型里的几个关键设计（MLA 权重吸收、RoPE、残差连接、LoRA... |
 | [面向大模型的线性代数：从几何直觉到张量与分块计算](../ai/foundations/linear-algebra-for-llm.md) | [[linear-algebra-for-llm]] | `#ai` `#llm` `#线性代数` `#数学基础` `#simd` `#cuda` | 很多工程背景的学习者一准备深入 FlashAttention / FlashInfer / vLLM 底层，就想先把数学系《线性代数》整本啃完，结果卡在行列式展开、伴随矩阵求逆和若尔当标准型里半... |
 | [LLM 基础概念](../ai/foundations/llm-fundamentals.md) | [[llm-fundamentals]] | `#ai` `#llm` `#transformer` `#基础概念` | 本笔记解释后续 LLM 推理与训练都会反复遇到的基础名词，并把它们串成一条真实的数据流。目标不是一次记住全部定义，而是每遇到一个对象，都知道它来自哪里、要去哪里。 |
@@ -58,7 +46,10 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [LLM Inference](../ai/inference/README.md) | — | — | 研究请求调度、KV Cache 和算子选择，从 FlashInfer × vLLM × SGLang 路线 进入。两条源码线分别在 vLLM V1 与 SGLang SRT；具体 attenti... |
+| [推理服务：先量用户等了多久](../ai/inference/README.md) | — | — | 做流式请求实验：固定模型和请求集，分别看首次响应、生成结束、实际输出 token 数。没有服务时可先跑客户端自测，它不给出引擎排名。 |
+| [比较 vLLM 和 SGLang 的流式响应](../ai/inference/openai-compatible-benchmark/README.md) | — | — | 同一批提示分别发给两个服务。先看请求多久收到第一个 SSE 事件，再看整批请求每秒返回多少个输出 token。两个指标对应不同的使用体验。 |
+| [同一份 JSON 为什么会有两个前缀哈希](../ai/inference/prefix-input-determinism/README.md) | — | — | 把相同字段按不同顺序写入两个 JSON。先比较序列化后的字节和 SHA-256，再比较按键名排序后的结果。 |
+| [用五个候选词观察温度和 top-p](../ai/inference/sampling/README.md) | — | — | 同一组 logits 可以产生不同的下一词分布。先降低温度，再缩小 top-p，观察改变的是概率还是候选集合。 |
 | [FlashInfer × vLLM × SGLang 全栈学习路线：从数学与算子底座到双推理引擎](../ai/inference/flashinfer-vllm-sglang-learning-path.md) | [[flashinfer-vllm-sglang-learning-path]] | `#ai` `#llm` `#inference` `#flashinfer` `#vllm` `#sglang` `#cuda` `#learning-path` | 很多初学者一头扎进大模型推理系统时，常陷入两类极端困境： |
 | [LLM 推理系统学习路线](../ai/inference/llm-inference-learning-path.md) | [[llm-inference-learning-path]] | `#ai` `#llm` `#inference` `#kv-cache` `#pd-disaggregation` `#router` `#学习计划` | LLM 推理系统的三件大事——Inference Router（请求路由层）、KV Cache（显存最大的金山）、PD 分离（Prefill/Decode 解耦）——是 2024 年以后大模型基... |
 | [LLM 推理完整链路](../ai/inference/llm-inference-pipeline.md) | [[llm-inference-pipeline]] | `#ai` `#llm` `#inference` `#prefill` `#decode` `#kv-cache` | 本笔记从一次真实请求出发，解释 LLM 如何把用户文字变成 Token，经过 Prefill 和 Decode 逐步生成回答，再由推理服务返回。第一次阅读只需要掌握数据流；PagedAttent... |
@@ -72,7 +63,8 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [GPU 算子与 FlashInfer 学习索引](../ai/kernels/README.md) | — | — | 本专题把 LLM 推理系统（LLM Inference）向下打通到 GPU 硬件执行与 CUDA 内核实现：从 SM / Warp / SRAM / HBM 与 Roofline 模型出发，推导... |
+| [CUDA 与 FlashInfer：先验证算对，再测算快](../ai/kernels/README.md) | — | — | 先做把 KV 拆开算再合回去：同一段历史序列分块前后，注意力输出应在约定误差内一致。CPU 就能检验公式；评估访存或执行时间则需要 GPU。 |
+| [把 KV 切成四块，再合并一次注意力结果](../ai/kernels/online-softmax-and-split-kv/README.md) | — | — | 取长度为 19 的请求，每 6 个位置分一块。脚本把四块分别计算，再按正序、逆序和乱序合并，逐项对照一次读完 KV 的结果。 |
 | [CUDA 全景生态与算子工程师进阶路线：从 PTX 到 CUTLASS、CuTe 与 Triton](../ai/kernels/cuda-ecosystem-and-career-roadmap.md) | [[cuda-ecosystem-and-career-roadmap]] | `#ai` `#llm` `#gpu` `#cuda` `#ptx` `#cutlass` `#cute` `#triton` `#学习路线` | 很多立志往 CUDA 算子开发 / AI Infra / 推理引擎 方向深耕的学习者，一打开开源仓库（如 FlashInfer、vLLM、SGLang、DeepGEMM、DeepEP）就会迎面撞... |
 | [FlashInfer 三层架构与 JIT 编译体系源码导读](../ai/kernels/flashinfer-architecture-and-jit.md) | [[flashinfer-architecture-and-jit]] | `#ai` `#llm` `#flashinfer` `#jit` `#tvm-ffi` `#cutlass` `#cute-dsl` `#源码导读` | FlashInfer 能够在单个算子参数组合爆炸（dtype、head_dim、layout、attention variant、SM 架构）的前提下同时保持可热重载的研发体验与跨框架复用能力，... |
 | [FlashInfer 零门槛导览：白话手算页表与 Plan-Run 契约](../ai/kernels/flashinfer-intuition-and-engine-bridge.md) | [[flashinfer-intuition-and-engine-bridge]] | `#ai` `#llm` `#flashinfer` `#cuda` `#paged-kv` `#入门导览` | 这是进入 FlashInfer 源码世界前的最后一篇零门槛导览：不需要 CUDA、不需要懂 C++ 模板、不需要 GPU，一支笔一张纸就能读完。读完后你将能回答三个问题： |
@@ -87,7 +79,9 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [LLM Post-training](../ai/post-training/README.md) | — | — | LoRA/QLoRA 与 SFT、DPO、Online RL 是两个维度：前者决定怎样更新较少参数，后者决定用什么数据和目标训练。 |
+| [后训练：改哪些参数，用什么信号改](../ai/post-training/README.md) | — | — | 先做LoRA 参数量实验：预测秩翻倍时，有多少参数要更新。再用双臂奖励实验看另一件事：即使参数个数不变，换一个奖励信号也会改变策略。 |
+| [用两台老虎机跑通一次策略梯度](../ai/post-training/bandit-policy-gradient/README.md) | — | — | 两台机器给出奖励的概率分别为 0.20 和 0.80。策略起初各选一半，从头训练后，比较它选第二台机器的概率和最后 500 次的平均奖励。 |
+| [给一个投影层算清 LoRA 参数量](../ai/post-training/lora-parameter-count/README.md) | — | — | 一个 1024 × 1024 的投影有 1,048,576 个权重。冻结它，训练 rank 16 的两块矩阵，需要 32,768 个参数。运行脚本，看看 rank 翻倍以后哪项开销也翻倍。 |
 | [LLM Post-training](../ai/post-training/llm-post-training.md) | [[llm-post-training]] | `#ai` `#llm` `#post-training` `#sft` `#dpo` `#rlhf` | Post-training 指 Pre-training 之后，为了让模型更好地遵循指令、符合偏好、使用工具或完成特定任务而进行的一组训练过程。它不是单一算法，常见方法包括 SFT、Prefer... |
 | [LLM 强化学习基础](../ai/post-training/llm-rl-fundamentals.md) | [[llm-rl-fundamentals]] | `#ai` `#llm` `#reinforcement-learning` `#ppo` `#grpo` `#rlhf` | 强化学习（Reinforcement Learning，RL）研究 RL Agent 如何通过与 Environment 交互，根据 Reward 改进 Policy。这里的 RL Agent... |
 | [LoRA 与 QLoRA](../ai/post-training/lora-and-qlora.md) | [[lora-and-qlora]] | `#ai` `#llm` `#lora` `#qlora` `#peft` `#fine-tuning` | LoRA（Low-Rank Adaptation）是一种 Parameter-Efficient Fine-Tuning（PEFT）方法。它不改变训练目标，而是改变“哪些参数需要更新”：冻结 B... |
@@ -96,7 +90,10 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [万卡集群调度与模型训练路线图](../ai/training/README.md) | — | — | 适合会 Python、能读 Linux 进程和 Kubernetes 作业状态，但还不能从一次参数更新推导出 GPU、网络和存储需求的工程师。目标是给出一份可验证的训练作业设计：申请多少卡、哪些... |
+| [从一次权重更新到多机训练](../ai/training/README.md) | — | — | 做训练平台，先用小模型回答一个具体问题：多开一个进程之后，还是不是在训练同一个目标 |
+| [中断后续训：检查样本顺序和权重](../ai/training/checkpoint-replay/README.md) | — | — | 训练重启后，loss 仍会继续变化。用一次从头到尾的训练作对照，才能看出恢复时有没有重复读样本，或者丢掉优化器的动量。 |
+| [用两个 DDP 进程复核同一次权重更新](../ai/training/ddp-step/README.md) | — | — | 先做单进程梯度对照。这里换成真正的进程和通信，每个 rank 都保留一个整批参考模型，以便逐权重比较。 |
+| [把同一批数据分成 1∶3 和 2∶2](../ai/training/sharded-gradient/README.md) | — | — | 四个有效位置共同决定一次权重更新。各分片先算自己的平均梯度，再用两种办法聚合。把它们与整批反向传播对照，可以发现一个小分片被放大了多少。 |
 | [分布式训练框架：从 DDP 基线到模型并行](../ai/training/distributed-training-frameworks.md) | [[distributed-training-frameworks]] | `#ai` `#分布式训练` `#pytorch` `#fsdp` `#deepspeed` `#megatron` `#nccl` | 先判断瓶颈发生在权重、梯度、优化器状态、激活还是通信等待。DDP 和 FSDP2 是 PyTorch 的并行实现；ZeRO 是 DeepSpeed 中的一组分片策略；Megatron Core... |
 
 ## Cloud Native & Kubernetes
@@ -105,13 +102,13 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [云原生学习索引](../cloud-native/README.md) | — | — | 云原生目录分为两部分：containers/ 负责容器与镜像基础（Docker / OCI / Cgroup / Namespace / 网络），kubernetes/ 负责 Kubernete... |
+| [让训练作业拿到 GPU](../cloud-native/README.md) | — | — | 先给一个 64 卡作业找位置。跑完静态布局，再跑队列回放：短作业能否用掉暂时空闲的节点，又不推迟队首的大作业？只需 CPU，不会访问集群。 |
 
 ### cloud-native/containers
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [容器与镜像基础 (Docker / OCI)](../cloud-native/containers/README.md) | — | — | 阅读顺序 |
+| [容器：从一个训练镜像开始](../cloud-native/containers/README.md) | — | — | 先用 Docker 常用命令对照一个已有镜像和由它启动的容器，分别找出镜像 ID、进程和挂载点。没有本地环境时先读 Docker 基础，不必拉训练模型练手。 |
 | [Buildah 大镜像处理](../cloud-native/containers/buildah-large-image.md) | [[buildah-large-image]] | `#docker` `#buildah` | 在项目中，客户训练完大模型后打包成镜像（约 20G），需要通过平台上传镜像。原有版本上传功能受制于入口控制器及上层负载均衡的配置，上传大镜像会因超时失败，严重阻塞客户的正常开发流程。 |
 | [Cgroup 资源限制机制](../cloud-native/containers/cgroup.md) | [[cgroup]] | `#docker` `#cgroup` | Cgroup (Control Group) 是 Linux 下用于对一个或一组进程进行资源控制和监控的机制： |
 | [Docker 概述](../cloud-native/containers/docker-basics.md) | [[docker-basics]] | `#docker` | Docker 是基于 Linux 内核的 cgroup、namespace 以及 union-fs 等技术，对进程进行封装隔离的操作系统层面虚拟化技术。由于隔离的进程独立于宿主和其它隔离进程，因... |
@@ -127,106 +124,46 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Kubernetes 学习索引](../cloud-native/kubernetes/README.md) | — | — | Kubernetes 目录已扁平化收敛：原零散的 1~4 篇小目录统一合并至 core/，保留专题规模较大的 networking/、storage/ 与系统深挖视图（components/、i... |
-
-### cloud-native/kubernetes/components
-
-| 文档 | Wikilink | 标签 | 摘要 |
-| --- | --- | --- | --- |
-| [Kubernetes 组件拆解](../cloud-native/kubernetes/components/README.md) | — | `#kubernetes` `#components` `#learning-notes` | 这个目录把 Kubernetes 常见组件按「每个组件一个文件」拆开。范围分三层： |
-| [Admission Webhook](../cloud-native/kubernetes/components/admission-webhook-component.md) | [[admission-webhook-component]] | `#kubernetes` `#component` `#extension` `#admission` | Admission Webhook 是 apiserver 写入路径上的扩展点，用于在对象持久化前做默认值注入、对象改写和不变量校验。它分为 MutatingAdmissionWebhook 和... |
-| [cloud-controller-manager](../cloud-native/kubernetes/components/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] | `#kubernetes` `#component` `#control-plane` `#cloud` | cloud-controller-manager 把 Kubernetes 核心控制面和云厂商 API 解耦。它运行云相关控制器，让 Kubernetes 主仓不再内置每个云厂商的实现细节。 |
-| [CNI Plugin](../cloud-native/kubernetes/components/cni-plugin-component.md) | [[cni-plugin-component]] | `#kubernetes` `#component` `#networking` `#cni` | CNI Plugin 负责把 Pod sandbox 接入网络，包括创建 veth、分配 Pod IP、配置路由和执行网络策略等。Kubernetes 通过 CRI runtime 间接触发 C... |
-| [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/components/component-coverage-matrix.md) | [[component-coverage-matrix]] | `#kubernetes` `#components` `#matrix` | 这张表用于确认 cloud-native/kubernetes/components/ 是否覆盖完整。标准分两层： |
-| [Kubernetes 组件笔记标准](../cloud-native/kubernetes/components/component-note-standard.md) | [[component-note-standard]] | `#kubernetes` `#components` `#standard` | 本标准用于 cloud-native/kubernetes/components/ 下所有 Kubernetes 组件笔记。目标不是“列概念”，而是让每篇组件笔记都能回答四件事： |
-| [Container Runtime](../cloud-native/kubernetes/components/container-runtime-component.md) | [[container-runtime-component]] | `#kubernetes` `#component` `#node` `#cri` `#runtime` | Container runtime 是节点上真正管理容器生命周期的组件，常见实现是 containerd 和 CRI-O。kubelet 不直接 fork 容器进程，而是通过 CRI 调用 ru... |
-| [CoreDNS](../cloud-native/kubernetes/components/coredns-component.md) | [[coredns-component]] | `#kubernetes` `#component` `#addon` `#dns` | CoreDNS 是 Kubernetes 默认 DNS addon。它 watch Service 和 EndpointSlice，为 Pod 提供集群内服务发现能力，例如解析 kubernet... |
-| [CSI Driver](../cloud-native/kubernetes/components/csi-driver-component.md) | [[csi-driver-component]] | `#kubernetes` `#component` `#storage` `#csi` | CSI Driver 负责把 Kubernetes PVC/PV 抽象对接到真实存储系统。它通过 CSI gRPC 接口实现卷创建、删除、attach、mount、扩容、快照等能力。 |
-| [Device Plugin](../cloud-native/kubernetes/components/device-plugin-component.md) | [[device-plugin-component]] | `#kubernetes` `#component` `#node` `#device-plugin` `#gpu` | Device Plugin 让 GPU、RDMA、FPGA、SmartNIC 等硬件以 Kubernetes extended resource 的形式暴露给 Pod。插件在节点上向 kubel... |
-| [etcd](../cloud-native/kubernetes/components/etcd-component.md) | [[etcd-component]] | `#kubernetes` `#component` `#control-plane` `#etcd` | etcd 是 Kubernetes 的强一致键值存储，保存所有持久化 API 对象。Kubernetes 不把 Pod 进程状态直接放进 etcd，而是保存对象的期望状态、观测状态和元数据。 |
-| [Ingress Controller](../cloud-native/kubernetes/components/ingress-controller-component.md) | [[ingress-controller-component]] | `#kubernetes` `#component` `#networking` `#ingress` | Ingress Controller 负责把 Kubernetes Ingress 资源转成真实的七层流量入口配置。常见实现包括 ingress-nginx、Traefik、HAProxy、云厂... |
-| [kube-apiserver](../cloud-native/kubernetes/components/kube-apiserver-component.md) | [[kube-apiserver-component]] | `#kubernetes` `#component` `#control-plane` `#apiserver` | kube-apiserver 是 Kubernetes 的唯一 API 入口。所有组件和用户都通过它读写对象；它负责认证、鉴权、准入控制、schema 校验、对象持久化、watch 分发和聚合... |
-| [kube-controller-manager](../cloud-native/kubernetes/components/kube-controller-manager-component.md) | [[kube-controller-manager-component]] | `#kubernetes` `#component` `#control-plane` `#controller` | kube-controller-manager 运行 Kubernetes 内置控制器。控制器的共同模式是 watch 对象变化，然后 reconcile 期望状态和实际状态。 |
-| [kube-proxy](../cloud-native/kubernetes/components/kube-proxy-component.md) | [[kube-proxy-component]] | `#kubernetes` `#component` `#node` `#networking` `#service` | kube-proxy 把 Kubernetes Service 抽象落到每个节点的数据面规则里。它 watch Service 和 EndpointSlice，然后维护 iptables/IPV... |
-| [kube-scheduler](../cloud-native/kubernetes/components/kube-scheduler-component.md) | [[kube-scheduler-component]] | `#kubernetes` `#component` `#control-plane` `#scheduler` | kube-scheduler 负责给未绑定的 Pod 选择一个合适的 Node。它不创建容器、不分配 Pod IP，也不挂载卷；它的核心输出是把 Pod 绑定到某个 Node。 |
-| [kubelet](../cloud-native/kubernetes/components/kubelet-component.md) | [[kubelet-component]] | `#kubernetes` `#component` `#node` `#kubelet` | kubelet 是每个 Node 上的核心 agent。它 watch 绑定到本节点的 Pod，然后通过 CRI、CNI、CSI、Device Plugin 等接口把 Pod 真正运行起来，并持... |
-| [Kubernetes Dashboard](../cloud-native/kubernetes/components/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] | `#kubernetes` `#component` `#addon` `#dashboard` | Kubernetes Dashboard 是历史上的官方 Web UI addon，用于通过浏览器查看和管理集群资源。它本质上是运行在集群内的普通应用，通过 kube-apiserver 读写资源。 |
-| [Logging Agent](../cloud-native/kubernetes/components/logging-agent-component.md) | [[logging-agent-component]] | `#kubernetes` `#component` `#addon` `#logging` | Logging Agent 是集群日志采集组件，常以 DaemonSet 运行在每个节点上，把容器 stdout/stderr、节点日志或系统日志采集到后端日志系统。常见实现包括 Fluent... |
-| [Metrics Server](../cloud-native/kubernetes/components/metrics-server-component.md) | [[metrics-server-component]] | `#kubernetes` `#component` `#addon` `#metrics` | metrics-server 是 Kubernetes 常见资源指标 addon。它从 kubelet Summary API 或 metrics endpoint 拉取 Pod/Node CP... |
+| [Kubernetes：训练作业停在哪一步](../cloud-native/kubernetes/README.md) | — | — | 有一条作业不动了。先找到最后一个已经发生的事件，从它的下一步开始查： |
 
 ### cloud-native/kubernetes/core
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Kubernetes 核心架构、控制面、节点与调度](../cloud-native/kubernetes/core/README.md) | — | — | 本目录收敛了 Kubernetes 核心概念与控制链路（原 foundations/、infrastructure/、control-plane/、node/、scheduling/、exten... |
+| [从一次 ConfigMap 变更跟到控制器](../cloud-native/kubernetes/core/README.md) | — | — | 先做最小控制器：改一个 ConfigMap，找出日志里同名对象被处理的记录。再做 Operator 对照：这一次，控制器还要真的更新镜像 ConfigMap，而不是只打印日志。 |
+| [让 Operator 把 ConfigMap 的改动同步到副本](../cloud-native/kubernetes/core/kubebuilder-operator/README.md) | — | — | 给源 ConfigMap 加一条 annotation，控制器会创建带 ownerReference 的 mirror。再手动改 mirror，看控制器是否把值改回源对象的值。 |
+| [从三次写入看懂 etcd revision](../cloud-native/kubernetes/core/raftexample-walkthrough/etcd-client-demo/README.md) | — | — | 给同一个键依次写入 v1、v2、v3，然后读取第一次写入的 revision。另一个键绑定 5 秒租约，用最后一次 Get 检查是否过期。 |
+| [用 client-go 跟踪一次 ConfigMap 变更](../cloud-native/kubernetes/core/sample-controller/README.md) | — | — | 在一个终端观察控制器日志，在另一个终端新建、修改、删除同一个 ConfigMap。沿着同一个 namespace/name，看事件如何经过缓存和工作队列。 |
+| [Admission Webhook](../cloud-native/kubernetes/core/admission-webhook-component.md) | [[admission-webhook-component]] | `#kubernetes` `#component` `#extension` `#admission` | Admission Webhook 是 apiserver 写入路径上的扩展点，用于在对象持久化前做默认值注入、对象改写和不变量校验。它分为 MutatingAdmissionWebhook 和... |
 | [Kubernetes API Resource 设计文档](../cloud-native/kubernetes/core/api-resource.md) | [[api-resource]] | `#kubernetes` `#api-resource` | 目前版本迭代需要对不同集群下的api-resource资源进行分类 |
+| [client-go 源码导读](../cloud-native/kubernetes/core/client-go-source.md) | [[client-go-source]] | `#kubernetes` `#client-go` `#源码导读` | client-go 是 Kubernetes 官方提供的 Go 语言客户端库，是编写 Controller、Operator 的基石。它向上提供 RESTClient/Clientset/Dyn... |
+| [cloud-controller-manager](../cloud-native/kubernetes/core/cloud-controller-manager-component.md) | [[cloud-controller-manager-component]] | `#kubernetes` `#component` `#control-plane` `#cloud` | cloud-controller-manager 把 Kubernetes 核心控制面和云厂商 API 解耦。它运行云相关控制器，让 Kubernetes 主仓不再内置每个云厂商的实现细节。 |
+| [controller-runtime 源码导读](../cloud-native/kubernetes/core/controller-runtime-source.md) | [[controller-runtime-source]] | `#kubernetes` `#controller-runtime` `#operator` `#源码导读` | controller-runtime（sigs.k8s.io/controller-runtime）是 Kubernetes SIG 维护的 Operator 开发底层运行时库，kubebuil... |
+| [etcd](../cloud-native/kubernetes/core/etcd-component.md) | [[etcd-component]] | `#kubernetes` `#component` `#control-plane` `#etcd` | etcd 是 Kubernetes 的强一致键值存储，保存所有持久化 API 对象。Kubernetes 不把 Pod 进程状态直接放进 etcd，而是保存对象的期望状态、观测状态和元数据。 |
+| [etcd 源码导读](../cloud-native/kubernetes/core/etcd-source.md) | [[etcd-source]] | `#etcd` `#raft` `#源码导读` | 本篇是对 etcd（etcd-io/etcd，以 v3.5 / v3.6 主干为参照）的源码导读，目标是从「能读懂」的角度梳理 etcd 的内部结构。etcd 在架构上是一个分层系统：最上层是... |
 | [etcd 分布式键值存储](../cloud-native/kubernetes/core/etcd.md) | [[etcd]] | `#etcd` | Etcd 是 CoreOS 基于 Raft 开发的分布式 key-value 存储，可用于服务发现、共享配置以及一致性保障（如数据库选主、分布式锁等）。 |
 | [Google Borg](../cloud-native/kubernetes/core/google-borg.md) | [[google-borg]] | `#borg` | Borg 是 Google 内部的大规模集群管理系统，Kubernetes 的前身。它管理着 Google 数万台服务器上的数十万个 Job，是 Google 基础设施的核心。 |
-| [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/core/gpu-scheduling.md) | [[gpu-scheduling]] | `#kubernetes` `#gpu` `#ai-infra` | Kubernetes 本身不直接感知 GPU 硬件，而是通过 Extended Resource 机制将 GPU 抽象为可调度的资源。整体架构涉及三个层次： |
 | [Kubernetes Informer List-Watch 机制](../cloud-native/kubernetes/core/informer.md) | [[informer]] | `#kubernetes` `#informer` | Informer 是 Kubernetes client-go 提供的 List+Watch 资源监听与本地缓存机制，用于实时感知集群中对象的增删改事件并触发回调。它内部包含 Reflector... |
+| [kube-apiserver](../cloud-native/kubernetes/core/kube-apiserver-component.md) | [[kube-apiserver-component]] | `#kubernetes` `#component` `#control-plane` `#apiserver` | kube-apiserver 是 Kubernetes 的唯一 API 入口。所有组件和用户都通过它读写对象；它负责认证、鉴权、准入控制、schema 校验、对象持久化、watch 分发和聚合... |
+| [kube-controller-manager](../cloud-native/kubernetes/core/kube-controller-manager-component.md) | [[kube-controller-manager-component]] | `#kubernetes` `#component` `#control-plane` `#controller` | kube-controller-manager 运行 Kubernetes 内置控制器。控制器的共同模式是 watch 对象变化，然后 reconcile 期望状态和实际状态。 |
+| [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/core/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] | `#kubernetes` `#controller-runtime` `#operator` `#demo` | cloud-native/kubernetes/core/kubebuilder-operator/ 下的最小 Operator 骨架，用于配合 controller-runtime-sourc... |
 | [Kubebuilder 自定义控制器开发](../cloud-native/kubernetes/core/kubebuilder.md) | [[kubebuilder]] | `#kubernetes` `#kubebuilder` | 在 Kubernetes 中，部署一个 Deployment 时，通常还需要创建一个 Service 以便外部可以访问这个 Deployment。为了简化这个过程，可以创建一个自定义的 Cont... |
 | [Kubernetes 基础架构](../cloud-native/kubernetes/core/kubernetes-basics.md) | [[kubernetes-basics]] | `#kubernetes` | Kubernetes 是谷歌开源的容器集群管理系统，是 Google 多年大规模容器管理技术 Borg 的开源版本，主要功能包括: |
-| [OCI 容器运行时规范（runc）](../cloud-native/kubernetes/core/oci-runtime.md) | [[oci-runtime]] | `#kubernetes` `#oci` `#container-runtime` | OCI 是 Linux Foundation 下的一个开放治理项目，旨在制定容器行业标准。2015 年由 Docker、CoreOS 等公司共同发起，主要包含两个核心规范： |
+| [Kubernetes Dashboard](../cloud-native/kubernetes/core/kubernetes-dashboard-component.md) | [[kubernetes-dashboard-component]] | `#kubernetes` `#component` `#addon` `#dashboard` | Kubernetes Dashboard 是历史上的官方 Web UI addon，用于通过浏览器查看和管理集群资源。它本质上是运行在集群内的普通应用，通过 kube-apiserver 读写资源。 |
+| [Logging Agent](../cloud-native/kubernetes/core/logging-agent-component.md) | [[logging-agent-component]] | `#kubernetes` `#component` `#addon` `#logging` | Logging Agent 是集群日志采集组件，常以 DaemonSet 运行在每个节点上，把容器 stdout/stderr、节点日志或系统日志采集到后端日志系统。常见实现包括 Fluent... |
+| [Metrics Server](../cloud-native/kubernetes/core/metrics-server-component.md) | [[metrics-server-component]] | `#kubernetes` `#component` `#addon` `#metrics` | metrics-server 是 Kubernetes 常见资源指标 addon。它从 kubelet Summary API 或 metrics endpoint 拉取 Pod/Node CP... |
 | [Kubernetes Operator 模式](../cloud-native/kubernetes/core/operator-pattern.md) | [[operator-pattern]] | `#kubernetes` `#operator` `#crd` | Operator 是 Kubernetes 的一种扩展模式，核心思想是 CRD + Custom Controller：用 CRD 声明"期望状态"，用 Controller 驱动"实际状态"向... |
-| [Pod 健康检查探针（Probes）](../cloud-native/kubernetes/core/probes.md) | [[probes]] | `#kubernetes` `#probe` | 探针（Probe）是由 kubelet 对容器执行的定期诊断，用来判断容器的运行状态、是否可对外服务、是否完成启动。kubelet 通过探针的返回结果决定是否重启容器、是否将 Pod 从 Ser... |
+| [etcd Raftexample 共识机制走读 Demo](../cloud-native/kubernetes/core/raftexample-walkthrough/demo-raftexample-walkthrough.md) | [[demo-raftexample-walkthrough]] | `#etcd` `#raft` `#demo` | 围绕 etcd-source 里的概念做的两个配套教学件，不是一个完整 raft 集群实现——etcd 的 raft 是一个独立库，自己拼一个完整集群代码量太大；这里换两条路把核心概念落到「能跑... |
+| [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/core/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] | `#etcd` `#raft` `#demo` | contrib/raftexample 是 etcd 仓库里官方维护的「raft 库最小可运行示例」，几百行代码完整演示了上层应用如何接线 raft：propose、WAL、snapshot、H... |
 | [Kubernetes RBAC 权限控制](../cloud-native/kubernetes/core/rbac.md) | [[rbac]] | `#kubernetes` `#rbac` | 基于角色（Role）的访问控制（RBAC）是一种基于组织中用户的角色来调节控制对计算机或网络资源的访问的方法。 |
 | [Kubernetes RESTful API 设计](../cloud-native/kubernetes/core/restful-api-design.md) | [[restful-api-design]] | `#kubernetes` `#restful` | Kubernetes 的 RESTful API 是与集群交互的核心接口，通过不同的路由操作资源（如 Pod、Service、Deployment 等）。所有 kubectl 命令最终都会转化为... |
-| [Kube-Scheduler 深度解析](../cloud-native/kubernetes/core/scheduler-deep-dive.md) | [[scheduler-deep-dive]] | `#kubernetes` `#scheduler` | kube-scheduler 是 Kubernetes control plane 的核心组件之一，负责将未调度的 Pod（即 spec.nodeName 为空的 Pod）分配到合适的 Node 上。 |
-| [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/core/training-job-placement.md) | [[training-job-placement]] | `#kubernetes` `#gpu` `#分布式训练` `#调度` `#ai-infra` | 平台交付的是一组可用且互联的设备，训练作业交付的是可持久恢复的优化步。两者之间至少有四个不同事件：队列准入、Pod 绑定、所有 rank 会合（rendezvous）、第一次优化器更新。拿到前一... |
-| [Velero 集群备份与恢复](../cloud-native/kubernetes/core/velero.md) | [[velero]] | `#kubernetes` `#velero` | Velero 是一个开源的 Kubernetes 集群备份和恢复工具，支持按需备份、定时备份以及集群迁移。 |
-
-### cloud-native/kubernetes/demos
-
-| 文档 | Wikilink | 标签 | 摘要 |
-| --- | --- | --- | --- |
-| [demos 验证状态](../cloud-native/kubernetes/demos/README.md) | — | — | 2026-05 最近一次本地验证：Mac (Darwin 25.2.0) + Go 1.26 |
-| [cni-bridge](../cloud-native/kubernetes/demos/cni-bridge/README.md) | — | — | 100 行 bash 实现的 CNI 0.4.0 bridge 插件，配 docker 一键演示完整 ADD / DEL 协议、veth pair、IPAM。Mac 用户用 ./run-in-d... |
-| [csi-hostpath demo](../cloud-native/kubernetes/demos/csi-hostpath/README.md) | — | — | 一个最小可运行的 hostPath 风格 CSI driver 教学骨架。它把 dataRoot 下的子目录 bind mount 到 kubelet 给的 targetPath，模拟一个真实... |
-| [fake-device-plugin](../cloud-native/kubernetes/demos/device-plugin/README.md) | — | — | 一个最小可运行的 Kubernetes Device Plugin demo，向 kubelet 宣告 8 个名为 |
-| [fake-cri](../cloud-native/kubernetes/demos/fake-cri/README.md) | — | — | 一个最小可运行的 fake CRI runtime server，对应学习笔记 cloud-native/kubernetes/internals/cri-source.md 第九节。 |
-| [fake-gpu](../cloud-native/kubernetes/demos/fake-gpu/README.md) | — | — | 一个最小可运行的 GPU 风格 Kubernetes Device Plugin demo。它在不需要真实 GPU 硬件的前提下，模仿 NVIDIA k8s-device-plugin 的关键... |
-| [hami-mac](../cloud-native/kubernetes/demos/hami-mac/README.md) | — | — | 在 Mac（无 NVIDIA GPU）+ kind 集群上，复现 HAMi 关键链路的可运行 fake device plugin。一句话定位：demo-fake-gpu 上报的是 1:1 物理... |
-| [libvgpu-hook-demo](../cloud-native/kubernetes/demos/hami-mac/libvgpu-hook-demo/README.md) | — | — | 50 行 C 代码版的 HAMi libvgpu 简化原型 —— 用 LD_PRELOAD（Linux）/ DYLD_INSERT_LIBRARIES（Mac）拦截 malloc，把 HAMi... |
-| [Kubebuilder Operator Demo (无需 CRD 版)](../cloud-native/kubernetes/demos/kubebuilder-operator/README.md) | — | — | 这是一个最小可运行的 controller-runtime Operator 骨架，用来对照 |
-| [etcd-client-demo](../cloud-native/kubernetes/demos/raftexample-walkthrough/etcd-client-demo/README.md) | — | — | 用 go.etcd.io/etcd/client/v3 跑一遍 Put / Get / Watch / Lease，把 etcd 的 revision 概念直接打印出来——这就是 K8s res... |
-| [sample-controller demo](../cloud-native/kubernetes/demos/sample-controller/README.md) | — | — | 一个最小化、可直接运行的 client-go 控制器示例：监听集群中所有 ConfigMap，把变更入队后异步 reconcile（这里只是打印一条 reconciled <ns>/<name>... |
-| [scheduler-plugin demo: NodeLabelScore](../cloud-native/kubernetes/demos/scheduler-plugin/README.md) | — | — | 一个最小可运行的 out-of-tree kube-scheduler 自定义插件 示例。它做的事很简单： |
-| [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/demos/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] | `#kubernetes` `#cni` `#demo` | 本 demo 用 100 行 bash 实现一个符合 CNI 0.4.0 规范的 bridge 插件 —— 跟 containernetworking-plugins 仓库的真实 bridge... |
-| [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/demos/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] | `#kubernetes` `#csi` `#demo` | 本笔记是 cloud-native/kubernetes/demos/csi-hostpath/ 这个 demo 的走读说明：用最少代码实现一个 hostPath 风格的 CSI driver，... |
-| [Device Plugin 设备插件可运行 Demo](../cloud-native/kubernetes/demos/device-plugin/demo-device-plugin.md) | [[demo-device-plugin]] | `#kubernetes` `#device-plugin` `#demo` | 本 demo 在 kubelet-cri-source 的「Device Plugin 机制」节落地为一个可运行项目。它实现一个虚拟的设备插件，向 kubelet 宣告 8 个名为 learni... |
-| [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/demos/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] | `#kubernetes` `#cri` `#kubelet` `#demo` | 本 demo 在 cri-source 第九节落地为一个最小可运行的 fake CRI runtime server。它在 /tmp/fake-cri.sock 上监听 gRPC，只实现 CRI... |
-| [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] | `#kubernetes` `#gpu` `#device-plugin` `#demo` | 本 demo 在 gpu-scheduling-source 的「手写简化复现」节落地为一个可运行项目。它实现一个 GPU 风格的虚拟设备插件，向 kubelet 宣告 4 个名为 fake-g... |
-| [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/demos/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] | `#kubernetes` `#gpu` `#hami` `#device-plugin` `#demo` | 本 demo 在 demo-fake-gpu 的基础上升级，专门用来在 Mac（无 NVIDIA GPU）+ kind 上复现 HAMi device-plugin 的两件关键事： |
-| [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/demos/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] | `#kubernetes` `#gpu` `#hami` `#学习计划` `#总结` | 学 Kubernetes 最容易踩的坑：对着官方文档背概念，看完一脸"原来如此"，过两周全忘。原因是 K8s 的每个机制（APIServer / Informer / Scheduler / k... |
-| [Kubebuilder Operator 最小骨架 Demo](../cloud-native/kubernetes/demos/kubebuilder-operator/demo-kubebuilder-operator.md) | [[demo-kubebuilder-operator]] | `#kubernetes` `#controller-runtime` `#operator` `#demo` | cloud-native/kubernetes/demos/kubebuilder-operator/ 下的最小 Operator 骨架，用于配合 controller-runtime-sour... |
-| [etcd Raftexample 共识机制走读 Demo](../cloud-native/kubernetes/demos/raftexample-walkthrough/demo-raftexample-walkthrough.md) | [[demo-raftexample-walkthrough]] | `#etcd` `#raft` `#demo` | 围绕 etcd-source 里的概念做的两个配套教学件，不是一个完整 raft 集群实现——etcd 的 raft 是一个独立库，自己拼一个完整集群代码量太大；这里换两条路把核心概念落到「能跑... |
-| [etcd Raftexample 状态机与核心源码笔记](../cloud-native/kubernetes/demos/raftexample-walkthrough/raftexample-notes.md) | [[raftexample-notes]] | `#etcd` `#raft` `#demo` | contrib/raftexample 是 etcd 仓库里官方维护的「raft 库最小可运行示例」，几百行代码完整演示了上层应用如何接线 raft：propose、WAL、snapshot、H... |
-| [Sample Controller 源码走读与可运行 Demo](../cloud-native/kubernetes/demos/sample-controller/demo-sample-controller.md) | [[demo-sample-controller]] | `#kubernetes` `#client-go` `#demo` | 这是一个最小化、可直接运行的 client-go 控制器示例，监听集群中所有 ConfigMap 资源，每次变更只在日志里打印一条 reconciled <ns>/<name>。代码不到 200... |
-| [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/demos/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] | `#kubernetes` `#scheduler` `#demo` | 本笔记是 cloud-native/kubernetes/demos/scheduler-plugin/ 这个 demo 的走读说明：用 out-of-tree 的方式给 kube-schedu... |
-
-### cloud-native/kubernetes/internals
-
-| 文档 | Wikilink | 标签 | 摘要 |
-| --- | --- | --- | --- |
-| [Kubernetes 源码导读](../cloud-native/kubernetes/internals/README.md) | — | — | 源码导读负责固定版本下的调用链、关键结构与验证方式；概念和选型返回对应主题目录。 |
-| [client-go 源码导读](../cloud-native/kubernetes/internals/client-go-source.md) | [[client-go-source]] | `#kubernetes` `#client-go` `#源码导读` | client-go 是 Kubernetes 官方提供的 Go 语言客户端库，是编写 Controller、Operator 的基石。它向上提供 RESTClient/Clientset/Dyn... |
-| [CNI 插件调用链源码导读](../cloud-native/kubernetes/internals/cni-source.md) | [[cni-source]] | `#kubernetes` `#cni` `#源码导读` | 本篇是 Container Network Interface（CNI） 的源码导读笔记，覆盖三个层面：(1) 上游 CNI 规范本身（github.com/containernetworkin... |
-| [controller-runtime 源码导读](../cloud-native/kubernetes/internals/controller-runtime-source.md) | [[controller-runtime-source]] | `#kubernetes` `#controller-runtime` `#operator` `#源码导读` | controller-runtime（sigs.k8s.io/controller-runtime）是 Kubernetes SIG 维护的 Operator 开发底层运行时库，kubebuil... |
-| [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/internals/cri-source.md) | [[cri-source]] | `#kubernetes` `#cri` `#containerd` `#源码导读` | CRI（Container Runtime Interface） 是 kubelet 与底层容器运行时（containerd / CRI-O / 历史上还有 dockershim）之间的 gRP... |
-| [CSI 存储调用链源码导读](../cloud-native/kubernetes/internals/csi-source.md) | [[csi-source]] | `#kubernetes` `#csi` `#源码导读` | 本篇是 Container Storage Interface（CSI） 的源码导读笔记，覆盖两个层面：(1) 上游 CSI 规范本身（github.com/container-storage-... |
-| [etcd 源码导读](../cloud-native/kubernetes/internals/etcd-source.md) | [[etcd-source]] | `#etcd` `#raft` `#源码导读` | 本篇是对 etcd（etcd-io/etcd，以 v3.5 / v3.6 主干为参照）的源码导读，目标是从「能读懂」的角度梳理 etcd 的内部结构。etcd 在架构上是一个分层系统：最上层是... |
-| [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/internals/gpu-scheduling-source.md) | [[gpu-scheduling-source]] | `#kubernetes` `#gpu` `#scheduler` `#device-plugin` `#ai-infra` `#源码导读` | 本篇是 GPU 调度的端到端源码导读，串联 scheduler-framework-source 的扩展点流水线和 kubelet-cri-source 的 Device Plugin 框架，专... |
-| [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/internals/hami-source.md) | [[hami-source]] | `#kubernetes` `#gpu` `#hami` `#ai-infra` `#源码导读` | 本篇是 HAMi（Heterogeneous AI computing Virtualization middleware，CNCF Sandbox） 的源码导读笔记，主线是回答一个问题：一块物... |
-| [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/internals/kubelet-cri-source.md) | [[kubelet-cri-source]] | `#kubernetes` `#kubelet` `#cri` `#device-plugin` `#源码导读` | kubelet 是运行在每个 Node 上的核心 agent，负责把 API Server 中 spec.nodeName 指向本机的 Pod 真正拉起并维持在期望状态。它本身不直接操作容器，而... |
-| [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/internals/scheduler-framework-source.md) | [[scheduler-framework-source]] | `#kubernetes` `#scheduler` `#源码导读` | 源码基线：本地 kubernetes/kubernetes commit c59911870d6（v1.37.0-beta.0 之后的开发版本），复核日期 2026-08-13。路径、签名和默认... |
-| [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/internals/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] | `#kubernetes` `#scheduler` `#podgroup` `#gang-scheduling` `#源码导读` | 本篇是 kube-scheduler PodGroup 调度的学习路径，基于 Kubernetes v1.36.1 源码。它适合接在 scheduler-framework-source 之后阅... |
-| [Volcano 批调度器源码导读](../cloud-native/kubernetes/internals/volcano-source.md) | [[volcano-source]] | `#kubernetes` `#scheduler` `#volcano` `#ai-infra` `#源码导读` | 本篇是 Volcano 调度器的源码导读笔记，聚焦 github.com/volcano-sh/volcano 仓库下的 pkg/scheduler 和 pkg/controllers 两个目录... |
+| [Sample Controller 源码走读与可运行 Demo](../cloud-native/kubernetes/core/sample-controller/demo-sample-controller.md) | [[demo-sample-controller]] | `#kubernetes` `#client-go` `#demo` | 这是一个最小化、可直接运行的 client-go 控制器示例，监听集群中所有 ConfigMap 资源，每次变更只在日志里打印一条 reconciled <ns>/<name>。代码不到 200... |
 
 ### cloud-native/kubernetes/interview
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Kubernetes 复习与题库](../cloud-native/kubernetes/interview/README.md) | — | — | 题库是复习视图，不作为技术内容的唯一来源。答案应链接概念页、组件页或源码页，避免在题库中复制整篇正文。 |
+| [用一次真实排障复习 Kubernetes](../cloud-native/kubernetes/interview/README.md) | — | — | 挑一个做过的实验，合上笔记，只说三件事：看见了什么、凭哪条证据排除了什么、下一步该查谁。说不清楚时，再展开题目里的参考答案。 |
 | [概述](../cloud-native/kubernetes/interview/k8s-gpu-ai-infra-interview-modules.md) | [[k8s-gpu-ai-infra-interview-modules]] | `#kubernetes` `#gpu` `#ai-infra` `#面试` `#系统设计` | 这是一份面向 K8s / GPU / AI Infra 岗位的模块化面试题库。它不按单场面试组织，而是按长期稳定的知识域组织：每次新的面试材料都拆成问题，追加到对应模块。 |
 | [Kubernetes 面试题汇总](../cloud-native/kubernetes/interview/k8s-interview.md) | [[k8s-interview]] | `#kubernetes` `#interview` | K8s是kubernetes的简称，其本质是一个开源的容器编排系统，主要用于管理容器化的应用， |
 
@@ -234,42 +171,100 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Kubernetes Networking](../cloud-native/kubernetes/networking/README.md) | — | — | 基础与实现 / 深挖与排障 |
+| [定位 Pod 网络断在哪一跳](../cloud-native/kubernetes/networking/README.md) | — | — | 先做 bridge 实验。对同一网络命名空间执行 ADD、DEL，分别看接口、地址和路由；不要用一次 ping 推断整个集群网络正常。 |
+| [用 Linux 网桥连通两个模拟 Pod](../cloud-native/kubernetes/networking/cni-bridge/README.md) | — | — | 在两个网络命名空间内各放一端 veth，让它们通过同一座 cni0 网桥通信。读 ADD 返回的 IP，核对第二个命名空间实际接收了第一个发来的包。 |
 | [Calico 网络插件原理](../cloud-native/kubernetes/networking/calico.md) | [[calico]] | `#kubernetes` `#cni` `#calico` | Calico 是一个强大的 CNI 插件，不仅给 Pod 分配 IP，还支持跨节点通信、网络策略、安全隔离。 |
 | [Cilium eBPF 深度解析](../cloud-native/kubernetes/networking/cilium-deep-dive.md) | [[cilium-deep-dive]] | `#kubernetes` `#cni` `#cilium` `#ebpf` | Cilium 是基于 eBPF 的 Kubernetes 网络、Service 转发、安全策略与可观测性方案。它仍然是 CNI 插件，但和传统 bridge/iptables 插件的差异在于：它... |
 | [Cilium eBPF 容器网络](../cloud-native/kubernetes/networking/cilium.md) | [[cilium]] | `#kubernetes` `#cni` `#cilium` `#ebpf` | Cilium 是新一代 CNI 插件，基于 eBPF（extended Berkeley Packet Filter）技术，在 Linux 内核中直接处理网络逻辑，避免了 iptables 的性... |
+| [CNI Bridge 插件可运行 Demo](../cloud-native/kubernetes/networking/cni-bridge/demo-cni-bridge.md) | [[demo-cni-bridge]] | `#kubernetes` `#cni` `#demo` | 本 demo 用 100 行 bash 实现一个符合 CNI 0.4.0 规范的 bridge 插件 —— 跟 containernetworking-plugins 仓库的真实 bridge... |
+| [CNI Plugin](../cloud-native/kubernetes/networking/cni-plugin-component.md) | [[cni-plugin-component]] | `#kubernetes` `#component` `#networking` `#cni` | CNI Plugin 负责把 Pod sandbox 接入网络，包括创建 veth、分配 Pod IP、配置路由和执行网络策略等。Kubernetes 通过 CRI runtime 间接触发 C... |
+| [CNI 插件调用链源码导读](../cloud-native/kubernetes/networking/cni-source.md) | [[cni-source]] | `#kubernetes` `#cni` `#源码导读` | 本篇是 Container Network Interface（CNI） 的源码导读笔记，覆盖三个层面：(1) 上游 CNI 规范本身（github.com/containernetworkin... |
 | [CNI 网络排障指南](../cloud-native/kubernetes/networking/cni-troubleshooting.md) | [[cni-troubleshooting]] | `#kubernetes` `#cni` `#troubleshooting` | CNI 排障不要从“插件坏了”开始猜。正确做法是先把链路拆成四段： |
 | [CNI 容器网络接口](../cloud-native/kubernetes/networking/cni.md) | [[cni]] | `#kubernetes` `#cni` | CNI（Container Network Interface）是一种标准接口，用于为容器（Pod）分配 IP、配置路由、连接网络。 |
+| [CoreDNS](../cloud-native/kubernetes/networking/coredns-component.md) | [[coredns-component]] | `#kubernetes` `#component` `#addon` `#dns` | CoreDNS 是 Kubernetes 默认 DNS addon。它 watch Service 和 EndpointSlice，为 Pod 提供集群内服务发现能力，例如解析 kubernet... |
 | [Flannel 容器网络插件](../cloud-native/kubernetes/networking/flannel.md) | [[flannel]] | `#kubernetes` `#cni` `#flannel` | Flannel 是最简单的 CNI 插件之一，由 CoreOS 开发，专注于为 Pod 提供 overlay 网络。 |
 | [Headless Service 无头服务](../cloud-native/kubernetes/networking/headless-service.md) | [[headless-service]] | `#kubernetes` `#service` | 在 Kubernetes 中，Headless Service 是一种特殊的服务类型，它的 clusterIP 设置为 None，没有虚拟的 IP 地址。它不会通过一个统一的入口来访问应用程序，... |
+| [Ingress Controller](../cloud-native/kubernetes/networking/ingress-controller-component.md) | [[ingress-controller-component]] | `#kubernetes` `#component` `#networking` `#ingress` | Ingress Controller 负责把 Kubernetes Ingress 资源转成真实的七层流量入口配置。常见实现包括 ingress-nginx、Traefik、HAProxy、云厂... |
+| [kube-proxy](../cloud-native/kubernetes/networking/kube-proxy-component.md) | [[kube-proxy-component]] | `#kubernetes` `#component` `#node` `#networking` `#service` | kube-proxy 把 Kubernetes Service 抽象落到每个节点的数据面规则里。它 watch Service 和 EndpointSlice，然后维护 iptables/IPV... |
 | [kube-proxy 服务转发与代理模式](../cloud-native/kubernetes/networking/kube-proxy.md) | [[kube-proxy]] | `#kubernetes` `#networking` `#service` | kube-proxy 负责把 Kubernetes Service 这个逻辑抽象落到每个 Node 的数据面规则里。它不创建 Pod 网卡，也不分配 Pod IP；这些属于 CNI。它做的是监听... |
 | [Multus 多网卡 CNI 插件](../cloud-native/kubernetes/networking/multus.md) | [[multus]] | `#kubernetes` `#cni` `#multus` | Multus 不是传统意义的 CNI 插件，而是一个 meta-plugin（元插件），它允许一个 Pod 同时拥有多个网络接口（多网卡）。 |
 | [Kubernetes 网络模型](../cloud-native/kubernetes/networking/network-model.md) | [[network-model]] | `#kubernetes` `#networking` | Kubernetes 对集群网络有一套清晰的设计约束，称为 Kubernetes Network Model。所有 CNI 插件都必须满足以下三大原则： |
 | [Kubernetes Service 服务暴露](../cloud-native/kubernetes/networking/service.md) | [[service]] | `#service` | Service 是将多个 Pod 划分到同一个逻辑组中，并统一向外提供服务的抽象。Pod 通过 Label Selector 加入到指定的 Service 中。 |
 | [Weave Net 容器网络](../cloud-native/kubernetes/networking/weave.md) | [[weave]] | `#kubernetes` `#cni` `#weave` | Weave Net 由 Weaveworks 开发，特点是部署极简且内置加密通信能力。 |
 
+### cloud-native/kubernetes/node-runtime
+
+| 文档 | Wikilink | 标签 | 摘要 |
+| --- | --- | --- | --- |
+| [Pod 已经绑定，容器还没起来](../cloud-native/kubernetes/node-runtime/README.md) | — | — | 先在本地用 fake CRI 查询 Version，再创建一个模拟 sandbox。能连通 socket、能登记一个 sandbox、能运行真实容器，是三件不同的事。 |
+| [用 crictl 跟踪一个模拟 Pod sandbox](../cloud-native/kubernetes/node-runtime/fake-cri/README.md) | — | — | 启动只在本地 Unix socket 上监听的 CRI 服务，创建一个 sandbox，再观察它从 Ready 到移除。整个过程只读写进程内存，无需 kubelet 或 Kubernetes 集群。 |
+| [Container Runtime](../cloud-native/kubernetes/node-runtime/container-runtime-component.md) | [[container-runtime-component]] | `#kubernetes` `#component` `#node` `#cri` `#runtime` | Container runtime 是节点上真正管理容器生命周期的组件，常见实现是 containerd 和 CRI-O。kubelet 不直接 fork 容器进程，而是通过 CRI 调用 ru... |
+| [CRI 容器运行时接口源码导读](../cloud-native/kubernetes/node-runtime/cri-source.md) | [[cri-source]] | `#kubernetes` `#cri` `#containerd` `#源码导读` | CRI（Container Runtime Interface） 是 kubelet 与底层容器运行时（containerd / CRI-O / 历史上还有 dockershim）之间的 gRP... |
+| [Fake CRI Runtime Server 可运行 Demo](../cloud-native/kubernetes/node-runtime/fake-cri/demo-fake-cri.md) | [[demo-fake-cri]] | `#kubernetes` `#cri` `#kubelet` `#demo` | 本 demo 在 cri-source 第九节落地为一个最小可运行的 fake CRI runtime server。它在 /tmp/fake-cri.sock 上监听 gRPC，只实现 CRI... |
+| [kubelet](../cloud-native/kubernetes/node-runtime/kubelet-component.md) | [[kubelet-component]] | `#kubernetes` `#component` `#node` `#kubelet` | kubelet 是每个 Node 上的核心 agent。它 watch 绑定到本节点的 Pod，然后通过 CRI、CNI、CSI、Device Plugin 等接口把 Pod 真正运行起来，并持... |
+| [Kubelet 与 CRI 源码导读](../cloud-native/kubernetes/node-runtime/kubelet-cri-source.md) | [[kubelet-cri-source]] | `#kubernetes` `#kubelet` `#cri` `#device-plugin` `#源码导读` | kubelet 是运行在每个 Node 上的核心 agent，负责把 API Server 中 spec.nodeName 指向本机的 Pod 真正拉起并维持在期望状态。它本身不直接操作容器，而... |
+| [OCI 容器运行时规范（runc）](../cloud-native/kubernetes/node-runtime/oci-runtime.md) | [[oci-runtime]] | `#kubernetes` `#oci` `#container-runtime` | OCI 是 Linux Foundation 下的一个开放治理项目，旨在制定容器行业标准。2015 年由 Docker、CoreOS 等公司共同发起，主要包含两个核心规范： |
+| [Pod 健康检查探针（Probes）](../cloud-native/kubernetes/node-runtime/probes.md) | [[probes]] | `#kubernetes` `#probe` | 探针（Probe）是由 kubelet 对容器执行的定期诊断，用来判断容器的运行状态、是否可对外服务、是否完成启动。kubelet 通过探针的返回结果决定是否重启容器、是否将 Pod 从 Ser... |
+
 ### cloud-native/kubernetes/roadmaps
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Kubernetes 学习路线](../cloud-native/kubernetes/roadmaps/README.md) | — | — | Kubernetes 学习路线 |
-| [HAMi 学习路线](../cloud-native/kubernetes/roadmaps/hami-learning-path.md) | [[hami-learning-path]] | `#kubernetes` `#gpu` `#hami` `#ai-infra` `#学习计划` | HAMi（Heterogeneous AI computing Virtualization middleware，CNCF Sandbox 项目）是 K8s 上的 GPU 虚拟化与共享中间件，... |
+| [选一条 Kubernetes 实践路线](../cloud-native/kubernetes/roadmaps/README.md) | — | — | 目标是训练平台：先做调度与恢复，交付一份作业从排队到第一步训练的记录。只有当一张物理卡要给不同工作负载共享时，再走 HAMi 路线。 |
+| [Kubernetes 组件覆盖矩阵](../cloud-native/kubernetes/roadmaps/component-coverage-matrix.md) | [[component-coverage-matrix]] | `#kubernetes` `#components` `#matrix` | 这张表用于确认 各子系统的组件笔记 是否覆盖完整。标准分两层： |
+| [Kubernetes 组件笔记标准](../cloud-native/kubernetes/roadmaps/component-note-standard.md) | [[component-note-standard]] | `#kubernetes` `#components` `#standard` | 本标准用于 各子系统的组件笔记 下所有 Kubernetes 组件笔记。目标不是“列概念”，而是让每篇组件笔记都能回答四件事： |
+| [Kubernetes 组件拆解](../cloud-native/kubernetes/roadmaps/k8s-component-map.md) | [[k8s-component-map]] | `#kubernetes` `#components` `#learning-notes` | 这张地图把分属各子系统的 Kubernetes 常见组件按「每个组件一个文件」拆开。范围分三层： |
 | [Kubernetes 开发学习路线](../cloud-native/kubernetes/roadmaps/k8s-development-roadmap.md) | [[k8s-development-roadmap]] | `#kubernetes` `#学习计划` `#源码导读` `#导航` | 这是 Kubernetes 开发方向的总路线。先通过下面的决策图选择路径，再进入对应的主题、源码和 Demo，不需要从头到尾机械阅读。 |
+| [Kubernetes 实验环境与历史验证](../cloud-native/kubernetes/roadmaps/k8s-lab-environments.md) | [[k8s-lab-environments]] | `#kubernetes` `#实验` | 2026-05 历史验证环境：Mac (Darwin 25.2.0) + Go 1.26 |
+| [Kubernetes 源码导读](../cloud-native/kubernetes/roadmaps/k8s-source-map.md) | [[k8s-source-map]] | `#kubernetes` `#源码导读` | 源码导读负责固定版本下的调用链、关键结构与验证方式；概念和选型返回对应主题目录。 |
 | [Kubernetes 深入学习进度](../cloud-native/kubernetes/roadmaps/progress.md) | [[progress]] | `#kubernetes` `#学习计划` `#打卡` | 下面的「Week 1 ~ Week 6」是逻辑顺序，不是日历周。「6 周」对应的是全职脱产、每天 4-6 小时的下限投入。按你的实际情况换算： |
+
+### cloud-native/kubernetes/scheduling
+
+| 文档 | Wikilink | 标签 | 摘要 |
+| --- | --- | --- | --- |
+| [GPU 调度：卡在哪里，作业在等谁](../cloud-native/kubernetes/scheduling/README.md) | — | — | 先跑放置与回填实验。先预测 64 张空闲卡能放几个整组作业，再换掉排队策略，分别看大、小作业各等了多久。 |
+| [让 kubelet 上报 8 个设备，再给 Pod 分配 2 个](../cloud-native/kubernetes/scheduling/device-plugin/README.md) | — | — | 从 Node 的 Capacity、Allocatable 一直查到容器里的 FAKE_VISIBLE_DEVICES 和挂载目录。资源已经上报、Pod 已经拿到设备，是两次不同的观察。 |
+| [跟踪一张模拟 GPU 的 UUID 从节点进入容器](../cloud-native/kubernetes/scheduling/fake-gpu/README.md) | — | — | 插件上报 4 个 GPU 风格的设备 ID。消费 Pod 声明一个资源，查看它收到的 UUID，并和插件 Allocate 日志核对。 |
+| [把 4 张模拟卡上报为 40 个 vGPU 切片](../cloud-native/kubernetes/scheduling/hami-mac/README.md) | — | — | 向 kubelet 上报每卡 10 个切片，启动两个各申请一份的 Pod。对照物理卡标识、切片 ID 和显存配额，区分资源计数、设备选择和容器实际能使用的显存。 |
+| [用进程内存看懂配额如何生效](../cloud-native/kubernetes/scheduling/hami-mac/libvgpu-hook-demo/README.md) | — | — | 示例进程反复申请 1 MiB。Linux 动态库从环境变量读取配额并累计分配量，超限时返回 NULL。这个小程序让上层插件写进容器的配额有了可观察的结果。 |
+| [64 张空闲 GPU，能启动几个训练作业](../cloud-native/kubernetes/scheduling/placement-lab/README.md) | — | — | 每个作业有 8 个 worker，每个 worker 必须在同一台机器拿齐 8 张卡。下面两个实验分别计算能放多少个完整作业，以及排队时谁先开跑。只需 Python 3.9+，从仓库根目录执行。 |
+| [用两个节点验证调度器的打分插件](../cloud-native/kubernetes/scheduling/scheduler-plugin/README.md) | — | — | 给两个 worker 打相反的标签，让第二个调度器安排 6 个 Pod。交换标签后创建新 Pod，比较两轮落点。已经运行的 Pod 不会因为标签变化自行迁移。 |
+| [Device Plugin](../cloud-native/kubernetes/scheduling/device-plugin-component.md) | [[device-plugin-component]] | `#kubernetes` `#component` `#node` `#device-plugin` `#gpu` | Device Plugin 让 GPU、RDMA、FPGA、SmartNIC 等硬件以 Kubernetes extended resource 的形式暴露给 Pod。插件在节点上向 kubel... |
+| [Device Plugin 设备插件可运行 Demo](../cloud-native/kubernetes/scheduling/device-plugin/demo-device-plugin.md) | [[demo-device-plugin]] | `#kubernetes` `#device-plugin` `#demo` | 本 demo 在 kubelet-cri-source 的「Device Plugin 机制」节落地为一个可运行项目。它实现一个虚拟的设备插件，向 kubelet 宣告 8 个名为 learni... |
+| [Fake GPU Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/fake-gpu/demo-fake-gpu.md) | [[demo-fake-gpu]] | `#kubernetes` `#gpu` `#device-plugin` `#demo` | 本 demo 在 gpu-scheduling-source 的「手写简化复现」节落地为一个可运行项目。它实现一个 GPU 风格的虚拟设备插件，向 kubelet 宣告 4 个名为 fake-g... |
+| [Kubernetes GPU 调度源码导读](../cloud-native/kubernetes/scheduling/gpu-scheduling-source.md) | [[gpu-scheduling-source]] | `#kubernetes` `#gpu` `#scheduler` `#device-plugin` `#ai-infra` `#源码导读` | 本篇是 GPU 调度的端到端源码导读，串联 scheduler-framework-source 的扩展点流水线和 kubelet-cri-source 的 Device Plugin 框架，专... |
+| [Kubernetes GPU Scheduling（GPU 调度与资源管理）](../cloud-native/kubernetes/scheduling/gpu-scheduling.md) | [[gpu-scheduling]] | `#kubernetes` `#gpu` `#ai-infra` | Kubernetes 本身不直接感知 GPU 硬件，而是通过 Extended Resource 机制将 GPU 抽象为可调度的资源。整体架构涉及三个层次： |
+| [HAMi 学习路线](../cloud-native/kubernetes/scheduling/hami-learning-path.md) | [[hami-learning-path]] | `#kubernetes` `#gpu` `#hami` `#ai-infra` `#学习计划` | HAMi（Heterogeneous AI computing Virtualization middleware，CNCF Sandbox 项目）是 K8s 上的 GPU 虚拟化与共享中间件，... |
+| [Mac 上复现 HAMi Device Plugin 可运行 Demo](../cloud-native/kubernetes/scheduling/hami-mac/demo-hami-mac.md) | [[demo-hami-mac]] | `#kubernetes` `#gpu` `#hami` `#device-plugin` `#demo` | 本 demo 在 demo-fake-gpu 的基础上升级，专门用来在 Mac（无 NVIDIA GPU）+ kind 上复现 HAMi device-plugin 的两件关键事： |
+| [以 HAMi 为主线串通 Kubernetes 核心机制](../cloud-native/kubernetes/scheduling/hami-mac/learn-k8s-via-hami.md) | [[learn-k8s-via-hami]] | `#kubernetes` `#gpu` `#hami` `#学习计划` `#总结` | 学 Kubernetes 最容易踩的坑：对着官方文档背概念，看完一脸"原来如此"，过两周全忘。原因是 K8s 的每个机制（APIServer / Informer / Scheduler / k... |
+| [HAMi GPU 虚拟化源码导读](../cloud-native/kubernetes/scheduling/hami-source.md) | [[hami-source]] | `#kubernetes` `#gpu` `#hami` `#ai-infra` `#源码导读` | 本篇是 HAMi（Heterogeneous AI computing Virtualization middleware，CNCF Sandbox） 的源码导读笔记，主线是回答一个问题：一块物... |
+| [kube-scheduler](../cloud-native/kubernetes/scheduling/kube-scheduler-component.md) | [[kube-scheduler-component]] | `#kubernetes` `#component` `#control-plane` `#scheduler` | kube-scheduler 负责给未绑定的 Pod 选择一个合适的 Node。它不创建容器、不分配 Pod IP，也不挂载卷；它的核心输出是把 Pod 绑定到某个 Node。 |
+| [Kube-Scheduler 深度解析](../cloud-native/kubernetes/scheduling/scheduler-deep-dive.md) | [[scheduler-deep-dive]] | `#kubernetes` `#scheduler` | kube-scheduler 是 Kubernetes control plane 的核心组件之一，负责将未调度的 Pod（即 spec.nodeName 为空的 Pod）分配到合适的 Node 上。 |
+| [Kube-Scheduler Framework 源码导读](../cloud-native/kubernetes/scheduling/scheduler-framework-source.md) | [[scheduler-framework-source]] | `#kubernetes` `#scheduler` `#源码导读` | 源码基线：本地 kubernetes/kubernetes commit c59911870d6（v1.37.0-beta.0 之后的开发版本），复核日期 2026-08-13。路径、签名和默认... |
+| [Kube-Scheduler Score Plugin 扩展 Demo](../cloud-native/kubernetes/scheduling/scheduler-plugin/demo-scheduler-plugin.md) | [[demo-scheduler-plugin]] | `#kubernetes` `#scheduler` `#demo` | 本笔记是 cloud-native/kubernetes/scheduling/scheduler-plugin/ 这个 demo 的走读说明：用 out-of-tree 的方式给 kube-s... |
+| [Kube-Scheduler PodGroup 与 Gang Scheduling 源码导读](../cloud-native/kubernetes/scheduling/scheduler-podgroup-source.md) | [[scheduler-podgroup-source]] | `#kubernetes` `#scheduler` `#podgroup` `#gang-scheduling` `#源码导读` | 本篇是 kube-scheduler PodGroup 调度的学习路径，基于 Kubernetes v1.36.1 源码。它适合接在 scheduler-framework-source 之后阅... |
+| [分布式训练作业：从成组准入到故障恢复](../cloud-native/kubernetes/scheduling/training-job-placement.md) | [[training-job-placement]] | `#kubernetes` `#gpu` `#分布式训练` `#调度` `#ai-infra` | 平台交付的是一组可用且互联的设备，训练作业交付的是可持久恢复的优化步。两者之间至少有四个不同事件：队列准入、Pod 绑定、所有 rank 会合（rendezvous）、第一次优化器更新。拿到前一... |
+| [Volcano 批调度器源码导读](../cloud-native/kubernetes/scheduling/volcano-source.md) | [[volcano-source]] | `#kubernetes` `#scheduler` `#volcano` `#ai-infra` `#源码导读` | 本篇是 Volcano 调度器的源码导读笔记，聚焦 github.com/volcano-sh/volcano 仓库下的 pkg/scheduler 和 pkg/controllers 两个目录... |
 
 ### cloud-native/kubernetes/storage
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Kubernetes Storage](../cloud-native/kubernetes/storage/README.md) | — | — | 基础与驱动 / 生命周期与排障 |
+| [沿训练文件找到它挂载的卷](../cloud-native/kubernetes/storage/README.md) | — | — | 从 hostPath CSI 实验开始。在测试节点上，把一份 PVC 跟到 Pod 内的挂载目录。PVC 显示 Bound，只能说明申请已绑定，不能证明训练进程读到了完整 checkpoint。 |
+| [用一个 PVC 追踪 CSI 从建卷到挂载](../cloud-native/kubernetes/storage/csi-hostpath/README.md) | — | — | 一个 Pod 申请 1 GiB，并向 /data 写入 marker。先看 PVC 是否绑定，再进入 Pod 读回 marker，分别核对控制器建卷和节点挂载。 |
 | [Ceph CSI 存储驱动](../cloud-native/kubernetes/storage/ceph-csi.md) | [[ceph-csi]] | `#kubernetes` `#csi` `#ceph` | Ceph 是目前 Kubernetes 生态中最主流的分布式存储系统之一，提供块存储（RBD）、文件存储（CephFS）和对象存储（RGW）三种统一接口。ceph-csi 是 Ceph 官方维护... |
 | [云厂商 CSI 存储驱动](../cloud-native/kubernetes/storage/cloud-provider-csi.md) | [[cloud-provider-csi]] | `#kubernetes` `#csi` `#cloud` | 各大云厂商都提供了原生的 CSI 驱动，与自家的云存储服务深度集成。使用云厂商 CSI 的优势是零运维（存储由云厂商管理）、与云平台深度集成（IAM、加密、快照等），缺点是厂商锁定。 |
+| [CSI Driver](../cloud-native/kubernetes/storage/csi-driver-component.md) | [[csi-driver-component]] | `#kubernetes` `#component` `#storage` `#csi` | CSI Driver 负责把 Kubernetes PVC/PV 抽象对接到真实存储系统。它通过 CSI gRPC 接口实现卷创建、删除、attach、mount、扩容、快照等能力。 |
+| [CSI HostPath 驱动可运行 Demo](../cloud-native/kubernetes/storage/csi-hostpath/demo-csi-hostpath.md) | [[demo-csi-hostpath]] | `#kubernetes` `#csi` `#demo` | 本笔记是 cloud-native/kubernetes/storage/csi-hostpath/ 这个 demo 的走读说明：用最少代码实现一个 hostPath 风格的 CSI drive... |
 | [CSI Sidecar 容器协作机制](../cloud-native/kubernetes/storage/csi-sidecars.md) | [[csi-sidecars]] | `#kubernetes` `#csi` `#storage` | CSI 规范只定义插件要实现的 gRPC service：Identity、Controller、Node。Kubernetes 里的 sidecar 是 SIG Storage 提供的“翻译层... |
+| [CSI 存储调用链源码导读](../cloud-native/kubernetes/storage/csi-source.md) | [[csi-source]] | `#kubernetes` `#csi` `#源码导读` | 本篇是 Container Storage Interface（CSI） 的源码导读笔记，覆盖两个层面：(1) 上游 CSI 规范本身（github.com/container-storage-... |
 | [CSI 存储排障指南](../cloud-native/kubernetes/storage/csi-troubleshooting.md) | [[csi-troubleshooting]] | `#kubernetes` `#csi` `#storage` `#troubleshooting` | CSI 排障的关键是按生命周期定位：PVC 没绑定、VolumeAttachment 没 attached、Pod 没 mount、扩容没完成、快照没 ready，分别对应不同控制器和不同 CS... |
 | [CSI 容器存储接口](../cloud-native/kubernetes/storage/csi.md) | [[csi]] | `#kubernetes` `#csi` | CSI（Container Storage Interface）是 CNCF 制定的一套标准存储插件接口规范，用于让 Kubernetes 和各种存储系统解耦。 |
 | [Longhorn 分布式块存储](../cloud-native/kubernetes/storage/longhorn.md) | [[longhorn]] | `#kubernetes` `#csi` `#longhorn` | Longhorn 是 Rancher Labs 开源的轻量级云原生分布式块存储，专为 Kubernetes 设计，CNCF Incubating 项目。适合中小规模集群（节点 < 50），部署简... |
 | [NFS CSI 存储驱动](../cloud-native/kubernetes/storage/nfs-csi.md) | [[nfs-csi]] | `#kubernetes` `#csi` `#nfs` | NFS 是最经典的网络文件共享协议，NFS CSI Driver 让 Kubernetes 可以通过 CSI 标准接口使用 NFS 存储。最大的优势是支持 ReadWriteMany（RWX），... |
 | [OpenEBS 云原生存储](../cloud-native/kubernetes/storage/openebs.md) | [[openebs]] | `#kubernetes` `#csi` `#openebs` | OpenEBS 是 CNCF Graduated 项目，提供多种存储引擎以适配不同场景，是「云原生存储」理念的代表。其核心设计哲学是 "Storage is just another workl... |
+| [Velero 集群备份与恢复](../cloud-native/kubernetes/storage/velero.md) | [[velero]] | `#kubernetes` `#velero` | Velero 是一个开源的 Kubernetes 集群备份和恢复工具，支持按需备份、定时备份以及集群迁移。 |
 | [Kubernetes Volume 生命周期](../cloud-native/kubernetes/storage/volume-lifecycle.md) | [[volume-lifecycle]] | `#kubernetes` `#storage` `#csi` | Kubernetes volume 生命周期不是“PVC 创建后马上挂到 Pod”。完整路径跨越 apiserver、PV controller、scheduler、Attach/Detach... |
 
 ## Go & Runtime
@@ -278,13 +273,13 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Go 语言学习索引](../go/README.md) | — | — | 本目录分为语言核心机制（Go Fundamentals）与 Go 1.26 Runtime 源码深入（Go Internals）两层：前者聚焦语言语义、并发原语与内存模型，后者直击当前版本真实实... |
+| [Go：控制器退出时，后台任务也退出了吗](../go/README.md) | — | — | 先在自己安装的 Go 1.26 标准库里运行两个测试。不需要集群，也不需要建模块： |
 
 ### go/fundamentals
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Go 语言核心机制](../go/fundamentals/README.md) | — | — | 本目录收录 Go 数据结构、语言演进、并发原语、调度模型与 GC 基础笔记；进入 Go 1.26 源码热路径与版本对照请前往 Go Runtime 源码导读。 |
+| [Go 语言机制：从程序的行为入手](../go/fundamentals/README.md) | — | — | 先选一段自己写过的并发代码，在纸上标出：谁创建 goroutine，谁负责通知它退出，它可能阻塞在哪里。用 Context 和 Channel 核对答案，再上源码看具体唤醒路径。 |
 | [Channel 底层实现](../go/fundamentals/channel.md) | [[channel]] | `#go` `#channel` `#concurrency` | Channel 在 runtime 中对应 hchan 结构体，位于 runtime/chan.go： |
 | [Context 取消与传播](../go/fundamentals/context.md) | [[context]] | `#go` `#context` | context.Context 是 Go 1.7 引入标准库的核心同步工具，广泛用于控制 goroutine 生命周期、传递请求作用域数据和超时信号。标准库中 os/exec、net、datab... |
 | [并发三色标记 GC](../go/fundamentals/gc.md) | [[gc]] | `#gc` | Go 语言采用 并发三色标记清除（Concurrent Tri-color Mark and Sweep） 算法进行垃圾回收。GC 与用户代码（赋值器 mutator）并发执行，通过写屏障（wr... |
@@ -299,7 +294,7 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [Go Runtime 源码学习索引](../go/internals/README.md) | — | `#go` `#runtime` `#internals` | 这组笔记放在 go/internals/，目标不是替代 go/fundamentals/ 目录里的基础机制卡片，而是作为源码级深挖入口：围绕 Go runtime、标准库并发原语、内存模型、事故... |
+| [Go Runtime：从一条阻塞栈找源码](../go/internals/README.md) | — | — | 先从两个取消测试取一条明确行为，再沿 context/context.go 的取消路径回看：信号送到了哪个子节点，等待者又是在哪里被唤醒的？遇到生产问题，先拿栈或 profile，不要按源码目录... |
 | [Channel 源码导读](../go/internals/go-channel-source.md) | [[go-channel-source]] | `#go` `#runtime` `#concurrency` | channel 是 Go 在语言层提供的同步与通信原语。源码里它不是“神秘队列”，而是一个带锁的 hchan： |
 | [Context 源码导读](../go/internals/go-context-source.md) | [[go-context-source]] | `#go` `#concurrency` `#stdlib` | context.Context 不是 runtime 包的一部分，但它是 Go 服务端并发控制的事实标准：用一棵取消树把 request scope、deadline、cancel cause... |
 | [Go GC 新旧实现对比](../go/internals/go-gc-old-vs-new.md) | [[go-gc-old-vs-new]] | `#go` `#runtime` `#gc` | 这里的“旧 GC / 新 GC”特指 Go 当前源码中的传统标记扫描路径和 Green Tea GC 标记扫描路径，不是说 Go 从“完全 STW GC”变成“并发 GC”的那段早期历史。 |
@@ -315,13 +310,13 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [计算机与后端工程基石](../foundations/README.md) | — | — | 本支柱汇总长期沉淀的通用计算机基础与后端工程组件知识，涵盖算法与数据结构、数据库存储与事务、消息中间件与分布式事务，以及日常终端工具速查。 |
+| [工程基础：任务没启动，不一定是 GPU 不够](../foundations/README.md) | — | — | 一个训练流水线有三个步骤：准备数据、训练、写 checkpoint。假如有人把最后一步的完成事件误接为第一步的前置条件，所有步骤都会等。用 Python 标准库看正常和异常两条路径： |
 
 ### foundations/algorithm
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [算法 (Algorithm) · 学习索引](../foundations/algorithm/README.md) | — | — | 算法学习的核心不是背模板，而是建立“数据结构—状态—复杂度—边界条件”的解题模型。本索引覆盖搜索图论、排序、常用技巧、动态规划、核心数据结构与字符串匹配六个方向，面试题只作为检验理解的一种方式。 |
+| [算法：按手头的问题选工具](../foundations/algorithm/README.md) | — | — | 先做工程基础首页的依赖环实验，再读拓扑排序。把一条边反过来，画出再也不能降到零的入度。其余算法不用按课表通读。 |
 | [Backtracking 回溯算法](../foundations/algorithm/backtracking.md) | [[backtracking]] | `#回溯` | 回溯算法是一种通过穷举所有可能来寻找解的算法，本质上是 DFS 的一种应用。核心思想：在每一步做选择，如果发现当前选择不能导向有效解，就撤销选择（回溯），尝试其他选择。 |
 | [BFS 广度优先搜索](../foundations/algorithm/bfs.md) | [[bfs]] | `#广度优先` | 广度优先搜索（Breadth-First Search, BFS）是一种用于图或树的遍历算法，它从一个起始点开始，逐层遍历所有节点，即先访问离起始点最近的节点，再逐步向外扩展到更远的节点。BFS... |
 | [Binary Search 二分查找](../foundations/algorithm/binary-search.md) | [[binary-search]] | `#二分查找` | 给一个有序数组和目标值，找第一次/最后一次/任何一次出现的索引，如果没有出现返回 -1。 |
@@ -354,7 +349,7 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [数据库 (Database) · 学习索引](../foundations/database/README.md) | — | — | 数据库学习从“数据如何存、查、并发修改和恢复”四个问题展开。MySQL 用来理解索引、事务与锁，Redis 补充缓存和高可用，Elasticsearch 与 PostgreSQL 分别扩展检索系... |
+| [数据库：一次查询到底慢在哪里](../foundations/database/README.md) | — | — | 从一个真实的过滤条件开始，比如“按作业 ID 查状态”。先看执行计划用了什么索引，再判断是读了太多行，还是在等另一个事务。不要一看到慢查询就先加缓存。 |
 | [Elasticsearch 基础与架构](../foundations/database/elasticsearch-basics.md) | [[elasticsearch-basics]] | `#elasticsearch` | Elasticsearch 是一款基于 Lucene 的开源分布式搜索与分析引擎，提供近实时的全文检索、结构化搜索和数据分析能力。 |
 | [Elasticsearch 字段类型与映射](../foundations/database/es-field-types.md) | [[es-field-types]] | `#elasticsearch` | Elasticsearch 支持丰富的字段类型，合理选择字段类型对查询性能和存储效率至关重要。 |
 | [ES + Kibana Docker 部署](../foundations/database/es-kibana-docker.md) | [[es-kibana-docker]] | `#elasticsearch` `#docker` | 本文介绍使用 Docker Compose 快速搭建 Elasticsearch + Kibana 开发环境。 |
@@ -373,7 +368,7 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [中间件 (Middleware) · 学习索引](../foundations/middleware/README.md) | — | — | 中间件学习围绕跨进程与跨服务协作展开：消息怎样传递、状态怎样持久化、失败怎样恢复、数据怎样保持最终一致。本索引以 Kafka、NATS、Canal 和分布式事务为主线，逐步建立吞吐、可靠性与一致... |
+| [消息系统：跟踪一条任务完成事件](../foundations/middleware/README.md) | — | — | 给事件一个 ID，在纸上标出生产者发出、服务端确认、消费者处理、业务结果写入四个时刻。只知道“消息发过了”，还不能断定任务状态已经更新。 |
 | [Canal 数据同步中间件](../foundations/middleware/canal.md) | [[canal]] | `#canal` | 早期阿里巴巴因为杭州和美国双机房部署，存在跨机房同步的业务需求，实现方式主要是基于业务 trigger 获取增量变更。从 2010 年开始，业务逐步尝试数据库日志解析获取增量变更进行同步，由此衍... |
 | [Kafka 集群参数配置](../foundations/middleware/cluster-config.md) | [[cluster-config]] | `#kafka` | Kafka 集群的稳定运行依赖于合理的参数配置。以下是 Broker、Producer、Consumer 三端的关键参数说明。 |
 | [分布式事务方案](../foundations/middleware/distributed-transaction.md) | [[distributed-transaction]] | `#分布式事务` | 传统分布式事务使用 2PC（Two-Phase Commit），依赖于底层数据库的 XA 协议支持。MySQL InnoDB 支持 XA 协议，可以将 XA 理解为一个强一致的中心化原子提交协议。 |
@@ -389,7 +384,7 @@
 
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
-| [终端与效率工具 (Tools)](../foundations/tools/README.md) | — | — | 终端与效率工具 (Tools) |
+| [终端：找回命令，改完再执行](../foundations/tools/README.md) | — | — | 在 Zsh 的常见 Emacs 键位下，按 Ctrl-R 输入上次命令的一个关键词；找到后先检查参数和目标，不要直接回车。这比重新拼一条很长的日志查询更不容易改错环境。 |
 | [Zsh / iTerm2 快捷键](../foundations/tools/zsh.md) | [[zsh]] | `#terminal` `#zsh` `#快捷键` | Zsh / iTerm2 常用快捷键 |
 
 ## Repository Docs
@@ -399,3 +394,5 @@
 | 文档 | Wikilink | 标签 | 摘要 |
 | --- | --- | --- | --- |
 | [Learning Notes 信息架构](architecture.md) | [[architecture]] | — | 仓库只使用一个主分类轴：知识领域，顶层收拢为 AI / Cloud Native / Go / Foundations 四大支柱。内容的学习形式和深度作为领域内的次级视图，不再与领域目录平级竞争。 |
+| [AI Infra 与系统术语速查](infra-glossary.md) | [[infra-glossary]] | — | 从首页的实验遇到陌生词时再查，不必预习整张表。 |
+| [从一次实验写一条用得上的笔记](learning-by-doing.md) | [[learning-by-doing]] | — | 没有研究证明某种文件夹布局最适合所有人。这里要解决的是更具体的问题：隔几天回到一个陌生训练故障时，能不能复现现象、解释原因，再用不同输入检验解释。目录按系统归档，学习按任务前进；两者不必长成同一棵树。 |
